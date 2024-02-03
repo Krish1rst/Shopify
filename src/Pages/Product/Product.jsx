@@ -21,10 +21,21 @@ function Product({datas}) {
     <div className='flex items-center justify-between border-b border-gray-300 py-2'>
   <div className='text-2xl font-bold'>TOTAL PRODUCTS : {datas.length}</div>
   <div className='space-x-4'>
-    <button className='text-blue-500  hover:text-white active:scale-100 bg-gray-100 hover:bg-sky-500 p-2 rounded-full transition-transform transform hover:scale-105 duration-300' onClick={handleGrid}>
+    <button className={`text-blue-500 ${
+  grid
+    ? 'text-white hover:bg-rose-500 bg-rose-300'
+    : 'bg-white hover:bg-rose-500'
+} hover:text-white active:scale-100 p-2 rounded-full transition-transform transform hover:scale-105 duration-300 active:bg-rose-500 active:text-white`}
+ onClick={handleGrid}>
       <TbLayoutGrid className='w-8 h-8' />
     </button>
-    <button className='text-blue-500 ml-4 hover:text-white active:scale-100 bg-gray-100 hover:bg-sky-500 p-2 rounded-full font-medium transition-transform transform hover:scale-105 duration-300'onClick={handleList}>
+    <button className={`text-blue-500 ${
+  list
+    ? 'text-white hover:bg-blue-500 bg-blue-300'
+    : 'bg-white hover:bg-blue-500'
+} hover:text-white active:scale-100 p-2 rounded-full transition-transform transform hover:scale-105 duration-300 active:bg-blue-500 active:text-white`}
+
+onClick={handleList}>
       <CiGrid2H className='w-8 h-8' />
     </button>
   </div>
