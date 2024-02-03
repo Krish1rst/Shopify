@@ -26,7 +26,7 @@ function Home() {
       </div>
      </div>
   </div>
-  <div className='mx-24  mb-24'> 
+  <div className='mx-24  mb-32'> 
       <div className='relative mb-16'>
           <p className='text-4xl font-medium text-neutral-600 py-4'>Featured Products</p>
           <p className='after: after:block after:absolute after:h-0.5 after:bg-neutral-200 after:w-full'></p>
