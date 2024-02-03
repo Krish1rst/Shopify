@@ -8,6 +8,7 @@ function About() {
       <p className="text-2xl text-gray-600 w-2/3 mx-auto mb-8">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
       </p>
+      
     </div>
   </div>
   

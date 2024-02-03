@@ -4,14 +4,15 @@ import numbers from './ItemNumber';
 import Dropdown from './DropDown';
 import { TfiAngleRight } from "react-icons/tfi";
 import { Link } from 'react-router-dom';
-// import { Rating } from 'daisyui';
 import Spinner from './LoaderSpinner';
+import Rating from '@mui/material/Rating';
+import StarIcon from '@mui/icons-material/Star';
 
 function SingleProduct() {
 const { productId } = useParams();
 const [data,setData]=useState('');
 const [loading,setLoading]=useState(false);
-const [ratings, setRatings] = useState(0);
+const [value, setValue] = useState(0);
 useEffect(() => {
     const fetchSingleProduct = async () => {
       try {
@@ -52,7 +53,7 @@ if (!data) {
     </div>
      <div className='grid grid-cols-2 gap-24 mx-12 my-4 '> 
         <div className="h-full flex items-center justify-center border stransition-transform transform scale-95 duration-500 hover:scale-100 hover:border-gray-300 hover:shadow-lg rounded-md overflow-hidden">
-         <img src={image} alt="image" className="w-1/2 object-contain  h-128 blend-multiply rounded-md" />
+         <img src={image} alt="image" className="w-1/2 object-contain  max-h-[33rem]  blendblend-multiply rounded-md" />
         </div>
 
         <div className=' grid grid-cols-1 gap-1 h-full p-6'>
@@ -60,7 +61,14 @@ if (!data) {
             <p className='text-neutral-500 font-medium text-4xl my-2'>{category}</p>
             <p className='text-3xl text-neutral-700 my-2'>${price}</p>
             <p className='text-2xl text-neutral-700 font-sans font-normal text-left my-2 '>{description}</p>
-
+            <Rating
+              name="text-feedback"
+              className=' my-2' 
+              value={rating.rate}
+              readOnly
+              precision={0.5}
+              emptyIcon={<StarIcon style={{ opacity: 1 }} />}
+             />
              
             <div className="flex items-center justify-between my-4 ">
                <Dropdown options={numbers} />

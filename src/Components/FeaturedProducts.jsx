@@ -19,7 +19,7 @@ useEffect(() => {
   
     fetchSingleProduct();
   }, []);
-    const {image,price,title,category,description,rating}=data;
+    
     if (!data) {
         return <div>Loading...</div>;
       }
