@@ -21,19 +21,19 @@ function Product({datas}) {
     <div className='flex items-center justify-between border-b border-gray-300 py-2'>
   <div className='text-2xl font-bold'>TOTAL PRODUCTS : {datas.length}</div>
   <div className='space-x-4'>
-    <button className={`text-blue-500 ${
+    <button className={`text-black-100 ${
   grid
-    ? 'text-white hover:bg-rose-500 bg-rose-300'
-    : 'bg-white hover:bg-rose-500'
-} hover:text-white active:scale-100 p-2 rounded-full transition-transform transform hover:scale-105 duration-300 active:bg-rose-500 active:text-white`}
+    ? 'text-white hover:bg-blue-500 bg-blue-600'
+    : 'bg-white hover:bg-blue-700'
+} hover:text-white active:scale-100 p-2 rounded-full transition-transform transform hover:scale-105 duration-300 active:bg-blue-800 active:text-white`}
  onClick={handleGrid}>
       <TbLayoutGrid className='w-8 h-8' />
     </button>
-    <button className={`text-blue-500 ${
+    <button className={`text-black-100 ${
   list
-    ? 'text-white hover:bg-blue-500 bg-blue-300'
-    : 'bg-white hover:bg-blue-500'
-} hover:text-white active:scale-100 p-2 rounded-full transition-transform transform hover:scale-105 duration-300 active:bg-blue-500 active:text-white`}
+    ? 'text-white hover:bg-blue-500 bg-blue-600'
+    : 'bg-white hover:bg-blue-700'
+} hover:text-white active:scale-100 p-2 rounded-full transition-transform transform hover:scale-105 duration-300 active:bg-blue-800 active:text-white`}
 
 onClick={handleList}>
       <CiGrid2H className='w-8 h-8' />
@@ -55,10 +55,9 @@ onClick={handleList}>
       <p className='text-2xl m-3 font-normal text-center'>{item.price}</p>
     </div>
   </Link>
-</div>
+</div>))}</div>)}
 
-))}
-</div>)}
+
   
 {list && (  <div className='flex flex-col gap-4 my-12' >
     {datas.map((item) => (
@@ -79,14 +78,14 @@ onClick={handleList}>
    <div className='text-2xl font-normal ml-[10rem] '>${item.price}</div>
  </div>
  </Link>
-</div>
-  ))}
-</div>)}
+</div>  ))}</div>)}
+
+
 
     
-<div className='text-center'>
-<PaginationOutlined/>
-</div>
+    <div className='text-center'>
+        <PaginationOutlined/>
+    </div>
 
     </section>
   )
