@@ -19,11 +19,10 @@ function Navlinks() {
                     <NavLink className='capitalize' to={url}>
                     {text}
                     </NavLink>
-                </li>
-        );
+            </li>
+        );}
+      )
     }
-    )}
-    
     </>
   )
 }

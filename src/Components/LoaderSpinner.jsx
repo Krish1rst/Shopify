@@ -12,7 +12,7 @@ const override = {
   let [color, setColor] = useState("#ffffff");
 
   return (
-    <div className="sweet-loading py-64">
+    <div className="sweet-loading my-64">
       <ClipLoader
         color={color}
         cssOverride={override}

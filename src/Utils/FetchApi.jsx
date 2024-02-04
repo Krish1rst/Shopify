@@ -1,7 +1,8 @@
 import axios from "axios";
-const URL='https://fakestoreapi.com/products';
+const Base_Url='https://fakestoreapi.com/products'
+export const FetchData = async (limit) => {
+  const URL=`${Base_Url}/?limit=${limit}`;
 
-const FetchData = async (url) => {
       try {
         const response = await axios(URL);
         const result =  response.data;
@@ -11,6 +12,5 @@ const FetchData = async (url) => {
       }
     };
   
-
 
 

@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { ContextApi } from './Context/ContextApi';
+import { ContextProvider } from './Context/ContextApi';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-<ContextApi>
+<ContextProvider>
     <App />
-</ContextApi>
+</ContextProvider>
     
 
 );
