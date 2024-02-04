@@ -27,9 +27,9 @@ useEffect(() => {
   return (
     <div className='grid grid-cols-3 gap-4 flex-wrap box-border ' >
     {data.map((item)=>(
-    <div className=' flex justify-center place-content-center min-w-min overflow-hidden shadow-xl transition-transform transform hover:scale-95 duration-300' key={item.id}>
+    <div className=' flex justify-center place-content-center min-w-min overflow-hidden shadow-2xl transition-transform transform hover:scale-95 hoer:shadow-lg rounded-2xl duration-300' key={item.id}>
       <Link to={`/Products/${item.id}`}>
-      <div className='flex justify-center items-center rounded-md mx-2 pt-2'>
+      <div className='flex justify-center items-center rounded-md mx-2 pt-6'>
             <img className='blend-multiply h-60 max-w-full object-contain object-center' src={item.image} alt="Item Image" />
      </div>
         <div className='pt-5 '>

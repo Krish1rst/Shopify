@@ -5,15 +5,20 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import SingleProduct from './Components/SingleProduct';
 import Navbar from './Components/Navbar';
 
-import PaginationOutlined from './Components/Pagination';
+
 function App() {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
     try {
       const response = await fetch(`https://fakestoreapi.com/products`);
+      console.log(response);
       const result = await response.json();
+      // const response = await fetch('https://fakestoreapi.com/products');
+      // const textData = await response.text();
+      // const result = JSON.parse(textData);
 
+      console.log(result);
       setData(result);
     } catch (error) {
       console.error('Error fetching data:', error);

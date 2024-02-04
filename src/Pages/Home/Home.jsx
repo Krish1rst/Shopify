@@ -1,28 +1,28 @@
 import React from 'react'
-import hero from '../../assets/hero1.webp'
-import hero2 from '../../assets/hero2.webp'
+import hero from '../../Assets/hero1.webp'
+import hero2 from '../../Assets/hero2.webp'
 import { Link } from 'react-router-dom'
 import FeaturedProducts from '../../Components/FeaturedProducts'
 function Home() {
   return (
    <div className='flex flex-col '>
-     <div className="flex gap-8 h-screen mx-24 mt-14">
+     <div className="flex gap-6 h-screen mx-24 mt-14">
       <div className="w-1/2 py-[5rem] mt-16 ">
         <h1 className="text-8xl  font-bold text-neutral-700 mb-8">
           We are changing the way people shop
         </h1>
-        <p className="text-3xl text-gray-600  font-normal leading-[2.2rem] my-14">
+        <p className="text-3xl text-gray-600  font-normal leading-[2.8rem] my-14">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore repellat explicabo enim soluta temporibus asperiores aut obcaecati perferendis porro nobis.
         </p>
-        <button className="px-8 py-4 bg-blue-500 font-medium text-white text-xl rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800">
+        <button className="px-7 py-5 bg-blue-500 font-medium text-white text-xl rounded-xl transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800">
           <Link to='/Products'>OUR PRODUCTS</Link>
         </button>
       </div>
-    <div className="w-1/2 bg-white flex items-center justify-center ml-8 ">
-      <div className="flex gap-4 bg-black rounded-3xl p-8">
-          <img src={hero} alt="Fully Visible" className="w-2/3 max-h-[42rem] rounded-3xl shadow-lg" />
-          <div className="bg-gray-200 w-1/14 h-full"></div>
-          <img src={hero2} alt="Half Visible" className="w-1/3 max-h-[42rem] rounded-3xl shadow-lg " />
+    <div className="w-1/2 bg-white flex items-center justify-center ml-8 overflow-hidden">
+      <div className="flex gap-1 bg-black rounded-[2rem] py-[1.5rem] pl-[1.5rem]">
+          <img src={hero} alt="Fully Visible" className="w-[32rem] max-h-[40rem] rounded-3xl shadow-lg" />
+          <div className="bg-gray-200 w-[1rem] h-full"></div>
+          <img src={hero2} alt="Half Visible" className="w-[10rem] max-h-[40rem] rounded-bl-3xl rounded-tl-3xl shadow-lg " />
       </div>
      </div>
   </div>
