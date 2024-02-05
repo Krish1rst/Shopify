@@ -6,7 +6,7 @@ import FeaturedProducts from '../../Components/FeaturedProducts'
 function Home() {
   return (
    <div className='flex flex-col '>
-     <div className="flex gap-6 h-screen mx-24 mt-14">
+     <div className="flex gap-6 h-screen mx-24 mt-8">
       <div className="w-1/2 py-[5rem] mt-16 ">
         <h1 className="text-8xl  font-bold text-neutral-700 mb-8">
           We are changing the way people shop

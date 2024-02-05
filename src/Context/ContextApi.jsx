@@ -8,7 +8,16 @@ export const ContextProvider=({children})=> {
  const [data,setData]=useState([]);
  const [loading,setLoading]=useState(false);
  const [featuredData,setFeaturedData]=useState([]);
-    useEffect(()=>{
+ const [currentPage,setCurrentPage]=useState(1);
+ const productPerPage=6;
+ const endIndex = currentPage*productPerPage;
+ const startIndex = endIndex-productPerPage ;
+ const currentData = data.slice(startIndex, endIndex);
+ const [grid,setGrid]=useState(true);
+ const [list,setList]=useState(false);
+ 
+
+ useEffect(()=>{
         const FetchedApiData=async()=>{
             setLoading(true);
             const result= await FetchData(20);
@@ -20,17 +29,19 @@ export const ContextProvider=({children})=> {
         FetchedApiData();
     },[])
 
-    const [grid,setGrid]=useState(true);
-    const [list,setList]=useState(false);
-    const handleGrid = () => {
+   
+const handleGrid = () => {
         setGrid(true)
         setList(false)
     };
-    const handleList = () => {
+const handleList = () => {
       setGrid(false)
       setList(true)
   };
-
+const handlePageChange=(e,value)=>{
+    
+    setCurrentPage(value); 
+  }
     
 return (
 
@@ -40,7 +51,15 @@ return (
         grid,list,
         handleGrid,
         handleList,
-        loading
+        loading,
+        currentData,
+        currentPage,
+        setCurrentPage,
+        startIndex,
+        endIndex,
+        productPerPage,
+        handlePageChange
+        
    }}>
 
         {children}

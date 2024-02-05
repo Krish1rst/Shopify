@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import PaginationOutlined from '../../Components/Pagination';
 import { TbLayoutGrid } from "react-icons/tb";
 import { CiGrid2H } from "react-icons/ci";
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 import {useGlobalContext} from '../../Context/ContextApi'
 
 function Product() {
 
 const context=useGlobalContext();
-const {data,grid,list,handleGrid,handleList}=context;
+const {data,grid,list,handleGrid,handleList,currentPage,setCurrentPage,productPerPage,currentData,handlePageChange}=context;
+
+
+
 
 return ( 
  <section className='mx-36 my-16'>
@@ -33,7 +37,7 @@ return (
   </div>
 </div>
     {grid && (<div className='grid grid-cols-3 gap-6 flex-wrap box-border my-16 ' >
-      {data.map((item) => (
+      {currentData.map((item) => (
             <div
             key={item.id}
             className={`grid-layout-style flex justify-center rounded-lg place-content-center min-w-min overflow-hidden shadow-2xl transition-transform transform hover:scale-95 hover:shadow-lg  duration-300 px-4 py-1`}
@@ -53,7 +57,7 @@ return (
 
       
     {list && (  <div className='flex flex-col gap-4 my-12' >
-        {data.map((item) => (
+        {currentData.map((item) => (
           <div className='border rounded-lg overflow-hidden shadow-lg' key={item.id}>
             <Link to={`/Products/${item.id}`}>
           <div className='flex justify-between px-8 py-8 transition-transform transform hover:scale-95 active:scale-100 duration-300'>
@@ -72,14 +76,19 @@ return (
           </div>
     </Link>
     </div>  ))}</div>)}
-
-
-
     
-    <div className='text-center'>
-        <PaginationOutlined/>
-    </div>
-
+    <div className='flex items-center justify-center my-12  relative'>
+        <div className='absolute top-[-1rem]  left-0 right-0 h-px bg-gray-300'></div>
+        <Stack spacing={2}>
+          <Pagination 
+            count={Math.ceil(data.length/productPerPage)} 
+            page={currentPage}
+            defaultPage={1}
+            onChange={handlePageChange}  
+            size='large'
+            color="primary" />
+        </Stack>
+      </div>
     </section>
   )
 }
