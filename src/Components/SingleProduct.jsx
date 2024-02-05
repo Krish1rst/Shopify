@@ -7,19 +7,27 @@ import { Link } from 'react-router-dom';
 import Spinner from './LoaderSpinner';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
-
+import { useGlobalContext } from '../Context/ContextApi';
 
 function SingleProduct() {
+  
   const { productId } = useParams();
+
+  // const context=useGlobalContext();
+  // const { singleProduct, getSingleProduct }=context;
   const [data,setData]=useState('');
   const [loading,setLoading]=useState(false);
-  const [value, setValue] = useState(0);
+  
+  // useEffect(() => {
+  //   // Fetch the single product when the component mounts
+  //   getSingleProduct(productId);
+  // }, [productId]);
   useEffect(() => {
       const fetchSingleProduct = async () => {
         try {
           const response = await fetch(`https://fakestoreapi.com/products/${productId}`);
           const data = await response.json();
-          setLoading(true)
+          // setLoading(true)
           setData(data);
           setLoading(false)
           console.log(data);

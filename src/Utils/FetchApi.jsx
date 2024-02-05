@@ -12,14 +12,15 @@ export const FetchData = async (limit) => {
         console.error('Error fetching data:', error);
       }
     };
- export  const fetchSingleProduct = async (productId) => {
-      try {
-        const response = await axios(`https://fakestoreapi.com/products/${productId}`);
-        const singleData = response.data;
-        return singleData;
-      } catch (err) {
-        console.log("There is an error in fetching", err);
-      }
-    };
+    
+    // export  const fetchSingleProduct = async (productId) => {
+    //      try {
+    //        const response = await axios(`https://fakestoreapi.com/products/${productId}`);
+    //        const singleData = response.data;
+    //        return singleData;
+    //      } catch (err) {
+    //        console.log("There is an error in fetching", err);
+    //      }
+    //    };
 
 

@@ -1,6 +1,6 @@
 import React,{createContext,useState,useEffect, useContext} from 'react'
 import { FetchData } from '../Utils/FetchApi';
-
+// import { fetchSingleProduct } from '../Utils/FetchApi';
 
 const AppContext = createContext();
 
@@ -29,7 +29,13 @@ useEffect(()=>{
   
     
 
+    // const [singleProduct, setSingleProduct] = useState(null);
 
+    // const getSingleProduct = async (productId) => {
+    //   const data = await fetchSingleProduct(productId);
+    //   setSingleProduct(data);
+      
+    // };
    
 const handleGrid = () => {
         setGrid(true)
@@ -64,6 +70,7 @@ return (
         endIndex,
         productPerPage,
         handlePageChange,
+        // singleProduct, getSingleProduct
         
         
    }}>
