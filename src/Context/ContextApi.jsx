@@ -1,6 +1,7 @@
 import React,{createContext,useState,useEffect, useContext} from 'react'
 import { FetchData } from '../Utils/FetchApi';
 
+
 const AppContext = createContext();
 
 export const ContextProvider=({children})=> {
@@ -9,25 +10,25 @@ export const ContextProvider=({children})=> {
  const [loading,setLoading]=useState(false);
  const [featuredData,setFeaturedData]=useState([]);
  const [currentPage,setCurrentPage]=useState(1);
- const productPerPage=6;
- const endIndex = currentPage*productPerPage;
- const startIndex = endIndex-productPerPage ;
- const currentData = data.slice(startIndex, endIndex);
  const [grid,setGrid]=useState(true);
  const [list,setList]=useState(false);
- 
 
- useEffect(()=>{
+
+useEffect(()=>{
         const FetchedApiData=async()=>{
             setLoading(true);
             const result= await FetchData(20);
             const featuredResult= await FetchData(3);
+            console.log(result);
             setLoading(false);
             setData(result);
             setFeaturedData(featuredResult);
         }
         FetchedApiData();
     },[])
+  
+    
+
 
    
 const handleGrid = () => {
@@ -38,8 +39,12 @@ const handleList = () => {
       setGrid(false)
       setList(true)
   };
-const handlePageChange=(e,value)=>{
-    
+  
+  const productPerPage=6;
+  const endIndex = currentPage*productPerPage;
+  const startIndex = endIndex-productPerPage ;
+  const currentData = data.slice(startIndex, endIndex);
+  const handlePageChange=(e,value)=>{
     setCurrentPage(value); 
   }
     
@@ -58,7 +63,8 @@ return (
         startIndex,
         endIndex,
         productPerPage,
-        handlePageChange
+        handlePageChange,
+        
         
    }}>
 

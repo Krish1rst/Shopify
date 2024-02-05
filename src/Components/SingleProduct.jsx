@@ -8,35 +8,36 @@ import Spinner from './LoaderSpinner';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 
+
 function SingleProduct() {
-const { productId } = useParams();
-const [data,setData]=useState('');
-const [loading,setLoading]=useState(false);
-const [value, setValue] = useState(0);
-useEffect(() => {
-    const fetchSingleProduct = async () => {
-      try {
-        const response = await fetch(`https://fakestoreapi.com/products/${productId}`);
-        const data = await response.json();
-        setLoading(true)
-        setData(data);
-        setLoading(false)
-        console.log(data);
-      } catch (err) {
-        console.log("There is an error in fetching", err);
-      }
-    };
+  const { productId } = useParams();
+  const [data,setData]=useState('');
+  const [loading,setLoading]=useState(false);
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+      const fetchSingleProduct = async () => {
+        try {
+          const response = await fetch(`https://fakestoreapi.com/products/${productId}`);
+          const data = await response.json();
+          setLoading(true)
+          setData(data);
+          setLoading(false)
+          console.log(data);
+        } catch (err) {
+          console.log("There is an error in fetching", err);
+        }
+      };
+    
+      fetchSingleProduct();
+    }, [productId]);
   
-    fetchSingleProduct();
-  }, [productId]);
-
-const {id,image,price,title,category,description,rating}=data;
-
-const handleRatingChange = (newRating) => {
-
-  setRatings(Math.floor(newRating));
-
-};
+  const {id,image,price,title,category,description,rating}=data;
+  
+  const handleRatingChange = (newRating) => {
+  
+    setRatings(Math.floor(newRating));
+  
+  };
 if (!data) {
     return <div className='flex items-center  justify-center'>
       <Spinner/>
