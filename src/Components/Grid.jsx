@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 
 function Grid() {
     const context=useGlobalContext();
-    const {currentData}=context;
+    const {data,grid,currentData,list,currentPage,productPerPage,handlePageChange}=context;
 
   return (
     <>
@@ -28,9 +28,14 @@ function Grid() {
       </Link>
     </div>))}
 </div>
-
+<div className='flex items-center justify-center my-12  relative'>
+        <div className='absolute top-[-1rem]  left-0 right-0 h-px bg-gray-300'>
+        </div>
+        <Stack spacing={3}>
+          <Pagination count={Math.ceil(data.length/productPerPage)} page={currentPage}defaultPage={1}
+             onChange={handlePageChange}  shape="rounded" size='large'color="primary" /></Stack>
+      </div>
     </>
   )
 }
-
 export default Grid
