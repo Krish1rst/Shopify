@@ -2,7 +2,7 @@ import axios from "axios";
 const Base_Url='https://fakestoreapi.com/products'
 
 export const FetchData = async (limit) => {
-  const [error,setError]=useState(false);
+
   const URL=`${Base_Url}/?limit=${limit}`;
 
       try {
