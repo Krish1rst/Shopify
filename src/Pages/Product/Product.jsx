@@ -9,6 +9,7 @@ function Product() {
 const context=useGlobalContext();
 const {loading,grid,list}=context;
 
+
 if (loading) {
   return <div className='flex items-center  justify-center'>
     <Spinner/>
@@ -21,7 +22,7 @@ return (
     {grid && (<Grid/>)}
     {list && ( <List/>)}
     
-    </section>
+  </section>
   )
 }
 
