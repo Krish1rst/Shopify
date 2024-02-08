@@ -8,13 +8,13 @@ function Home() {
    <div className='flex flex-col '>
      <div className="flex gap-6 h-screen mx-24 mt-8">
       <div className="w-1/2 py-[5rem] mt-16 ">
-        <h1 className="text-8xl  font-bold text-neutral-700 mb-8">
+        <h1 className="text-8xl  font-bold text-neutral-700 mb-8 ">
           We are changing the way people shop
         </h1>
         <p className="text-3xl text-gray-600  font-normal leading-[2.8rem] my-14">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore repellat explicabo enim soluta temporibus asperiores aut obcaecati perferendis porro nobis.
         </p>
-        <button className="px-7 py-5 bg-blue-500 font-medium text-white text-xl rounded-xl transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800">
+        <button className="px-7 py-5 bg-blue-500 tracking-wider font-medium text-white text-xl rounded-xl transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800">
           <Link to='/Products'>OUR PRODUCTS</Link>
         </button>
       </div>
@@ -28,7 +28,7 @@ function Home() {
   </div>
   <div className='mx-24  mb-32'> 
       <div className='relative mb-16'>
-          <p className='text-4xl font-medium text-neutral-600 py-4'>Featured Products</p>
+          <p className='text-[2.6rem] font-medium tracking-wider text-neutral-600 py-4'>Featured Products</p>
           <p className='after: after:block after:absolute after:h-0.5 after:bg-neutral-200 after:w-full'></p>
         </div>
        <FeaturedProducts />

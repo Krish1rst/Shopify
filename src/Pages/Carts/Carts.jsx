@@ -24,10 +24,10 @@ function Carts() {
           <div className='w-1/4 text-2xl text-gray-700 font-normal p-4'>
             <p className=''>Amount </p>
             <AmountSelect />
-            <button class="text-blue-500 hover:underline">remove</button>
+            <button className="text-blue-500 hover:underline">remove</button>
           </div>
           <div className='w-1/4 flex justify-end text-2xl text-gray-700 font-normal p-4'>${item.price}</div>
-          <div class="absolute inset-x-0 bottom-0 h-px bg-gray-400 opacity-40 "></div>
+          <div className="absolute inset-x-0 bottom-0 h-px bg-gray-400 opacity-40 "></div>
         </div>     
       ))}
       </div>
@@ -54,7 +54,7 @@ function Carts() {
 
           <div className="mt-8 relative py-4 flex justify-between ">
             <h2 className="text-2xl  mb-2">Order Total</h2>
-            <span className="text-lg mb-2 font-medium">$802.46</span>
+            <span className="text-2xl mb-2 font-medium">$802.46</span>
           </div>
         </div>
           
