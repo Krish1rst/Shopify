@@ -6,14 +6,14 @@ import Slider from '../Components/FunctionalComponent/Slider'
 
 function Filter() {
   return (
-    <div className='grid grid-cols-3 gap-12 px-8 py-12 w-full bg-blue-50 mt-[7rem] rounded-md border border-purple-100 border-solid border-1'>
-    <div className='py-2'><SearchBar/></div>
-    <div className='py-2'><Category/></div>
-    <div className='py-2'><Sort/></div>
-    <div className='flex items-center py-2'><Slider/></div>
-    <div className='flex items-center justify-center py-2'> <button className="px-[12rem] w-full py-3 bg-blue-500 font-medium text-white text-xl rounded-xl transition-all transform hover:scale-95 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-blue-800">  
+    <div className='grid grid-cols-3 gap-4 px-8 py-8 w-full bg-blue-50  rounded-md border border-purple-100 border-solid border-1'>
+    <div className=''><SearchBar/></div>
+    <div className=''><Category/></div>
+    <div className=''><Sort/></div>
+    <div className='flex items-center '><Slider/></div>
+    <div className='flex items-center justify-center'> <button className=" w-full py-2 bg-blue-500 font-medium text-white text-sm rounded-xl transition-all transform hover:scale-95 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-blue-800">  
      Search </button></div>
-    <div className='flex items-center justify-end py-2'> <button className="px-[12rem] w-full py-3 bg-pink-600 font-medium text-white text-xl rounded-xl transition-all transform hover:scale-95 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-pink-800">  Reset
+    <div className='flex items-center justify-end '> <button className=" w-full py-2 bg-pink-600 font-medium text-white text-sm rounded-xl transition-all transform hover:scale-95 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-pink-800">  Reset
       </button>
     </div>
   </div>

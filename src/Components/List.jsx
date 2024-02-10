@@ -17,19 +17,19 @@ const {data,grid,currentData,list,currentPage,productPerPage,handlePageChange}=c
         {currentData.map((item) => (
           <div className='border rounded-lg overflow-hidden shadow-lg' key={item.id}>
             <Link to={`/Products/${item.id}`}>
-          <div className='flex justify-between px-8 py-8 transition-transform transform hover:scale-95 active:scale-100 duration-300'>
-            <div className='flex '>
-              <div className='p-4'>
-                <img className='w-full h-auto blend-multiply max-h-[14rem] min-w-[14rem] object-contain object-center transition-transform transform  duration-300' src={item.image} alt={item.title} />
+          <div className='flex justify-between p-4 transition-transform transform hover:scale-95 active:scale-100 duration-300'>
+            <div className='flex'>
+              <div className='p-6 max-w-40 max-h-40'>
+                <img className='min-w-24 min-h-24 blend-multiply object-contain object-center transition-transform transform  duration-300' src={item.image} alt={item.title} />
               </div>
-                <div className='ml-8 mb-2 py-8 flex flex-col justify-between'>
-                  <p className='mb-16 text-3xl'>{item.title}</p>
-                  <p className='line-clamp-2 text-2xl '>
+                <div className='ml-6  py-8 flex flex-col justify-end'>
+                  <p className='mb-16 text-lg'>{item.title}</p>
+                  <p className='line-clamp-2 text-lg '>
                       {item.description}...
                     </p>
                 </div>
             </div>
-            <div className='text-2xl font-normal ml-[10rem] '>${item.price}</div>
+            <div className='text-lg font-normal '>${item.price}</div>
           </div>
     </Link>
     </div>  ))}</div>
@@ -38,7 +38,7 @@ const {data,grid,currentData,list,currentPage,productPerPage,handlePageChange}=c
         </div>
         <Stack spacing={2}>
           <Pagination count={Math.ceil(data.length/productPerPage)} page={currentPage}defaultPage={1}
-             onChange={handlePageChange}  size='large'color="primary" /></Stack>
+             onChange={handlePageChange}  size='medium'color="primary" /></Stack>
       </div>
     </>
   )

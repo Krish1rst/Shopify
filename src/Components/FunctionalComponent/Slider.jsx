@@ -12,7 +12,7 @@ export default function SliderSizes() {
 
   return (
     <Box sx={{ width: '100%', position: 'relative' }}>
-      <Typography variant="h6"  >
+      <Typography   >
         Price: {value}
       </Typography>
       <Slider
@@ -23,14 +23,14 @@ export default function SliderSizes() {
         valueLabelDisplay="auto"
         sx={{
           '& .MuiSlider-thumb': {
-            width: 24, // Change the width of the thumb
-            height: 24, // Change the height of the thumb
+            width: 16, // Change the width of the thumb
+            height: 16, // Change the height of the thumb
           },
           '& .MuiSlider-rail': {
             height: 8, // Change the height of the rail
           },
           '& .MuiSlider-track': {
-            height: 8, // Change the height of the track
+            height: 6, // Change the height of the track
           },
         }}
       />

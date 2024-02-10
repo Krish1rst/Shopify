@@ -17,7 +17,7 @@ export default function SortSelect() {
       <FormControl fullWidth variant="outlined">
         <InputLabel
           id="sort-select-label"
-          sx={{ fontSize: '1.2rem' }} // Increase font size here
+          sx={{ height:'4', }} // Increase font size here
         >
           Sort By
         </InputLabel>

@@ -10,26 +10,26 @@ function Grid() {
 
   return (
     <>
-        <div className='grid grid-cols-3 gap-6 flex-wrap box-border my-16 ' >
+        <div className='grid grid-cols-3 gap-4 flex-wrap box-border my-8 ' >
       {currentData.map((item) => (
             <div
             key={item.id}
-            className={`grid-layout-style flex justify-center rounded-xl place-content-center min-w-min overflow-hidden shadow-2xl transition-transform transform hover:scale-95 hover:shadow-lg  duration-300 px-4 py-1`}
+            className={`grid-layout-style flex justify-center rounded-xl place-content-center  overflow-hidden shadow-2xl transition-transform transform hover:scale-95 hover:shadow-lg  duration-300 px-4 py-1`}
           >
             <Link to={`/Products/${item.id}`}>
-              <div className='flex justify-center rounded-4 item-center m-x-1  '>
-                <img className='blend-multiply max-h-60 min-w-55 object-contain object-center mt-8' src={item.image} alt={item.title} />
+              <div className='flex justify-center rounded-4 item-center p-4  '>
+                <img className='blend-multiply h-32 w-32 object-contain object-center ' src={item.image} alt={item.title} />
               </div>
               <div className='pt-6 relative'>
-                <p className='text-2xl px-4 font-medium text-center'>{item.title}</p>
-                <p className='text-2xl m-3 font-normal text-center'>{item.price}</p>
+                <p className='text-lg px-4 font-medium text-center'>{item.title}</p>
+                <p className='text-lg m-3 font-normal text-center'>{item.price}</p>
                 <div className='absolute top-4 left-0 right-0 h-px bg-gray-300'></div>
               </div>
       </Link>
     </div>))}
 </div>
-<div className='flex items-center justify-center my-12  relative'>
-        <div className='absolute top-[-1rem]  left-0 right-0 h-px bg-gray-300'>
+<div className='flex items-center justify-center   relative'>
+        <div className='absolute top-[-0.2rem]  left-0 right-0 h-px bg-gray-300'>
         </div>
         <Stack spacing={3} sx={{ marginY: '20px' }}>
   <Pagination
@@ -38,9 +38,9 @@ function Grid() {
     defaultPage={1}
     onChange={handlePageChange}
     shape="rounded"
-    size='large'
+    size='medium'
     color="primary"
-    sx={{ '& .MuiPaginationItem-root': { fontSize: '1.5rem' } }} // Adjust the font size here
+    sx={{ '& .MuiPaginationItem-root': {  } }} // Adjust the font size here
   />
 </Stack>
       </div>

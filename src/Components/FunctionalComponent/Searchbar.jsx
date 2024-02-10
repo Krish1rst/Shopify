@@ -15,7 +15,7 @@ export default function BasicTextFields() {
       <TextField
         id="outlined-basic"
         label="Search Product"
-        sx={{ fontSize: '1.5rem', bgcolor: 'white' }} 
+        sx={{  bgcolor: 'white' }} 
       />
     </Box>
   );

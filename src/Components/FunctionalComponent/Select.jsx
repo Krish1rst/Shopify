@@ -13,11 +13,11 @@ export default function StyledSelect() {
   };
 
   return (
-    <Box sx={{ minWidth: 120 }}>
+    <Box >
       <FormControl fullWidth variant="outlined">
         <InputLabel
           id="category-select-label"
-          sx={{ fontSize: '1.2rem' }} // Increase font size here
+          sx={{  }} // Increase font size here
         >
           Category
         </InputLabel>

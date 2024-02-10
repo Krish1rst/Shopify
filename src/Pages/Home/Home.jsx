@@ -6,8 +6,8 @@ import FeaturedProducts from '../../Components/FeaturedProducts'
 function Home() {
   return (
    <div className='flex flex-col '>
-     <div className="flex  gap-6 h-screen mx-24 mt-4">
-      <div className="w-1/2 py-[5rem] mt-8 ">
+     <div className="flex  gap-6 h-screen mx-20 ">
+      <div className="w-1/2 py-[5rem] mt-7 ">
         <h1 className="text-6xl  font-bold text-cyan-900  ">
           We are changing the way people shop
         </h1>
@@ -18,7 +18,7 @@ function Home() {
           <Link to='/Products'>OUR PRODUCTS</Link>
         </button>
       </div>
-    <div className="w-1/2 bg-white flex items-center justify-end ml-8 mt-16 overflow-hidden">
+    <div className="w-1/2 bg-white flex items-center justify-end ml-7 mt-16 overflow-hidden">
       <div className="flex gap-1 bg-black rounded-2xl py-4 pl-4 overflow-hidden">
           <img src={hero} alt="Fully Visible" className="w-[20rem] max-h-[25rem] rounded-2xl shadow-lg" />
           <div className="bg-gray-200 w-2 h-full"></div>

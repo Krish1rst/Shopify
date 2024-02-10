@@ -16,7 +16,7 @@ if (loading) {
   </div>;
 }
 return ( 
- <section className='mx-36 my-16'>  
+ <section className='mx-24 mt-20 mb-4'>  
    <Filter/>
    <Layout/>
     {grid && (<Grid/>)}
