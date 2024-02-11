@@ -22,7 +22,7 @@ function Grid() {
               </div>
               <div className='pt-6 relative'>
                 <p className='text-lg px-4 font-medium text-center'>{item.title}</p>
-                <p className='text-lg m-3 font-normal text-center'>{item.price}</p>
+                <p className='text-lg m-3 font-normal text-center'>${item.price}</p>
                 <div className='absolute top-4 left-0 right-0 h-px bg-gray-300'></div>
               </div>
       </Link>

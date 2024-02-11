@@ -16,7 +16,7 @@ const override = {
       <ClipLoader
         color={color}
         cssOverride={override}
-        size={60}
+        size={50}
         aria-label="Loading Spinner"
         data-testid="loader"
       />
