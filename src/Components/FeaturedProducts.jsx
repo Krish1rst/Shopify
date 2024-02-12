@@ -14,17 +14,21 @@ const Data =useGlobalContext();
   return (
     <div className='grid grid-cols-3 gap-4 flex-wrap box-border ' >
     {Data.featuredData.map((item)=>(
-    <div className=' flex justify-center place-content-center min-w-min overflow-hidden shadow-2xl transition-transform transform hover:scale-95 hoer:shadow-lg rounded-xl duration-300' key={item.id}>
-      <Link to={`/Products/${item.id}`}>
-      <div className='flex justify-center items-center rounded-md mx-2 pt-6'>
-            <img className='blend-multiply h-40 max-w-full object-contain object-center' src={item.image} alt="Item Image" />
-     </div>
-        <div className='pt-5 '>
-            <p className='text-lg px-3  font-medium text-center'>{item.title}</p>
-            <p className='text-lg m-2 font-normal text-center'>{item.price} </p>
-        </div> 
-       </Link>  
+  <div
+  key={item.id}
+  className={`grid-layout-style flex justify-center rounded-xl place-content-center  overflow-hidden shadow-2xl transition-transform transform hover:scale-95 hover:shadow-lg  duration-300 px-4  `}
+>
+  <Link  to={`/Products/${item.id}`}>
+    <div className='flex justify-center rounded-4 item-center p-4  '>
+      <img className='blend-multiply h-32 w-32 object-contain object-center ' src={item.image} alt={item.title} />
     </div>
+    <div className='pt-6 relative'>
+      <p className='text-sm px-4 font-medium text-center line-clamp-2'>{item.title}  </p>
+      <p className='text-sm tracking-wider m-3 font-normal text-center italic'>${item.price}</p>
+      <div className='absolute top-4 left-0 right-0 h-px bg-gray-300'></div>
+    </div> 
+</Link>
+</div>
      ))}
  </div>
   )

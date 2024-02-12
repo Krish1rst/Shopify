@@ -1,22 +1,24 @@
-import React from 'react';
+import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-export default function BasicTextFields() {
+export default function TextFieldSizes() {
   return (
     <Box
       component="form"
       sx={{
-        '& > :not(style)': { width: '100%' },
+        '& .MuiTextField-root': {  width: '100%', backgroundColor: 'white' },
       }}
       noValidate
       autoComplete="off"
     >
-      <TextField
-        id="outlined-basic"
-        label="Search Product"
-        sx={{  bgcolor: 'white' }} 
-      />
+      <div>
+        <TextField
+          label="Search products"
+          id="outlined-size-small"
+          size="small"
+        />
+      </div>
     </Box>
   );
 }

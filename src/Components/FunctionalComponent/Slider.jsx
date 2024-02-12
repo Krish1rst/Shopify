@@ -23,14 +23,14 @@ export default function SliderSizes() {
         valueLabelDisplay="auto"
         sx={{
           '& .MuiSlider-thumb': {
-            width: 16, // Change the width of the thumb
-            height: 16, // Change the height of the thumb
+            width: 14, // Change the width of the thumb
+            height: 14, // Change the height of the thumb
           },
           '& .MuiSlider-rail': {
-            height: 8, // Change the height of the rail
+            height: 7, // Change the height of the rail
           },
           '& .MuiSlider-track': {
-            height: 6, // Change the height of the track
+            height: 7, // Change the height of the track
           },
         }}
       />

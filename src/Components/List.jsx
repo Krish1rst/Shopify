@@ -15,11 +15,12 @@ const {data,grid,currentData,list,currentPage,productPerPage,handlePageChange}=c
     <>
              <div className='flex flex-col gap-4 my-12' >
         {currentData.map((item) => (
-          <div className='border rounded-lg overflow-hidden shadow-lg' key={item.id}>
+          <div className='border rounded-lg overflow-hidden shadow-lg border-gray-200 p-[1px]' key={item.id}>
             <Link to={`/Products/${item.id}`}>
-          <div className='flex justify-between p-4 transition-transform transform hover:scale-95 active:scale-100 duration-300'>
+         
+         <div className='flex justify-between p-4 transition-transform transform hover:scale-95 active:scale-100 duration-300'>
             <div className='flex'>
-              <div className='p-6 max-w-40 max-h-40'>
+              <div className='p-6 max-w-40 max-h-40 '>
                 <img className='min-w-24 min-h-24 blend-multiply object-contain object-center transition-transform transform  duration-300' src={item.image} alt={item.title} />
               </div>
                 <div className='ml-6  py-8 flex flex-col justify-end'>
@@ -31,6 +32,7 @@ const {data,grid,currentData,list,currentPage,productPerPage,handlePageChange}=c
             </div>
             <div className='text-lg font-normal '>${item.price}</div>
           </div>
+         
     </Link>
     </div>  ))}</div>
     <div className='flex items-center justify-center my-12  relative'>
