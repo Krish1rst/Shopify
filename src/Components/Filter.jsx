@@ -6,7 +6,7 @@ import Slider from '../Components/FunctionalComponent/Slider'
 
 function Filter() {
   return (
-    <div className='grid grid-cols-3 gap-4 px-8 py-8 w-full bg-blue-50  rounded-md border border-purple-100 border-solid border-1'>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-8 py-8 w-full bg-blue-50  rounded-md border border-purple-100 border-solid border-1'>
     <div className=''><SearchBar/></div>
     <div className=''><Category/></div>
     <div className=''><Sort/></div>

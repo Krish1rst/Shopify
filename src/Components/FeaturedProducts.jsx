@@ -12,7 +12,7 @@ const Data =useGlobalContext();
       }
     
   return (
-    <div className='grid grid-cols-3 gap-4 flex-wrap box-border ' >
+    <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-4 flex-wrap box-border ' >
     {Data.featuredData.map((item)=>(
   <div
   key={item.id}

@@ -19,13 +19,13 @@ const {data,grid,currentData,list,currentPage,productPerPage,handlePageChange}=c
             <Link to={`/Products/${item.id}`}>
          
          <div className='flex justify-between p-4 transition-transform transform hover:scale-95 active:scale-100 duration-300'>
-            <div className='flex'>
-              <div className='p-6 max-w-40 max-h-40 '>
-                <img className='min-w-24 min-h-24 blend-multiply object-contain object-center transition-transform transform  duration-300' src={item.image} alt={item.title} />
+            <div className='flex flex-col sm:flex-row'>
+              <div className='p-6 max-w-40 max-h-40 overflow-hidden md:overflow-visible'>
+                <img className='min-w-24 min-h-24 blend-multiply object-contain object-center transition-transform transform  duration-300 ' src={item.image} alt={item.title} />
               </div>
-                <div className='ml-6  py-8 flex flex-col justify-end'>
-                  <p className='mb-16 text-lg'>{item.title}</p>
-                  <p className='line-clamp-2 text-lg '>
+                <div className='ml-6 h-fit py-8 flex flex-col justify-end'>
+                  <p className='mb-4  md:mb-16 text-lg font-semibold'>{item.title}</p>
+                  <p className='line-clamp-2 text-md  '>
                       {item.description}...
                     </p>
                 </div>

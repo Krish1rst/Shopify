@@ -41,18 +41,17 @@ if (!data) {
   }
 
   return (   
-    <div className='mx-14 mt-16 '>
+    <div className='mx-8 sm:mx-10 md:mx-14 lg:mx-18  my-6 sm:my-12 md:my-16 lg:my-20 '>
     <div className='flex px-1 gap-1 w-full  h-8  my-4 '>
         <Link to='/' className='text-xl text-neutral-600 '>Home</Link>
        <div className=' text-md py-2'><TfiAngleRight /></div>
         <Link to='/Products' className='text-xl text-neutral-600 '>Products</Link>
         
     </div>
-     <div className='grid grid-cols-2 gap-12  my-4 '> 
-        <div className="h-[20rem]  flex items-center justify-center border stransition-transform transform scale-95 duration-500 hover:scale-100 hover:border-gray-300 hover:shadow-lg rounded-md overflow-hidden">
-         <img src={image} alt="image" className="w-1/2 object-contain p-4 max-h-[20rem]  blendblend-multiply rounded-md" />
+     <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12  my-4 '> 
+        <div className='flex items-center justify-center border rounded-2xl'> 
+        <img src={image} alt="image" className="object-contain  w-[15rem] sm:w-[20rem] p-8 sm:p-16  blendblend-multiply rounded-md " />
         </div>
-
         <div className=' grid grid-cols-1 gap-1  '>
             <p className='font-semibold text-neutral-700 leading-1 subpixel-antialiased text-2xl text-left my-1'>{title}</p>
             <p className='text-neutral-500 font-medium text-xl my-1'>{category}</p>

@@ -10,7 +10,7 @@ function Grid() {
 
   return (
     <>
-        <div className='grid grid-cols-3 gap-4 flex-wrap box-border my-8 ' >
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4 flex-wrap box-border my-8 ' >
       {currentData.map((item) => (
             <div
             key={item.id}
@@ -24,7 +24,7 @@ function Grid() {
                 <p className='text-sm px-4 font-medium text-center line-clamp-2'>{item.title}  </p>
                 <p className='text-sm tracking-wider m-3 font-normal text-center italic'>${item.price}</p>
                 <div className='absolute top-4 left-0 right-0 h-px bg-gray-300'></div>
-              </div> 
+              </div>
       </Link>
     </div>))} 
 </div>

@@ -12,7 +12,7 @@ export default function SelectSmall() {
   };
 
   return (
-    <FormControl sx={{ m: 1, width: 100 }} size="small">
+    <FormControl sx={{ width: 100 }} size="small">
       <InputLabel 
         id="demo-select-small-label" 
         sx={{ fontSize: '0.8rem' }} // Adjust the font size here
@@ -26,9 +26,6 @@ export default function SelectSmall() {
         label="Value"
         onChange={handleChange}
       >
-        <MenuItem value="">
-          <em>None</em>
-        </MenuItem>
         <MenuItem value={1}>1</MenuItem>
         <MenuItem value={2}>2</MenuItem>
         <MenuItem value={3}>3</MenuItem>
