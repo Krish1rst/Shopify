@@ -12,9 +12,10 @@ export const ContextProvider=({children})=> {
  const [currentPage,setCurrentPage]=useState(1);
  const [grid,setGrid]=useState(true);
  const [list,setList]=useState(false);
-
+ const [error, setError] = useState(null);
 useEffect(()=>{
-        const FetchedApiData=async()=>{
+    const FetchedApiData=async()=>{
+    try {
             setLoading(true);
             const result= await FetchData(20);
             const featuredResult= await FetchData(3);
@@ -23,6 +24,11 @@ useEffect(()=>{
             setData(result);
             setFeaturedData(featuredResult);
         }
+    catch (error) {
+            setError(error.message);
+          }
+        }
+       
         FetchedApiData();
     },[])
   
