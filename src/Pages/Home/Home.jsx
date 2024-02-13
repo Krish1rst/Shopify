@@ -1,6 +1,5 @@
 import React from 'react'
-import hero from '../../Assets/hero1.webp'
-import hero2 from '../../Assets/hero2.webp'
+import { Constants } from '../../Constants/Images'
 import { Link } from 'react-router-dom'
 import FeaturedProducts from '../../Components/FeaturedProducts'
 function Home() {
@@ -19,8 +18,8 @@ function Home() {
             </button>
          </div>
         <div className="hidden lg:flex gap-4 bg-black rounded-2xl overflow-hidden p-4">
-                <img src={hero} alt="Fully Visible" className="w-80  rounded-2xl shadow-lg object-cover" />
-                <img src={hero2} alt="Half Visible" className="w-80  rounded-bl-2xl rounded-tl-2xl shadow-lg object-cover" />
+                <img src={Constants.hero1} alt="Fully Visible" className="w-80  rounded-2xl shadow-lg object-cover" />
+                <img src={Constants.hero2} alt="Half Visible" className="w-80  rounded-bl-2xl rounded-tl-2xl shadow-lg object-cover" />
         </div>   
      </div>
     <div className=''> 

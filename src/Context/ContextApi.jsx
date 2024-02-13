@@ -13,7 +13,6 @@ export const ContextProvider=({children})=> {
  const [grid,setGrid]=useState(true);
  const [list,setList]=useState(false);
 
-
 useEffect(()=>{
         const FetchedApiData=async()=>{
             setLoading(true);
