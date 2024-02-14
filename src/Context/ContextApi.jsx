@@ -59,12 +59,10 @@ const handleList = () => {
   }
     
 const [state,dispatch]=useReducer(reducer, initialState);
-const handleAddToCart=(id)=>{
-  dispatch({type:'ADD_TO_CART',payload: id})
-}
-const addToCart=(id)=>{
-   dispatch({type:'ADD_TO_CART',payload:id})
-}
+
+const addToCart = (item) => {
+  dispatch({ type: 'ADD_TO_CART', payload: item });
+};
 const remove=(id)=>{
   dispatch({type:'REMOVE',payload:id})
 }

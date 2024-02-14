@@ -36,6 +36,9 @@ function SingleProduct() {
     }, [productId]);
   
   const {id,image,price,title,category,description,rating}=data;
+  const handleAddToCart = (item) => {
+    addToCart(item);
+  };
   if (error) {
     return <ErrorPage/>;
   }
@@ -44,7 +47,7 @@ if (!data) {
       <Spinner/>
     </div>;
   }
-
+  
   return (   
     <div className='mx-8 sm:mx-10 md:mx-14 lg:mx-18  my-6 sm:my-12 md:my-16 lg:my-20 '>
     <div className='flex px-1 gap-1 w-full  h-8  my-4 '>
@@ -75,7 +78,7 @@ if (!data) {
                <Dropdown options={numbers} />
             </div>
             <div className='  text-left my-4'>
-            <button className="px-4 py-3 bg-blue-500 tracking-wider font-medium text-white text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800" onClick={()=>addToCart(id)}>
+            <button className="px-4 py-3 bg-blue-500 tracking-wider font-medium text-white text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800" onClick={() => handleAddToCart({ id, image, price, title, category, description, rating })}>
             ADD TO BAG
             </button>
             </div>
