@@ -2,18 +2,21 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../Context/ContextApi';
 import Spinner from '../Components/LoaderSpinner'
-
+import ErrorPage from './ErrorPage';
 
 function FeaturedProducts() {
-const Data =useGlobalContext();
-   
-    if (Data.loading) {
+const Context =useGlobalContext();
+   const {loading,error}=Context;
+   if (error) {
+    return <ErrorPage />;
+  }
+    if (loading) {
         return <div><Spinner/></div>;
       }
     
   return (
     <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-4 flex-wrap box-border ' >
-    {Data.featuredData.map((item)=>(
+    {Context.featuredData.map((item)=>(
   <div
   key={item.id}
   className={`grid-layout-style flex justify-center rounded-xl place-content-center  overflow-hidden shadow-2xl transition-transform transform hover:scale-95 hover:shadow-lg  duration-300 px-4  `}

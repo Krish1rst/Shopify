@@ -4,10 +4,12 @@ import {useGlobalContext} from '../Context/ContextApi'
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
+
 function Grid() {
     const context=useGlobalContext();
     const {data,grid,currentData,list,currentPage,productPerPage,handlePageChange}=context;
 
+ 
   return (
     <>
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4 flex-wrap box-border my-8 ' >
@@ -26,7 +28,8 @@ function Grid() {
                 <div className='absolute top-4 left-0 right-0 h-px bg-gray-300'></div>
               </div>
       </Link>
-    </div>))} 
+    </div>
+    ))} 
 </div>
 <div className='flex items-center justify-center   relative'>
         <div className='absolute top-[-0.2rem]  left-0 right-0 h-px bg-gray-300'>

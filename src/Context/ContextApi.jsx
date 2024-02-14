@@ -1,18 +1,23 @@
-import React,{createContext,useState,useEffect, useContext} from 'react'
+import React,{createContext,useState,useEffect, useContext, useReducer} from 'react'
 import { FetchData } from '../Utils/FetchApi';
-
-
+import { Reducer } from 'react';
 const AppContext = createContext();
+import reducer from '../Utils/Reducer';
+
+const initialState={
+  cart:[],
+}
 
 export const ContextProvider=({children})=> {
 
+ 
  const [data,setData]=useState([]);
  const [loading,setLoading]=useState(false);
  const [featuredData,setFeaturedData]=useState([]);
  const [currentPage,setCurrentPage]=useState(1);
  const [grid,setGrid]=useState(true);
  const [list,setList]=useState(false);
- const [error, setError] = useState(null);
+
 useEffect(()=>{
     const FetchedApiData=async()=>{
     try {
@@ -25,7 +30,8 @@ useEffect(()=>{
             setFeaturedData(featuredResult);
         }
     catch (error) {
-            setError(error.message);
+        console.error(error);
+        setLoading(false);
           }
         }
        
@@ -52,6 +58,16 @@ const handleList = () => {
     setCurrentPage(value); 
   }
     
+const [state,dispatch]=useReducer(reducer, initialState);
+const handleAddToCart=(id)=>{
+  dispatch({type:'ADD_TO_CART',payload: id})
+}
+const addToCart=(id)=>{
+   dispatch({type:'ADD_TO_CART',payload:id})
+}
+const remove=(id)=>{
+  dispatch({type:'REMOVE',payload:id})
+}
 return (
 
    <AppContext.Provider value={{ 
@@ -68,6 +84,7 @@ return (
         endIndex,
         productPerPage,
         handlePageChange,
+       ...state,dispatch,addToCart,remove
 
         
         
@@ -76,6 +93,7 @@ return (
         {children}
 
    </AppContext.Provider>
+   
   )
 }
 

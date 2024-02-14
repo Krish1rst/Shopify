@@ -7,14 +7,15 @@ import { Link } from 'react-router-dom';
 import Spinner from './LoaderSpinner';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
-
+import ErrorPage from './ErrorPage';
+import { useGlobalContext } from '../Context/ContextApi';
 
 function SingleProduct() {
-  
+  const {addToCart}=useGlobalContext();
   const { productId } = useParams();
   const [data,setData]=useState('');
   const [loading,setLoading]=useState(false);
-  
+  const [error, setError] = useState(null);
 
   useEffect(() => {
       const fetchSingleProduct = async () => {
@@ -27,13 +28,17 @@ function SingleProduct() {
           console.log(data);
         } catch (err) {
           console.log("There is an error in fetching", err);
+          setError(err);
+          setLoading(false);
         }
       };   
       fetchSingleProduct();
     }, [productId]);
   
   const {id,image,price,title,category,description,rating}=data;
-  
+  if (error) {
+    return <ErrorPage/>;
+  }
 if (!data) {
     return <div className='flex items-center  justify-center'>
       <Spinner/>
@@ -56,7 +61,7 @@ if (!data) {
             <p className='font-semibold text-neutral-700 leading-1 subpixel-antialiased text-2xl text-left my-1'>{title}</p>
             <p className='text-neutral-500 font-medium text-xl my-1'>{category}</p>
             <p className='text-lg italic text-neutral-700 my-1'>${price}</p>
-            <p className='text-sm text-neutral-700 font-sans font-normal text-left my-2 '>{description}</p>
+            <p className='text-sm text-neutral-700 font-sans font-normal leading-7 text-left my-2 '>{description}</p>
             <Rating
               name="text-feedback"
               className=' my-2' 
@@ -70,7 +75,7 @@ if (!data) {
                <Dropdown options={numbers} />
             </div>
             <div className='  text-left my-4'>
-            <button className="px-4 py-3 bg-blue-500 tracking-wider font-medium text-white text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800">
+            <button className="px-4 py-3 bg-blue-500 tracking-wider font-medium text-white text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800" onClick={()=>addToCart(id)}>
             ADD TO BAG
             </button>
             </div>

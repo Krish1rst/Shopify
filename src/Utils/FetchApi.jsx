@@ -12,7 +12,7 @@ export const FetchData = async (limit) => {
         return result;
       } catch (error) {
         console.error('Error fetching data:', error);
-        
+        return error.message || 'An unknown error occurred';
       }
     };
     
