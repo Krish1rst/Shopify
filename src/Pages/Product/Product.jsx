@@ -20,7 +20,7 @@ if ( error) {
   return <ErrorPage/>;
 }
 return ( 
- <section className='mx-6 sm:mx-10 md:mx-14 lg:mx-18 xl:mx-24 mt-8 md:mt-10 lg:mt-14 xl:mt-20 mb-4'>  
+ <section className='mx-4 sm:mx-8 md:mx-14 lg:mx-18 xl:mx-24 mt-8 md:mt-10 lg:mt-14 xl:mt-20 mb-4'>  
   
    <Filter/>
    <Layout/>

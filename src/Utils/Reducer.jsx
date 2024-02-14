@@ -7,7 +7,7 @@ const reducer =  (state, action) => {
     if (!state.cart.find(item => item.id === id)) {
       return {
         ...state,
-        cart: [...state.cart, {...action.payload,items:0}]
+        cart: [...state.cart, {...action.payload,amount:0,tax:2}]
       };
     }
   }

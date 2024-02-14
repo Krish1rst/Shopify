@@ -13,7 +13,7 @@ function Filter() {
     <div className='flex items-center '><Slider/></div>
     <div className='flex items-center justify-center'> <button className=" w-full py-2 bg-blue-500 font-medium text-white text-sm rounded-xl transition-all transform hover:scale-95 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-blue-800">  
      Search </button></div>
-    <div className='flex items-center justify-end '> <button className=" w-full py-2 bg-pink-600 font-medium text-white text-sm rounded-xl transition-all transform hover:scale-95 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-pink-800">  Reset
+    <div className='flex items-center justify-end '> <button className=" w-full py-2 bg-pink-500 font-medium text-white text-sm rounded-xl transition-all transform hover:scale-95 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-pink-800">  Reset
       </button>
     </div>
   </div>

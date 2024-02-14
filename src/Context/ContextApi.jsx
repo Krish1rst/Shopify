@@ -4,8 +4,9 @@ import { Reducer } from 'react';
 const AppContext = createContext();
 import reducer from '../Utils/Reducer';
 
+const CART_STORAGE_KEY = 'cart';
 const initialState={
-  cart:[],
+  cart: JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || []
 }
 
 export const ContextProvider=({children})=> {
@@ -60,12 +61,18 @@ const handleList = () => {
     
 const [state,dispatch]=useReducer(reducer, initialState);
 
+useEffect(() => {
+  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(state.cart));
+}, [state.cart]);
+
 const addToCart = (item) => {
   dispatch({ type: 'ADD_TO_CART', payload: item });
 };
+
 const remove=(id)=>{
   dispatch({type:'REMOVE',payload:id})
 }
+
 return (
 
    <AppContext.Provider value={{ 

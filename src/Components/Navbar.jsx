@@ -1,32 +1,21 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
-import { FiShoppingCart } from "react-icons/fi";
-import { BsMoonStars } from "react-icons/bs";
-import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs';
+import { FiMenu } from "react-icons/fi";
+import Navlinks from './Navlinks';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
 
-    <nav className=' h-16 flex justify-between item-center bg-slate-200 w-full'>
-        <div className='hidden lg:flex btn btn-primary text-3xl items-center'><NavLink to='/'>C
-            </NavLink></div>
-        
-        <nav className='flex justify-between item-center gap-8'>
-            <NavLink to='/'className={({isActive})=>(isActive?'hidden lg:flex btn btn-primary text-2xl items-center':'hidden lg:flex btn btn-primary text-xl items-center')}>Home</NavLink>
-
-            <NavLink to='/About'className={({isActive})=>(isActive?'hidden lg:flex btn btn-primary text-2xl items-center ':'hidden lg:flex btn btn-primary text-xl items-center ')}>About</NavLink>
-
-            <NavLink to='/Products'className={({isActive})=>(isActive?'hidden lg:flex btn btn-primary text-2xl items-center':'hidden lg:flex btn btn-primary text-xl items-center')}>Products</NavLink>
-
-            <NavLink to='/Carts'className={({isActive})=>(isActive?'hidden lg:flex btn btn-primary text-2xl items-center ':'hidden lg:flex btn btn-primary text-xl items-center ')}>Carts</NavLink>
-
-            <NavLink to='/Checkout'className={({isActive})=>(isActive?'hidden lg:flex btn btn-primary text-2xl items-center ':'hidden lg:flex btn btn-primary text-xl items-center ')}>Checkout</NavLink>
-
-            <NavLink to='/Order'className={({isActive})=>(isActive?'hidden lg:flex btn btn-primary text-2xl items-center ':'hidden lg:flex btn btn-primary text-xl items-center')}>Order</NavLink>
-        </nav>
-       
+    <nav className=' h-16 flex justify-between item-center bg-slate-200 w-full px-12'>
+      <button className="text-gray-800 hover:text-blue-500 transition-colors duration-300 p-2 rounded-full bg-gray-200 hover:bg-gray-300 h-fit md:hidden">
+          <FiMenu className="text-xl" />
+      </button>
+      <Link to='/' className='px-4 my-2 py-2 h-fit italic tracking-wide bg-blue-500 text-lg text-white rounded-2xl hidden md:flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 active:scale-95 hover:transition-transform hover:duration-300 hover:transition-delay-150 '>
+      Shopify
+      </Link>
+      <div className='uppercase hidden md:flex items-center justify-center'><Navlinks  /></div>
+      {/* <div className='uppercase  md:hidden flex flex-col items-center text-sm justify-center'><Navlinks  /></div> */}
     </nav>
-  
  
   )
 }

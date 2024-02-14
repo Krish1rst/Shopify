@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import FeaturedProducts from '../../Components/FeaturedProducts'
 function Home() {
   return (
-  <div className='flex flex-col mx-7 sm:mx-10 md:mx-12 lg:mx-18 xl:mx-24 my-10  md:my-16 lg:my-24'>
+  <div className='flex flex-col mx-4 sm:mx-8 md:mx-12 lg:mx-18 xl:mx-24 my-10  md:my-16 lg:my-24'>
      <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 mt-4 sm:mt-0 ">
         <div className="w-full h-fit">
             <h1 className="text-6xl  font-bold text-cyan-900  ">
