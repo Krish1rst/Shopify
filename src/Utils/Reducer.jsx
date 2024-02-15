@@ -7,7 +7,7 @@ const reducer =  (state, action) => {
     if (!state.cart.find(item => item.id === id)) {
       return {
         ...state,
-        cart: [...state.cart, {...action.payload,amount:1,tax:0}]
+        cart: [...state.cart, {...action.payload,amount:1,tax:2}]
       };
     }
   }
@@ -40,31 +40,24 @@ const reducer =  (state, action) => {
     }).filter((item)=>item.amount!==0);
     return {...state,cart:tempCart}
   }
-  if (action.type === 'GET_TOTAL') {
-    return { ...state, total: state.total };
-  }
-  
+  if(action.type==='GET_TOTAL'){
+    let {total,amount,subTotal,shipping,tax}=state.cart.reduce((cartTotal,cartItem)=>{
+     const {price,amount,tax}=cartItem;
 
+    cartTotal.amount+=amount;
+    cartTotal.subTotal+=price*amount;
+    cartTotal.tax+=tax*amount;
+
+     return cartTotal;
+    },{total:0,amount:0,subTotal:0,shipping:5,tax:2});
+    total=subTotal+tax+shipping;
+    subTotal=parseFloat(subTotal.toFixed(2));
+    total=parseFloat(total.toFixed(2));
+
+    return {...state,amount,total,subTotal,shipping,tax}
+  }
+ 
   return state;
 };
 
 export default reducer;
-// let { total, amount } = state.cart.reduce(
-//   (cartTotal, cartItem) => {
-//     const { price, amount } = cartItem;
-//     const itemTotal = price * amount;
-
-//     cartTotal.total += itemTotal;
-//     cartTotal.amount += amount;
-
-//     return cartTotal;
-//   },
-//   {
-//     total: 0,
-//     amount: 0,
-//   }
-// );
-
-// total = parseFloat(total.toFixed(2));
-
-// return { ...state, total, amount };

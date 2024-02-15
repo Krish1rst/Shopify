@@ -51,25 +51,25 @@ function Carts() {
             <div className='bg-blue-50  h-fit rounded-2xl py-4 px-6 '>
             <div className="  relative py-2 flex justify-between ">
                 <h2 className="text-sm  ">Subtotal</h2>
-              <span className="text-sm  ">{subTotal}</span>
+              <span className="text-sm  ">${subTotal}</span>
                 <div className="absolute bottom-0 left-0 w-full border-t border-gray-200"></div>
               </div>
 
               <div className=" relative py-2 flex justify-between ">
                 <h2 className="text-sm ">Shipping</h2>
-                <span className="text-sm  ">{shipping}</span>
+                <span className="text-sm  ">${shipping}</span>
                 <div className="absolute bottom-0 left-0 w-full border-t border-gray-200"></div>
               </div>
 
               <div className="relative py-2 flex justify-between ">
                 <h2 className="text-sm  ">Tax</h2>
-                <span className="text-sm  ">{tax}</span>
+                <span className="text-sm  ">${tax}</span>
                 <div className="absolute bottom-0 left-0 w-full border-t border-gray-200"></div>
               </div>
 
               <div className="mt-6 relative  flex justify-between ">
                 <h2 className="text-lg  mb-2">Order Total</h2>
-                <span className="text-lg mb-2 ">{total}</span>
+                <span className="text-lg mb-2 ">${total}</span>
               </div>
             </div>
               
