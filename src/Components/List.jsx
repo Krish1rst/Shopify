@@ -9,15 +9,14 @@ import Stack from '@mui/material/Stack';
 function List() {
 
 const context=useGlobalContext();
-const {data,grid,currentData,list,currentPage,productPerPage,handlePageChange}=context;
+const {data,currentData,currentPage,productPerPage,handlePageChange}=context;
 
   return (
     <>
-             <div className='flex flex-col gap-4 my-12' >
+    <div className='flex flex-col gap-2 md:gap-4 md:my-12' >
         {currentData.map((item) => (
           <div className='border rounded-lg overflow-hidden shadow-lg border-gray-200 p-[1px]' key={item.id}>
-            <Link to={`/Products/${item.id}`}>
-         
+           <Link to={`/Products/${item.id}`}>   
          <div className='flex justify-between p-8 sm:p-4 transition-transform transform hover:scale-95 active:scale-100 duration-300'>
             <div className='flex flex-col sm:flex-row'>
               <div className='sm:p-6 max-w-40 max-h-40 overflow-hidden md:overflow-visible'>
@@ -31,9 +30,8 @@ const {data,grid,currentData,list,currentPage,productPerPage,handlePageChange}=c
                 </div>
             </div>
             <div className='text-lg font-normal'>${item.price}</div>
-          </div>
-         
-    </Link>
+          </div> 
+      </Link>
     </div>  ))}</div>
     <div className='flex items-center justify-center my-12  relative'>
         <div className='absolute top-[-1rem]  left-0 right-0 h-px bg-gray-300'>

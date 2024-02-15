@@ -49,7 +49,7 @@ if (!data) {
   }
   
   return (   
-    <div className='mx-8 sm:mx-10 md:mx-14 lg:mx-18  my-6 sm:my-12 md:my-16 lg:my-20 '>
+    <div className='mx-4 sm:mx-8 md:mx-14 lg:mx-18  my-6 sm:my-12 md:my-16 lg:my-20 '>
     <div className='flex px-1 gap-1 w-full  h-8  my-4 '>
         <Link to='/' className='text-xl text-neutral-600 '>Home</Link>
        <div className=' text-md py-2'><TfiAngleRight /></div>

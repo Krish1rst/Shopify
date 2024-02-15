@@ -12,7 +12,7 @@ function Grid() {
  
   return (
     <>
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4 flex-wrap box-border my-8 ' >
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 flex-wrap box-border my-8 ' >
       {currentData.map((item) => (
             <div
             key={item.id}
