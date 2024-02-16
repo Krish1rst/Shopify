@@ -13,7 +13,7 @@ function Home() {
             <p className="text-lg text-gray-600  font-normal leading-[2rem] mt-8 sm:mt-0  sm:my-8">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore repellat explicabo enim soluta temporibus asperiores aut obcaecati perferendis porro nobis.
             </p>
-            <button className="px-4 py-3 my-6 sm:my-0 bg-blue-500 tracking-wider font-medium text-blue-100 text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800">
+            <button className="px-4 py-3 my-6 sm:my-0 bg-blue-500 tracking-wider font-medium text-blue-50 text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800">
               <Link to='/Products'>OUR PRODUCTS</Link>
             </button>
          </div>
