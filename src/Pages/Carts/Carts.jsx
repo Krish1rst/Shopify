@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom';
 
 function Carts() {
   const Context=useGlobalContext();
-  const {amount,total,subTotal,shipping,tax,cart,remove,increase,decrease}=Context;
+  const {total,subTotal,shipping,tax,cart,remove,increase,decrease}=Context;
 
   if(cart.length==0){
     return(
       <div className='flex flex-col gap-2 items-center m-24'>
-        <p className='text-5xl font-bold capitalize'>LOLL...Your bag </p>
-        <h3 className='text-2xl italic hover:underline'>...is currently empty.</h3>
+        <p className='text-5xl font-bold capitalize'><span className='italic font-normal'>Lollll...</span>Your bag </p>
+        <h3 className='text-2xl italic hover:underline'>is currently empty..</h3>
       </div>
     )
   }
@@ -27,9 +27,11 @@ function Carts() {
         <div className='bg-white flex flex-col gap-2 overflow-x-auto w-full xl:w-4/6 '>
             {cart.map((item)=>(
                 <div className='flex flex-col  bg-slate-50 p-2 md:flex-row w-full relative rounded-2xl' key={item.id}>
-                    <div className=' border  border-gray-300 rounded-lg flex justify-center p-2 lg:p-4 transition duration-300 ease-in-out transform hover:shadow-9xl hover:scale-105 my-1 md:my-3 lg:ml-5 bg-white'>
-                      <img className=' h-[8rem] w-[8rem]  object-contain object-center' src={item.image} alt="Item Image" />
+                  
+                    <div className=' border  border-gray-300 rounded-lg flex justify-center p-2 lg:p-4 transition duration-300 ease-in-out transform hover:shadow-9xl hover:scale-105 my-1 md:my-3 lg:ml-5 bg-white'><Link to={`/Products/${item.id}`}>
+                      <img className=' h-[8rem] w-[8rem]  object-contain object-center' src={item.image} alt="Item Image" /></Link>
                     </div>
+                    
                     <div className='w-full md:w-2/4 text-md md:text-sm uppercase text-center md:text-left text-gray-700 font-medium lg:py-4 md:px-8 flex  justify-center my-1 lg:my-0'>{item.title}
                     </div>
                     <div className='flex flex-col items-center text-blue-500 min-w-fit mx-2 '>

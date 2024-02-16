@@ -10,9 +10,9 @@ function Navbar() {
   const {nav,setNav}=Context;
   return (
 
-    <nav className='h-14 lg:h-16  lg:flex lg:justify-between lg:item-center  bg-slate-200 w-full px-6 py-2 lg:py-0 lg:px-12'>
+    <nav className='h-14 lg:h-16  lg:flex lg:justify-between lg:item-center  bg-slate-200 w-full px-2 sm:px-6 py-2 lg:py-0 lg:px-12'>
       <button onClick={()=>setNav(!nav)} className="text-gray-800 hover:text-blue-500 transition-colors duration-300 p-2 rounded-full bg-gray-200 hover:bg-gray-300 h-fit lg:hidden " >
-          <FiMenu className="text-xl" />
+          <FiMenu className="text-2xl" />
       </button>
       <Link to='/' className='px-4 my-2 py-2 h-fit italic tracking-wide bg-blue-500 text-lg text-white rounded-2xl hidden lg:flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 active:scale-95 hover:transition-transform hover:duration-300 hover:transition-delay-150 '>
       Shopify

@@ -25,9 +25,7 @@ function SingleProduct() {
           const data = await response.json();
           setData(data);
           setLoading(false);
-          console.log(data);
         } catch (err) {
-          console.log("There is an error in fetching", err);
           setError(err);
           setLoading(false);
         }
@@ -77,10 +75,16 @@ if (!data) {
             <div className="flex items-center justify-between  ">
                <Dropdown options={numbers} />
             </div>
-            <div className='  text-left my-4'>
+            <div className='flex gap-4  text-left my-4'>
             <button className="px-4 py-3 bg-blue-500 tracking-wider font-medium text-white text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800" onClick={() => handleAddToCart({ id, image, price, title, category, description, rating })}>
             ADD TO BAG
             </button>
+            <Link to='/Carts'>
+            <button className="uppercase px-4 py-3 bg-blue-500 tracking-wider font-medium text-white text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800 ">
+            See Cart
+            </button>
+            </Link>
+            
             </div>
         </div>
     </div>

@@ -14,11 +14,11 @@ function Grid() {
     <>
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 flex-wrap box-border my-8 ' >
       {currentData.map((item) => (
-            <div
+            <Link to={`/Products/${item.id}`}
             key={item.id}
             className={`grid-layout-style flex justify-center rounded-xl place-content-center  overflow-hidden shadow-2xl transition-transform transform hover:scale-95 hover:shadow-lg  duration-300 px-4 py-1 `}
           >
-            <Link  to={`/Products/${item.id}`}>
+            <div  >
               <div className='flex justify-center rounded-4 item-center p-4  '>
                 <img className='blend-multiply h-32 w-32 object-contain object-center ' src={item.image} alt={item.title} />
               </div>
@@ -27,8 +27,8 @@ function Grid() {
                 <p className='text-sm tracking-wider m-3 font-normal text-center italic'>${item.price}</p>
                 <div className='absolute top-4 left-0 right-0 h-px bg-gray-300'></div>
               </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
     ))} 
 </div>
 <div className='flex items-center justify-center   relative'>

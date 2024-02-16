@@ -6,7 +6,7 @@ import reducer from '../Utils/Reducer';
 
 const AppContext = createContext(); 
 const CART_STORAGE_KEY = 'cart';
-// JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) ||
+
 const initialState={
   cart: JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || [],
   amount:0,
@@ -87,6 +87,7 @@ useEffect(()=>{
 dispatch({type:'GET_TOTAL'})
 },[state.cart])
 
+
 return (
 
    <AppContext.Provider value={{ 
@@ -104,14 +105,9 @@ return (
         productPerPage,
         handlePageChange,
         nav,setNav,
-       ...state,dispatch,addToCart,remove,increase,decrease
-
-        
-        
+       ...state,dispatch,addToCart,remove,increase,decrease  
    }}>
-
         {children}
-
    </AppContext.Provider>
    
   )
