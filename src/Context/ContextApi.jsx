@@ -24,6 +24,7 @@ export const ContextProvider=({children})=> {
  const [currentPage,setCurrentPage]=useState(1);
  const [grid,setGrid]=useState(true);
  const [list,setList]=useState(false);
+ const [nav,setNav]=useState(false);
 
 useEffect(()=>{
     const FetchedApiData=async()=>{
@@ -81,6 +82,7 @@ const increase=(id)=>{
 const decrease=(id)=>{
   dispatch({type:'DECREASE',payload:id})
 }
+
 useEffect(()=>{
 dispatch({type:'GET_TOTAL'})
 },[state.cart])
@@ -101,6 +103,7 @@ return (
         endIndex,
         productPerPage,
         handlePageChange,
+        nav,setNav,
        ...state,dispatch,addToCart,remove,increase,decrease
 
         

@@ -11,9 +11,9 @@ function Checkout() {
           <div className='w-full py-6 sm:py-0 '>
             <form method="post" action="/checkout" className="flex flex-col gap-y-4">
                 <h4 className="font-medium text-xl capitalize">shipping information</h4>
-                <div className="flex flex-col gap-y-2">
+                <div className="flex flex-col ">
                   <label htmlFor="name" className="text-sm font-medium text-gray-700">First Name</label>
-                  <input type="text" id="name" name="name" className="border rounded-md py-2 px-3 focus:outline-none focus:ring " />
+                  <input type="text" id="name" name="name" className="border rounded-md py-2 px-3 focus:outline-none focus:ring mt-1" />
                 </div>
                 <div className="flex flex-col gap-y-2">
                   <label htmlFor="address" className="text-sm font-medium text-gray-700">Address</label>

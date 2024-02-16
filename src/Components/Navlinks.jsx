@@ -12,7 +12,7 @@ const links = [
 
 function Navlinks() {
   return (
-    <nav className="flex  justify-center  md:space-x-1 lg:space-x-6">
+    <nav className="flex  justify-center  gap-1 ">
       {links.map((item) => {
         const { id, url, text } = item;
         return (
@@ -21,7 +21,7 @@ function Navlinks() {
             className={({isActive}) => (
               isActive
                 ? 'text-white bg-gray-900 px-4 py-2 rounded-lg transition-colors duration-300'
-                : 'hover:bg-gray-300 px-4 py-2 rounded-lg text-gray-800 font-medium hover:text-gray-800 transition-colors duration-300')}to={url}>{text}</NavLink>);})
+                : 'hover:bg-gray-300 px-4 py-2 rounded-lg text-gray-800 font-medium hover:text-gray-800 transition-colors duration-300 ')}to={url}>{text}</NavLink>);})
             
             }
     </nav>

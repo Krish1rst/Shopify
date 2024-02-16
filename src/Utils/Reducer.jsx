@@ -1,5 +1,3 @@
-
-
 const reducer =  (state, action) => {
 
   if (action.type === 'ADD_TO_CART') {
@@ -7,7 +5,7 @@ const reducer =  (state, action) => {
     if (!state.cart.find(item => item.id === id)) {
       return {
         ...state,
-        cart: [...state.cart, {...action.payload,amount:1,tax:2}]
+        cart: [...state.cart, {...action.payload,amount:1,tax:1}]
       };
     }
   }
