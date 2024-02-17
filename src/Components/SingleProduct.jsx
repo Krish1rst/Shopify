@@ -11,11 +11,12 @@ import ErrorPage from './ErrorPage';
 import { useGlobalContext } from '../Context/ContextApi';
 
 function SingleProduct() {
-  const {addToCart}=useGlobalContext();
+  const {addToCart,handleOnChange}=useGlobalContext();
   const { productId } = useParams();
   const [data,setData]=useState('');
   const [loading,setLoading]=useState(false);
   const [error, setError] = useState(null);
+ 
 
   useEffect(() => {
       const fetchSingleProduct = async () => {
@@ -37,6 +38,7 @@ function SingleProduct() {
   const handleAddToCart = (item) => {
     addToCart(item);
   };
+ 
   if (error) {
     return <ErrorPage/>;
   }
@@ -73,7 +75,7 @@ if (!data) {
              />
              
             <div className="flex items-center justify-between  ">
-               <Dropdown options={numbers} />
+               <Dropdown options={numbers} handleOnChange={(value) => handleOnChange(value, id)}/>
             </div>
             <div className='flex gap-4  text-left my-4'>
             <button className="px-4 py-3 bg-blue-500 tracking-wider font-medium text-white text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800" onClick={() => handleAddToCart({ id, image, price, title, category, description, rating })}>

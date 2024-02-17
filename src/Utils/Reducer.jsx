@@ -38,6 +38,18 @@ const reducer =  (state, action) => {
     }).filter((item)=>item.amount!==0);
     return {...state,cart:tempCart}
   }
+
+  if (action.type === 'SET_AMOUNT') {
+    const { id, amount } = action.payload;
+    let tempCart = state.cart.map((item) => {
+      if (item.id === id) {
+        return { ...item, amount: parseInt(amount) };
+      }
+      return item;
+    });
+    return { ...state, cart: tempCart };
+  }
+  
   if(action.type==='GET_TOTAL'){
     let {total,amount,subTotal,shipping,tax}=state.cart.reduce((cartTotal,cartItem)=>{
      const {price,amount,tax}=cartItem;

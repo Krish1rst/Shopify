@@ -12,7 +12,7 @@ function Carts() {
     return(
       <div className='flex flex-col gap-2 items-center m-24'>
         <p className='text-5xl font-bold capitalize'><span className='italic font-normal'>Lollll...</span>Your bag </p>
-        <h3 className='text-2xl italic hover:underline'>__is currently empty.....add some products.</h3>
+        <h3 className='text-2xl italic hover:underline'>__is currently empty.....add some product.</h3>
         <button className="px-4 py-3 mt-6 md:mt-8 bg-blue-500 tracking-wider font-medium text-blue-50 text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800">
               <Link to='/Products'>GO TO PRODUCTS</Link>
             </button>

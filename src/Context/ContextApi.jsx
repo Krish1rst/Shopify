@@ -82,6 +82,9 @@ const increase=(id)=>{
 const decrease=(id)=>{
   dispatch({type:'DECREASE',payload:id})
 }
+const handleOnChange = (selectedValue, itemId) => {
+  dispatch({ type: 'SET_AMOUNT', payload: { id: itemId, amount: selectedValue } });
+};
 
 useEffect(()=>{
 dispatch({type:'GET_TOTAL'})
@@ -105,7 +108,7 @@ return (
         productPerPage,
         handlePageChange,
         nav,setNav,
-       ...state,dispatch,addToCart,remove,increase,decrease  
+       ...state,dispatch,addToCart,remove,increase,decrease,handleOnChange  
    }}>
         {children}
    </AppContext.Provider>
