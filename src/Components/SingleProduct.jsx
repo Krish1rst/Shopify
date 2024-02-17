@@ -50,7 +50,7 @@ if (!data) {
   }
   
   return (   
-    <div className='mx-4 sm:mx-8 md:mx-14 lg:mx-18  my-6 sm:my-12 md:my-16 lg:my-20 '>
+    <div className='mx-4 sm:mx-8 md:mx-14 lg:mx-18  my-6 sm:my-12 md:my-16 lg:my-20 transition-all duration-300 transform transition-delay-250'>
     <div className='flex px-1 gap-1 w-full  h-8  my-4 '>
         <Link to='/' className={`text-xl  ${isDarkMode ?'text-slate-400':'text-neutral-600'}`}>Home</Link>
        <div className={`text-md py-2`}><TfiAngleRight /></div>
@@ -58,10 +58,10 @@ if (!data) {
              
     </div>
      <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12  my-4 '> 
-        <div className='flex items-center justify-center border rounded-2xl'> 
-        <img src={image} alt="image" className={`object-contain ${isDarkMode ?'bg-slate-500':''} w-[15rem] sm:w-[20rem] p-8 sm:p-16  blendblend-multiply rounded-xl`} />
+        <div className={`flex items-center justify-center border rounded-2xl ${isDarkMode ?'bg-slate-900':''}`}> 
+        <img src={image} alt="image" className={`object-contain ${isDarkMode ?'bg-slate-50':''} max-w-[15rem] sm:w-[20rem] p-4   rounded-xl`} />
         </div>
-        <div className=' grid grid-cols-1 gap-1  '>
+        <div className=' grid grid-cols-1 gap-1 '>
             <p className={`${isDarkMode ?'text-slate-300':'text-neutral-700'}  font-semibold  leading-1 subpixel-antialiased text-2xl text-left my-1`}>{title}</p>
             <p className={`${isDarkMode ?'text-purple-300':'text-neutral-500'}   font-medium text-xl my-1`}>{category}</p>
             <p className={`text-lg italic ${isDarkMode ?'text-green-300':'text-neutral-700'}   my-1`}>${price}</p>
@@ -83,7 +83,7 @@ if (!data) {
             ADD TO BAG
             </button>
             <Link to='/Carts'>
-            <button className={`uppercase px-4 py-3 ${isDarkMode ?' bg-rose-400 text-slate-700 focus:border-green-400':'bg-blue-500 text-white focus:border-purple-800'}   tracking-wider font-medium  text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring  `}>
+            <button className={`uppercase px-4 py-3 ${isDarkMode ?' bg-pink-500 text-slate-700 focus:border-green-400':'bg-blue-500 text-white focus:border-purple-800'}   tracking-wider font-medium  text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring  `}>
             See Cart
             </button>
             </Link>

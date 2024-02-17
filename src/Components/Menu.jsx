@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useGlobalContext } from '../Context/ContextApi';
 
 const links = [
   { id: 1, url: '/', text: 'Home' },
@@ -11,6 +12,8 @@ const links = [
 ];
 
 function Navlinks() {
+  
+   const {isDarkMode }=useGlobalContext();
   return (
     <nav className="flex flex-col ">
       {links.map((item) => {
@@ -21,8 +24,8 @@ function Navlinks() {
             to={url}
             className={({ isActive }) =>
               isActive
-                ? 'bg-gray-800 text-gray-100 py-1 px-2 transition-colors duration-300 text-sm  rounded-md'
-                : 'text-gray-900 hover:bg-gray-700 py-1 px-2 transition-colors duration-300 text-sm  rounded-md'
+                ? ` ${isDarkMode ?'bg-slate-800 text-gray-100':'bg-gray-800 text-gray-100'}  py-1 px-2 transition-colors duration-300 text-sm  rounded-md`
+                : ` ${isDarkMode ?'hover:bg-gray-400 text-gray-300':'text-gray-900 hover:bg-gray-700'}  py-1 px-2 transition-colors duration-300 text-sm  rounded-md`
             }
           >
             {text}

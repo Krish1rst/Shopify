@@ -105,7 +105,7 @@ const handleOnChange = (selectedValue, itemId) => {
 };
 
 const toggleTheme = () => {
-  const newTheme = !state.isDarkMode; // Toggle the theme
+  const newTheme = !state.isDarkMode;
   dispatch({ type: 'TOGGLE_THEME', payload: newTheme });
   document.body.classList.toggle('dark-theme');
 

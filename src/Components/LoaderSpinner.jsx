@@ -1,14 +1,18 @@
 import { useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
+import { useGlobalContext } from "../Context/ContextApi";
+
+
+
+ function Spinner() {
+
+const {isDarkMode }=useGlobalContext();
 
 const override = {
   display: "block",
   margin: "0 auto",
-  borderColor: "black",
+  borderColor: isDarkMode ? 'white' : 'black',
 };
-
- function Spinner() {
-
   let [color, setColor] = useState("#ffffff");
 
   return (

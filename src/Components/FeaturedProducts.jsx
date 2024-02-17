@@ -16,7 +16,7 @@ const Context =useGlobalContext();
       }
     
   return (
-    <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-4 flex-wrap box-border ' >
+    <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-4 flex-wrap box-border transition-all duration-300 transform transition-delay-250 ' >
     {Context.featuredData.map((item)=>(
   <div
   key={item.id}

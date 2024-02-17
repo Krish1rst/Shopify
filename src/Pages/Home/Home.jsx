@@ -10,10 +10,10 @@ function Home() {
   return (
     
 
-  <div className='flex flex-col mx-4 sm:mx-8 md:mx-12 lg:mx-18 xl:mx-24 my-10  md:my-16 lg:my-24'>
+  <div className='flex flex-col mx-4 sm:mx-8 md:mx-12 lg:mx-18 xl:mx-24 my-10  md:my-16 lg:my-24 transition-all duration-300 transform transition-delay-250'>
      <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 mt-4 sm:mt-0 ">
         <div className="w-full h-fit">
-            <h1 className={`text-6xl  font-bold  ${isDarkMode ?'text-gray-200':'text-cyan-900'}`}>
+            <h1 className={`text-6xl lg:pt-6 font-bold  ${isDarkMode ?'text-gray-200':'text-cyan-900'}`}>
               We are changing the way people shop
             </h1>
             <p className={`text-lg   font-normal leading-[2rem] my-8 ${isDarkMode ?'text-gray-100':'text-gray-600'}`}>
@@ -23,7 +23,7 @@ function Home() {
               <Link to='/Products'>OUR PRODUCTS</Link>
             </button>
          </div>
-        <div className={`hidden lg:flex gap-4  rounded-2xl overflow-hidden p-4 ${isDarkMode ?'bg-slate-700':'bg-black'}`}>
+        <div className={`hidden lg:flex gap-4  rounded-2xl overflow-hidden p-4 ${isDarkMode ?'bg-slate-900':'bg-black'}`}>
                 <img src={Constants.hero1} alt="Fully Visible" className="w-80  rounded-2xl shadow-lg object-cover" />
                 <img src={Constants.hero2} alt="Half Visible" className="w-80  rounded-bl-2xl rounded-tl-2xl shadow-lg object-cover" />
         </div>   
