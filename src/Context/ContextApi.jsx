@@ -1,4 +1,4 @@
-import React,{createContext,useState,useEffect, useContext, useReducer} from 'react'
+import React,{createContext,useState,useEffect,useRef, useContext, useReducer} from 'react'
 
 import { FetchData } from '../Utils/FetchApi';
 import reducer from '../Utils/Reducer';
@@ -10,10 +10,11 @@ const CART_STORAGE_KEY = 'cart';
 const initialState={
   cart: JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || [],
   amount:0,
-  total:5,
+  total:0,
   subTotal:0,
   tax:0,
-  shipping:5
+  shipping:5,
+  isDarkMode: false,
 }
 
 export const ContextProvider=({children})=> {
@@ -25,6 +26,7 @@ export const ContextProvider=({children})=> {
  const [grid,setGrid]=useState(true);
  const [list,setList]=useState(false);
  const [nav,setNav]=useState(false);
+ const navbarRef = useRef(null)
 
 useEffect(()=>{
     const FetchedApiData=async()=>{
@@ -45,7 +47,23 @@ useEffect(()=>{
        
         FetchedApiData();
     },[])
-     
+
+const handleClickOutside = (event) => {
+      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+        setNav(false);
+      }
+    };
+  
+useEffect(() => {
+      document.addEventListener('click', handleClickOutside);
+  
+      return () => {
+        document.removeEventListener('click', handleClickOutside);
+      };
+    }, []);    
+    
+  
+
 const handleGrid = () => {
         setGrid(true)
         setList(false)
@@ -86,6 +104,14 @@ const handleOnChange = (selectedValue, itemId) => {
   dispatch({ type: 'SET_AMOUNT', payload: { id: itemId, amount: selectedValue } });
 };
 
+const toggleTheme = () => {
+  const newTheme = !state.isDarkMode; // Toggle the theme
+  dispatch({ type: 'TOGGLE_THEME', payload: newTheme });
+  document.body.classList.toggle('dark-theme');
+
+
+};
+
 useEffect(()=>{
 dispatch({type:'GET_TOTAL'})
 },[state.cart])
@@ -108,7 +134,7 @@ return (
         productPerPage,
         handlePageChange,
         nav,setNav,
-       ...state,dispatch,addToCart,remove,increase,decrease,handleOnChange  
+       ...state,dispatch,addToCart,remove,increase,decrease,handleOnChange,navbarRef,toggleTheme  
    }}>
         {children}
    </AppContext.Provider>

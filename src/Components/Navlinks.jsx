@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
+import { useGlobalContext } from '../Context/ContextApi';
 const links = [
   { id: 1, url: '/', text: 'home' },
   { id: 2, url: 'about', text: 'about' },
@@ -11,6 +11,8 @@ const links = [
 ];
 
 function Navlinks() {
+  const Context = useGlobalContext();
+  const { isDarkMode } = Context;
   return (
     <nav className="flex  justify-center  gap-1 ">
       {links.map((item) => {
@@ -20,8 +22,8 @@ function Navlinks() {
             key={id}
             className={({isActive}) => (
               isActive
-                ? 'text-white bg-gray-900 px-4 py-2 rounded-lg transition-colors duration-300'
-                : 'hover:bg-gray-300 px-4 py-2 rounded-lg text-gray-800 font-medium hover:text-gray-800 transition-colors duration-300 ')}to={url}>{text}</NavLink>);})
+                ? `  ${isDarkMode ?' bg-gray-600 text-white':'bg-gray-900 text-white'} px-4 py-2 rounded-lg transition-colors duration-300`
+                : `hover:bg-gray-300 px-4 py-2 rounded-lg ${isDarkMode ?'text-gray-400':'text-gray-800'}  hover:text-gray-800 font-medium  transition-colors duration-300 `)}to={url}>{text}</NavLink>);})
             
             }
     </nav>
@@ -29,3 +31,4 @@ function Navlinks() {
 }
 
 export default Navlinks;
+// ${isDarkMode ?'':''}
