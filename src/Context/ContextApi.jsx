@@ -62,8 +62,6 @@ useEffect(() => {
       };
     }, []);    
     
-  
-
 const handleGrid = () => {
         setGrid(true)
         setList(false)
@@ -108,8 +106,6 @@ const toggleTheme = () => {
   const newTheme = !state.isDarkMode;
   dispatch({ type: 'TOGGLE_THEME', payload: newTheme });
   document.body.classList.toggle('dark-theme');
-
-
 };
 
 useEffect(()=>{

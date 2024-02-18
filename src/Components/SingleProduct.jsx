@@ -51,15 +51,15 @@ if (!data) {
   
   return (   
     <div className='mx-4 sm:mx-8 md:mx-14 lg:mx-18  my-6 sm:my-12 md:my-16 lg:my-20 transition-all duration-300 transform transition-delay-250'>
-    <div className='flex px-1 gap-1 w-full  h-8  my-4 '>
+    <div className='flex px-1 gap-1 w-full  h-8  my-4 mb-6'>
         <Link to='/' className={`text-xl  ${isDarkMode ?'text-slate-400':'text-neutral-600'}`}>Home</Link>
        <div className={`text-md py-2`}><TfiAngleRight /></div>
         <Link to='/Products' className={`text-xl  ${isDarkMode ?'text-slate-400':'text-neutral-600'}`}>Products</Link>
              
     </div>
-     <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12  my-4 '> 
+     <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12  my-4 '> 
         <div className={`flex items-center justify-center border rounded-2xl ${isDarkMode ?'bg-slate-900':''}`}> 
-        <img src={image} alt="image" className={`object-contain ${isDarkMode ?'bg-slate-50':''} max-w-[15rem] sm:w-[20rem] p-4   rounded-xl`} />
+        <img src={image} alt="image" className={`object-contain ${isDarkMode ?'bg-slate-50':''} w-[10rem] md:w-[20rem] p-4   rounded-xl`} />
         </div>
         <div className=' grid grid-cols-1 gap-1 '>
             <p className={`${isDarkMode ?'text-slate-300':'text-neutral-700'}  font-semibold  leading-1 subpixel-antialiased text-2xl text-left my-1`}>{title}</p>

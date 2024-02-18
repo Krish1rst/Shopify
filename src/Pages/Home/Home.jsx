@@ -30,7 +30,7 @@ function Home() {
      </div>
     <div className='my-2'> 
         <div className='relative mb-6 md:mb-12'>
-            <p className={`text-3xl font-medium tracking-wider  py-4 ${isDarkMode ?'text-gray100':'text-neutral-600'}`}>Featured Products</p>
+            <p className={`text-3xl font-medium tracking-wider  py-4 ${isDarkMode ?'text-gray-200':'text-neutral-600'}`}>Featured Products</p>
             <p className={`after: after:block after:absolute after:h-0.5 after:w-full ${isDarkMode ?'after:bg-slate-700 ':'after:bg-neutral-200 '}`}></p>
           </div>
         <FeaturedProducts />

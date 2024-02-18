@@ -17,14 +17,14 @@ const {isDarkMode,data,currentData,currentPage,productPerPage,handlePageChange}=
         {currentData.map((item) => (
           <div className={`border rounded-lg overflow-hidden shadow-lg  p-[1px] ${isDarkMode ?'border-slate-600':'border-gray-200'}`} key={item.id}>
            <Link to={`/Products/${item.id}`}>   
-         <div className={`flex justify-between p-8 sm:p-4 transition-transform transform hover:scale-105 active:scale-100 duration-300 ${isDarkMode ?'bg-slate-900':''}`}>
+         <div className={`flex justify-between p-8 sm:p-4 transition-transform transform  active:scale-95 rounded-md duration-300 ${isDarkMode ?'bg-slate-700':''}`}>
             <div className='flex flex-col sm:flex-row'>
               <div className='sm:p-6  max-w-40 max-h-40 overflow-hidden md:overflow-visible'>
                 <img className='min-w-24 min-h-24 rounded-lg blend-multiply object-contain object-center transition-transform transform  duration-300 ' src={item.image} alt={item.title} />
               </div>
                 <div className='pt-4 sm:pt-0 sm:ml-6 h-fit sm:py-8 flex flex-col justify-end'>
-                  <p className={`mb-2 sm:mb-4 md:mb-16 text-lg font-semibold ${isDarkMode ?'text-gray-300':''}`}>{item.title}</p>
-                  <p className={`line-clamp-2 text-md ${isDarkMode ?'text-gray-400':''}`}>
+                  <p className={`mb-2 sm:mb-4 md:mb-16 text-lg font-semibold ${isDarkMode ?'text-gray-200':''}`}>{item.title}</p>
+                  <p className={`line-clamp-2 text-md ${isDarkMode ?'text-gray-300':''}`}>
                       {item.description}...
                     </p>
                 </div>

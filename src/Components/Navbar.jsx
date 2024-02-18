@@ -17,7 +17,7 @@ function Navbar() {
       <button onClick={() => setNav(!nav)} className={` transition-colors duration-300 p-2 rounded-full  h-fit lg:hidden  ${isDarkMode ?'bg-gray-700 text-gray-200 hover:text-pink-500 hover:bg-gray-600':'bg-gray-200 text-gray-800 hover:text-blue-500 hover:bg-gray-300'}`} >
         <FiMenu className="text-2xl " />
       </button>
-      <Link to='/' className={`px-4 my-2 py-2 h-fit italic tracking-wide ${isDarkMode ?'bg-pink-400 text-slate-700 hover:bg-pink-600':'bg-blue-500 hover:bg-blue-600 text-white'} text-lg text-white rounded-2xl hidden lg:flex items-center justify-center  transition-all duration-300 transform hover:scale-105 active:scale-95 hover:transition-transform hover:duration-300 hover:transition-delay-150`}>
+      <Link to='/' className={`px-4 my-3 py-2 h-fit italic tracking-wide ${isDarkMode ?'bg-pink-400 text-slate-700 hover:bg-pink-600':'bg-blue-500 hover:bg-blue-600 *: text-white'} text-md text-white rounded-2xl hidden lg:flex items-center justify-center  transition-all duration-300 transform hover:scale-105 active:scale-95 hover:transition-transform hover:duration-300 hover:transition-delay-150`}>
         Shopify
       </Link>
       {nav && (

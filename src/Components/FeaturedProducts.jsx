@@ -27,9 +27,9 @@ const Context =useGlobalContext();
       <img className={`blend-burn h-32 w-32 object-contain object-center ${isDarkMode ?'bg-white':''} rounded`} src={item.image} alt={item.title} />
     </div>
     <div className='pt-6 relative'>
-      <p className='text-sm px-4 font-medium text-center line-clamp-2'>{item.title}  </p>
-      <p className={` ${isDarkMode ?'text-purple-500':''} text-sm tracking-wider m-3 font-normal text-center italic`}>${item.price}</p>
-      <div className={`absolute top-4 left-0 right-0 h-px  ${isDarkMode ?'bg-slate-600':'bg-gray-300'}`}></div>
+      <p className={`text-sm px-4 font-medium text-center line-clamp-2 ${isDarkMode ?'text-slate-200':'text-slate-700'}`}>{item.title}  </p>
+      <p className={` ${isDarkMode ?'text-purple-200':''} text-sm tracking-wider m-3 font-normal text-center italic`}>${item.price}</p>
+      <div className={`absolute top-4 left-0 right-0 h-px  ${isDarkMode ?'bg-slate-800':'bg-gray-300'}`}></div>
     </div> 
 </Link>
 </div>
