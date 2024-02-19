@@ -59,7 +59,7 @@ if (!data) {
     </div>
      <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12  my-4 '> 
         <div className={`flex items-center justify-center border rounded-2xl ${isDarkMode ?'bg-slate-900':''}`}> 
-        <img src={image} alt="image" className={`object-contain ${isDarkMode ?'bg-slate-50':''} w-[10rem] md:w-[20rem] p-4   rounded-xl`} />
+        <img src={image} alt="image" className={`object-contain ${isDarkMode ?'bg-slate-50':''} w-[15rem] md:w-[20rem] max-h-[25rem] p-4   rounded-xl`} />
         </div>
         <div className=' grid grid-cols-1 gap-1 '>
             <p className={`${isDarkMode ?'text-slate-300':'text-neutral-700'}  font-semibold  leading-1 subpixel-antialiased text-2xl text-left my-1`}>{title}</p>

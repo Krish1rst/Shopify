@@ -1,15 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import {useGlobalContext} from '../Context/ContextApi'
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
 
 
-// 
 function List() {
 
 const context=useGlobalContext();
-const {isDarkMode,data,currentData,currentPage,productPerPage,handlePageChange}=context;
+const {isDarkMode,currentData}=context;
 
   return (
     <>
@@ -33,13 +30,7 @@ const {isDarkMode,data,currentData,currentPage,productPerPage,handlePageChange}=
           </div> 
       </Link>
     </div>  ))}</div>
-    <div className='flex items-center justify-center my-12  relative'>
-        <div className={`absolute top-[-1rem]  left-0 right-0 h-px  ${isDarkMode ?'bg-slate-700':'bg-gray-300'}`}>
-        </div>
-        <Stack spacing={2}>
-          <Pagination count={Math.ceil(data.length/productPerPage)} page={currentPage}defaultPage={1}
-             onChange={handlePageChange}  size='medium'color={`${isDarkMode ?'secondary':'primary'}`} /></Stack>
-      </div>
+    
     </>
   )
 }

@@ -6,10 +6,11 @@ import Layout from '../../Components/Layout'
 import Spinner from '../../Components/LoaderSpinner'
 import Filter from '../../Components/Filter'
 import ErrorPage from '../../Components/ErrorPage'
+import PaginationPage from '../../Components/PaginationPage'
+
 function Product() {
 const context=useGlobalContext();
 const {error,loading,grid,list}=context;
-
 
 if (loading) {
   return <div className='flex items-center  justify-center'>
@@ -26,7 +27,7 @@ return (
    <Layout/>
     {grid && (<Grid/>)}
     {list && ( <List/>)}
-    
+   <PaginationPage/>
   </section>
   )
 }

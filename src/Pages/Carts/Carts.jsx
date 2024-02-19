@@ -3,11 +3,12 @@ import { useGlobalContext } from '../../Context/ContextApi'
 import { MdKeyboardArrowUp } from "react-icons/md";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import CartDetails from '../../Components/CartDetails';
 
 function Carts() {
   const Context=useGlobalContext();
   const {isDarkMode,total,subTotal,shipping,tax,cart,remove,increase,decrease}=Context;
- // ${isDarkMode ?'':''}
+
 
   if(cart.length==0){
     return(
@@ -67,36 +68,13 @@ function Carts() {
             ))}
         </div>
         <div className='w-full xl:w-2/6 h-fit rounded-3xl '>
-            <div className={` ${isDarkMode ?'bg-slate-900':'bg-blue-50'} h-fit rounded-2xl py-4 px-6`}>
-            <div className={`relative py-2 flex justify-between ${isDarkMode?"text-slate-200":"text-slate-900"}`}>
-                <h2 className="text-sm  ">Subtotal</h2>
-              <span className="text-sm  ">${subTotal}</span>
-                <div className={`absolute bottom-0 left-0 w-full border-t ${isDarkMode ?'border-gray-500':'border-gray-200'} `}></div>
-              </div>
-
-              <div className={`relative py-2 flex justify-between ${isDarkMode?"text-slate-200":"text-slate-900"}`}>
-                <h2 className="text-sm ">Shipping</h2>
-                <span className="text-sm  ">{cart.length === 0 ? '$0' : `$${shipping}`}</span>
-                <div className={`absolute bottom-0 left-0 w-full border-t ${isDarkMode ?'border-gray-500':'border-gray-200'} `}></div>
-              </div>
-
-              <div className={`relative py-2 flex justify-between ${isDarkMode?"text-slate-200":"text-slate-900"}`}>
-                <h2 className="text-sm  ">Tax</h2>
-                <span className="text-sm  ">${tax}</span>
-                <div className={`absolute bottom-0 left-0 w-full border-t ${isDarkMode ?'border-gray-500':'border-gray-200'} `}></div>
-              </div>
-
-              <div className={`relative py-2 flex justify-between ${isDarkMode?"text-slate-200":"text-slate-900"}`}>
-                <h2 className="text-lg  mb-2">Order Total</h2>
-                <span className="text-lg mb-2 ">${total}</span>
-              </div>
-            </div>
+           <CartDetails/>
               
             <div className='my-8 text-center'>
             <Link to='/Checkout'>
-            <button  className={`px-4 w-full py-3 ${isDarkMode ?'bg-pink-500 text-gray-800':'bg-blue-500 text-white'}  tracking-wider font-medium  text-sm rounded-md transition-all transform hover:scale-95 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800`}>
-              PROCEED TO CHECKOUT
-            </button>
+                <button  className={`px-4 w-full py-3 ${isDarkMode ?'bg-pink-500 text-gray-800':'bg-blue-500 text-white'}  tracking-wider font-medium  text-sm rounded-md transition-all transform hover:scale-95 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800`}>
+                  PROCEED TO CHECKOUT
+                </button>
             </Link>
             </div>
               
