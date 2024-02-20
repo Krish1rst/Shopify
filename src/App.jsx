@@ -2,11 +2,13 @@ import { Home,About,Carts,Product,Checkout,Order } from './Pages';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import SingleProduct from './Components/SingleProduct';
 import Navbar from './Components/Navbar';
+import TopNav from './Components/TopNav';
 
 function App() {
   return (
    
       <BrowserRouter>
+      <TopNav/>
         <Navbar/>
         <Routes>
           <Route path='/'element={<Home />}/>

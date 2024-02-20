@@ -23,7 +23,7 @@ function Home() {
               <Link to='/Products'>OUR PRODUCTS</Link>
             </button>
          </div>
-        <div className={`hidden lg:flex gap-4  rounded-2xl overflow-hidden p-4 ${isDarkMode ?'bg-slate-900':'bg-black'}`}>
+        <div className={`hidden lg:flex gap-4  rounded-2xl overflow-hidden p-4 ${isDarkMode ?'bg-slate-700':'bg-black'}`}>
                 <img src={Constants.hero1} alt="Fully Visible" className="w-80  rounded-2xl shadow-lg object-cover" />
                 <img src={Constants.hero2} alt="Half Visible" className="w-80  rounded-bl-2xl rounded-tl-2xl shadow-lg object-cover" />
         </div>   
