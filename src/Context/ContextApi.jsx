@@ -1,5 +1,5 @@
 import React,{createContext,useState,useEffect,useRef, useContext, useReducer} from 'react'
-
+import { useParams } from 'react-router-dom';
 import { FetchData } from '../Utils/FetchApi';
 import reducer from '../Utils/Reducer';
 
@@ -18,7 +18,7 @@ const initialState={
 }
 
 export const ContextProvider=({children})=> {
-
+const {productId}=useParams();
  const [data,setData]=useState([]);
  const [loading,setLoading]=useState(false);
  const [featuredData,setFeaturedData]=useState([]);
@@ -34,7 +34,6 @@ useEffect(()=>{
             setLoading(true);
             const result= await FetchData(20);
             const featuredResult= await FetchData(3);
-            console.log(result);
             setLoading(false);
             setData(result);
             setFeaturedData(featuredResult);
