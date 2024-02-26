@@ -23,7 +23,7 @@ function Carts() {
   }
 
   return (
-    <section className='mx-4 sm:mx-8 md:mx-14 lg:mx-18 xl:mx-24 my-6 sm:my-8 md:my-12 lg:my-24 transition-all duration-300 transform transition-delay-250'>
+    <section className='mx-4 sm:mx-8 md:mx-14 lg:mx-18 xl:mx-24 max-w-[70rem] 2xl:mx-auto my-6 sm:my-8 md:my-12 lg:my-24 transition-all duration-300 transform transition-delay-250'>
       <div className='flex justify-start relative py-4'>
           <p className={` text-3xl tracking-wider font-semibold ${isDarkMode ?'text-gray-200':'text-gray-700'}`}>Shopping Cart</p>
           <div className={`absolute inset-x-0 bottom-0 h-px bg-gray-400 opacity-40 ${isDarkMode ?'':''}`}></div>

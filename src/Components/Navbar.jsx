@@ -13,7 +13,7 @@ function Navbar() {
 
 
   return (
-    <nav ref={navbarRef} className={`h-14 lg:h-16 flex justify-between item-center ${isDarkMode ? 'bg-gray-900' : 'bg-blue-50'} w-full px-2 sm:px-6 py-2 lg:py-0 lg:px-12`}>
+    <nav ref={navbarRef} className={`h-14 lg:h-16  2xl:px-auto flex justify-between item-center ${isDarkMode ? 'bg-gray-900' : 'bg-blue-50'} w-full px-2 sm:px-6 py-2 lg:py-0 lg:px-12`}>
       <button onClick={() => setNav(!nav)} className={` transition-colors duration-300 p-2 rounded-full  h-fit lg:hidden  ${isDarkMode ?'bg-gray-700 text-gray-200 hover:text-pink-500 hover:bg-gray-600':'bg-gray-200 text-gray-800 hover:text-blue-500 hover:bg-gray-300'}`} >
         <FiMenu className="text-2xl " />
       </button>
@@ -21,7 +21,7 @@ function Navbar() {
         Shopify
       </Link>
       {nav && (
-      <div className={`capitalize grid lg:hidden text-xs w-40  rounded-lg p-2 mt-2 ml-2 absolute top-10 left-0 sm:left-4 z-10 ${isDarkMode ?'bg-slate-700':'bg-blue-100'}`}>
+      <div className={`capitalize grid lg:hidden text-xs w-40  rounded-lg p-2 mt-2 ml-2 absolute top-16 left-0 sm:left-4 z-10 ${isDarkMode ?'bg-slate-700':'bg-blue-100'}`}>
           <Menu />
         </div>
       )}

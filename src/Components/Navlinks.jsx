@@ -22,8 +22,8 @@ function Navlinks() {
             key={id}
             className={({isActive}) => (
               isActive
-                ? `  ${isDarkMode ?' bg-gray-600 text-white':'bg-gray-900 text-white'} px-4 py-2 rounded-lg transition-colors duration-300`
-                : `hover:bg-gray-300 px-4 py-2 rounded-lg ${isDarkMode ?'text-gray-400':'text-gray-800'}  hover:text-gray-800 font-medium  transition-colors duration-300 `)}to={url}>{text}</NavLink>);})
+                ? `  ${isDarkMode ?' bg-gray-600 text-gray-50':'bg-gray-900 text-white'} px-4 py-2 rounded-lg transition-colors duration-300`
+                : `hover:bg-gray-300 px-4 py-2 rounded-lg ${isDarkMode ?'text-gray-200':'text-gray-800'}  hover:text-gray-800 font-medium  transition-colors duration-300 `)}to={url}>{text}</NavLink>);})
             
             }
     </nav>

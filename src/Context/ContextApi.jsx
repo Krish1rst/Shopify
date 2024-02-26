@@ -70,7 +70,7 @@ const handleList = () => {
       setList(true)
   };
   
-const productPerPage=6;
+const productPerPage=9;
 const endIndex = currentPage*productPerPage;
 const startIndex = endIndex-productPerPage ;
 const currentData = data.slice(startIndex, endIndex);

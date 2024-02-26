@@ -10,7 +10,7 @@ function Home() {
   return (
     
 
-  <div className='flex flex-col mx-4 sm:mx-8 md:mx-12 lg:mx-18 xl:mx-24 my-10  md:my-16 lg:my-24 transition-all duration-300 transform transition-delay-250'>
+  <div className='flex flex-col mx-4 sm:mx-8 md:mx-12 lg:mx-18 xl:mx-24  my-10  md:my-16 lg:my-24 transition-all duration-300 transform transition-delay-250 max-w-[70rem] 2xl:mx-auto'>
      <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 mt-4 sm:mt-0 ">
         <div className="w-full h-fit">
             <h1 className={`text-6xl lg:pt-6 font-bold  ${isDarkMode ?'text-gray-200':'text-cyan-900'}`}>
