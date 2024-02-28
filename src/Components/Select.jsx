@@ -3,13 +3,21 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { useGlobalContext } from '../Context/ContextApi';
+
 
 export default function SelectSmall() {
+  const Context=useGlobalContext();
+  const {handleCategory,data}=Context;
+  
+  const categories= new Set(data.map((item)=>item.category))
+  console.log(categories)
   const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+
 
   return (
     <FormControl sx={{  minWidth: 120, width: '100%', backgroundColor: 'white' }} size="small">
@@ -25,9 +33,10 @@ export default function SelectSmall() {
         <MenuItem value="">
           <em>None</em>
         </MenuItem>
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
+        {categories.map((item)=>{
+            <MenuItem value={0} key={item}>{item}</MenuItem>
+        })}
+        
       </Select>
     </FormControl>
   );

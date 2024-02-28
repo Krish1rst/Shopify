@@ -36,6 +36,7 @@ useEffect(()=>{
             const featuredResult= await FetchData(3);
             setLoading(false);
             setData(result);
+           
             setFeaturedData(featuredResult);
         }
     catch (error) {
@@ -46,7 +47,7 @@ useEffect(()=>{
        
         FetchedApiData();
     },[])
-
+    console.log(data)
 const handleClickOutside = (event) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target)) {
         setNav(false);
@@ -100,6 +101,9 @@ const decrease=(id)=>{
 const handleOnChange = (selectedValue, itemId) => {
   dispatch({ type: 'SET_AMOUNT', payload: { id: itemId, amount: selectedValue } });
 };
+const handleCategory=()=>{
+  dispatch({type:'CATEGORY'})
+}
 
 const toggleTheme = () => {
   const newTheme = !state.isDarkMode;
@@ -128,7 +132,7 @@ return (
         endIndex,
         productPerPage,
         handlePageChange,
-        nav,setNav,
+        nav,setNav,handleCategory,
        ...state,dispatch,addToCart,remove,increase,decrease,handleOnChange,navbarRef,toggleTheme  
    }}>
         {children}

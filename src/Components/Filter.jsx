@@ -6,7 +6,7 @@ import Slider from '../Components/Slider'
 import { useGlobalContext } from '../Context/ContextApi'
 
 function Filter() {
-  // ${isDarkMode ?'':''}
+
   const Context=useGlobalContext();
   const {isDarkMode}=Context;
   return (
