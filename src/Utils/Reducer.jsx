@@ -73,7 +73,19 @@ const reducer =  (state, action) => {
 
     return {...state,amount,total,subTotal,shipping,tax}
   }
- 
+ if(action.type==='SET_CATEGORY'){
+  return { ...state, selectCategory: action.payload };
+ }
+ if(action.type==='SET_PRICE'){
+  return { ...state, price: action.payload };
+ }
+ if(action.type==='SET_SORT'){
+  return { ...state, sort: action.payload };
+ }
+ if(action.type==='SET_SEARCH_PRODUCT'){
+  
+  return { ...state, searchProduct: action.payload };
+ }
   return state;
 };
 

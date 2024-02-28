@@ -15,6 +15,10 @@ const initialState={
   tax:0,
   shipping:5,
   isDarkMode: false,
+  selectCategory: 'All',
+  price: 50,
+  sort: '',
+  searchProduct: '',
 }
 
 export const ContextProvider=({children})=> {
@@ -27,6 +31,8 @@ export const ContextProvider=({children})=> {
  const [list,setList]=useState(false);
  const [nav,setNav]=useState(false);
  const navbarRef = useRef(null)
+ 
+//dataFetching----------------------------------------------------
 
 useEffect(()=>{
     const FetchedApiData=async()=>{
@@ -43,11 +49,12 @@ useEffect(()=>{
         console.error(error);
         setLoading(false);
           }
-        }
-       
+        } 
         FetchedApiData();
     },[])
-    console.log(data)
+
+//MenuHandling---------------------------------------------------------------
+
 const handleClickOutside = (event) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target)) {
         setNav(false);
@@ -61,7 +68,8 @@ useEffect(() => {
         document.removeEventListener('click', handleClickOutside);
       };
     }, []);    
-    
+
+//uiConditional display----------------------------------------------  
 const handleGrid = () => {
         setGrid(true)
         setList(false)
@@ -70,7 +78,7 @@ const handleList = () => {
       setGrid(false)
       setList(true)
   };
-  
+//paginatiom-----------------------------------------------------------------
 const productPerPage=9;
 const endIndex = currentPage*productPerPage;
 const startIndex = endIndex-productPerPage ;
@@ -78,7 +86,9 @@ const currentData = data.slice(startIndex, endIndex);
 const handlePageChange=(e,value)=>{
     setCurrentPage(value); 
   }
-    
+
+//cart-----------------------------------------------------
+
 const [state,dispatch]=useReducer(reducer, initialState);
 
 useEffect(() => {
@@ -101,10 +111,9 @@ const decrease=(id)=>{
 const handleOnChange = (selectedValue, itemId) => {
   dispatch({ type: 'SET_AMOUNT', payload: { id: itemId, amount: selectedValue } });
 };
-const handleCategory=()=>{
-  dispatch({type:'CATEGORY'})
-}
 
+
+//theme-----------------------------------------------------------
 const toggleTheme = () => {
   const newTheme = !state.isDarkMode;
   dispatch({ type: 'TOGGLE_THEME', payload: newTheme });
@@ -115,11 +124,27 @@ useEffect(()=>{
 dispatch({type:'GET_TOTAL'})
 },[state.cart])
 
+//filtering-------------------------------------------------------
+  const handleCategoryChange = (selectedCategory) => {
+  dispatch({ type: 'SET_CATEGORY', payload: selectedCategory })
+  };
+  const handlePriceChange = (selectedPrice) => {
+    dispatch({ type: 'SET_PRICE', payload: selectedPrice });
+  };
+
+  const handleSortChange = (selectedSort) => {
+    dispatch({ type: 'SET_SORT', payload: selectedSort });
+  };
+
+  const handleSearchProductChange = (searchValue) => {
+    dispatch({ type: 'SET_SEARCH_PRODUCT', payload: searchValue });
+  };
 
 return (
 
    <AppContext.Provider value={{ 
-        data,
+    
+        data,handleCategoryChange,handlePriceChange,handleSortChange,handleSearchProductChange,
         featuredData,
         grid,list,
         handleGrid,
@@ -132,8 +157,8 @@ return (
         endIndex,
         productPerPage,
         handlePageChange,
-        nav,setNav,handleCategory,
-       ...state,dispatch,addToCart,remove,increase,decrease,handleOnChange,navbarRef,toggleTheme  
+        nav,setNav,
+       ...state,dispatch,addToCart,remove,increase,decrease,handleOnChange,navbarRef,toggleTheme,
    }}>
         {children}
    </AppContext.Provider>

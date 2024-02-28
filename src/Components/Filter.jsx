@@ -7,6 +7,7 @@ import { useGlobalContext } from '../Context/ContextApi'
 
 function Filter() {
 
+  
   const Context=useGlobalContext();
   const {isDarkMode}=Context;
   return (

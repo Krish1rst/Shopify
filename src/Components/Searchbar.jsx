@@ -3,14 +3,14 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useGlobalContext } from '../Context/ContextApi';
 export default function TextFieldSizes() {
-  // ${isDarkMode ?'':''}
+
   const Context=useGlobalContext();
-  const {isDarkMode}=Context;
+  const {isDarkMode,handleSearchProductChange,searchProduct}=Context;
   return (
     <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': {  width: '100%', backgroundColor: isDarkMode ? '#333333' : 'white' },
+        '& .MuiTextField-root': {  width: '100%', backgroundColor: 'white' },
       }}
       noValidate
       autoComplete="off"
@@ -20,6 +20,10 @@ export default function TextFieldSizes() {
           label="Search products"
           id="outlined-size-small"
           size="small"
+          value={searchProduct}
+          onChange={(e) => {
+            handleSearchProductChange(e.target.value);
+          }}
           InputProps={{
             style: {
               color: isDarkMode ? '#ffffff' : '#000000', 
