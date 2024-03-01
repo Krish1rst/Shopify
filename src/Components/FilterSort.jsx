@@ -8,7 +8,7 @@ import { useGlobalContext } from '../Context/ContextApi';
 export default function SelectSmall() {
   const context=useGlobalContext();
   const {isDarkMode,handleSortChange,sort}=context;
-  const options=['A-Z','Z-A','Low To High Price','High To Low Price']
+  const options=['A-Z','Z-A','Price Low to High','Price High to Low']
 
 
   return (

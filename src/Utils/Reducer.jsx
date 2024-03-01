@@ -126,17 +126,23 @@ const reducer =  (state, action) => {
         });
       }
       
-    filteredProducts=state.selectCategory==='All'?filteredProducts:filteredProducts.filter((item)=>item.category===state.selectCategory)
+    filteredProducts=state.selectCategory==='All'?filteredProducts:filteredProducts.filter((item)=>item.category===state.selectCategory);
+    
+    if (state.sort === 'A-Z') {
+      filteredProducts=filteredProducts.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (state.sort === 'Z-A') {
+      filteredProducts=filteredProducts.sort((a, b) => b.title.localeCompare(a.title));
+    } else if (state.sort === 'Price High to Low') {
+      filteredProducts=filteredProducts.sort((a, b) => b.price - a.price);
+    } else if (state.sort === 'Price Low to High') {
+      filteredProducts= filteredProducts.sort((a, b) => a.price - b.price);
+    }
     
       return { ...state, filteredProduct: filteredProducts };
 }
 
 if (action.type === 'RESET') {
    const data=state.data;
-  //  selectCategory: 'All',
-  //  price: 1000,
-  //  sort: '',
-  //  searchProduct: '',
     return { ...state,
       price:state.price=1000,
       selectCategory:state.selectCategory='All',
