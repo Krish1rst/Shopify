@@ -7,7 +7,7 @@ import ErrorPage from './ErrorPage';
 function FeaturedProducts() {
 const Context =useGlobalContext();
   // ${isDarkMode ?'':''}
-   const {loading,error,isDarkMode}=Context;
+   const {loading,error,isDarkMode,featuredData}=Context;
    if (error) {
     return <ErrorPage />;
   }
@@ -17,7 +17,7 @@ const Context =useGlobalContext();
     
   return (
     <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-4 flex-wrap box-border transition-all duration-300 transform transition-delay-250 ' >
-    {Context.featuredData.map((item)=>(
+    {featuredData.map((item)=>(
   <div
   key={item.id}
   className={`grid-layout-style flex justify-center rounded-xl place-content-center  overflow-hidden shadow-2xl transition-transform transform hover:scale-95 hover:shadow-lg  duration-300 px-4  ${isDarkMode ?'bg-slate-700':''}`}

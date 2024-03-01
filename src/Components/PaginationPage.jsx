@@ -22,9 +22,7 @@ function PaginationPage() {
                     color="primary"
                     sx={{ '& .MuiPaginationItem-root': {  } }} 
                 />
-        </Stack>
-
-       
+        </Stack>  
       </div>
   )
 }

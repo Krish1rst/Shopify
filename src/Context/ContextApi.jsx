@@ -1,5 +1,4 @@
 import React,{createContext,useState,useEffect,useRef, useContext, useReducer} from 'react'
-import { useParams } from 'react-router-dom';
 import { FetchData } from '../Utils/FetchApi';
 import reducer from '../Utils/Reducer';
 
@@ -14,19 +13,20 @@ const initialState={
   subTotal:0,
   tax:0,
   shipping:5,
+  data:[],
   isDarkMode: false,
   selectCategory: 'All',
   price: 50,
   sort: '',
   searchProduct: '',
+  featuredData:[],
+  loading:false,  
 }
 
 export const ContextProvider=({children})=> {
 
- const [data,setData]=useState([]);
- const [loading,setLoading]=useState(false);
- const [featuredData,setFeaturedData]=useState([]);
- const [currentPage,setCurrentPage]=useState(1);
+  const [state,dispatch]=useReducer(reducer, initialState);
+
  const [grid,setGrid]=useState(true);
  const [list,setList]=useState(false);
  const [nav,setNav]=useState(false);
@@ -34,25 +34,33 @@ export const ContextProvider=({children})=> {
  
 //dataFetching----------------------------------------------------
 
-useEffect(()=>{
-    const FetchedApiData=async()=>{
-    try {
-            setLoading(true);
-            const result= await FetchData(20);
-            const featuredResult= await FetchData(3);
-            setLoading(false);
-            setData(result);
-           
-            setFeaturedData(featuredResult);
+const FetchedApiData=async()=>{
+  dispatch({type:'START'})
+  try {
+          const result= await FetchData(20);
+          const featuredResult= await FetchData(3);
+          dispatch({type:'FETCH',payload:result})
+          dispatch({type:'FEATURED_DATA',payload:featuredResult})
+      }
+  catch (error) {
+     dispatch({type:'FAILED'})
         }
-    catch (error) {
-        console.error(error);
-        setLoading(false);
-          }
-        } 
-        FetchedApiData();
+      }
+
+useEffect(()=>{
+        FetchedApiData(dispatch);
     },[])
 
+//paginatiom-----------------------------------------------------------------
+const [currentPage,setCurrentPage]=useState(1);
+const productPerPage=6;
+const endIndex = currentPage*productPerPage;
+const startIndex = endIndex-productPerPage ;
+const currentData = state.data.slice(startIndex, endIndex);
+const handlePageChange=(e,value)=>{
+    setCurrentPage(value); 
+  }
+  
 //MenuHandling---------------------------------------------------------------
 
 const handleClickOutside = (event) => {
@@ -78,18 +86,11 @@ const handleList = () => {
       setGrid(false)
       setList(true)
   };
-//paginatiom-----------------------------------------------------------------
-const productPerPage=9;
-const endIndex = currentPage*productPerPage;
-const startIndex = endIndex-productPerPage ;
-const currentData = data.slice(startIndex, endIndex);
-const handlePageChange=(e,value)=>{
-    setCurrentPage(value); 
-  }
+
 
 //cart-----------------------------------------------------
 
-const [state,dispatch]=useReducer(reducer, initialState);
+
 
 useEffect(() => {
   localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(state.cart));
@@ -114,6 +115,7 @@ const handleOnChange = (selectedValue, itemId) => {
 
 
 //theme-----------------------------------------------------------
+
 const toggleTheme = () => {
   const newTheme = !state.isDarkMode;
   dispatch({ type: 'TOGGLE_THEME', payload: newTheme });
@@ -125,6 +127,7 @@ dispatch({type:'GET_TOTAL'})
 },[state.cart])
 
 //filtering-------------------------------------------------------
+
   const handleCategoryChange = (selectedCategory) => {
   dispatch({ type: 'SET_CATEGORY', payload: selectedCategory })
   };
@@ -140,23 +143,18 @@ dispatch({type:'GET_TOTAL'})
     dispatch({ type: 'SET_SEARCH_PRODUCT', payload: searchValue });
   };
 
+  const handleFilter=(data)=>{
+    dispatch({type:'FILTER',payload:data})
+  }
+
 return (
 
    <AppContext.Provider value={{ 
     
-        data,handleCategoryChange,handlePriceChange,handleSortChange,handleSearchProductChange,
-        featuredData,
-        grid,list,
+        handleCategoryChange,handlePriceChange,handleSortChange,handleSearchProductChange,handleFilter,
+        grid,list,currentData,productPerPage,currentPage,handlePageChange,
         handleGrid,
         handleList,
-        loading,
-        currentData,
-        currentPage,
-        setCurrentPage,
-        startIndex,
-        endIndex,
-        productPerPage,
-        handlePageChange,
         nav,setNav,
        ...state,dispatch,addToCart,remove,increase,decrease,handleOnChange,navbarRef,toggleTheme,
    }}>

@@ -6,6 +6,25 @@ const reducer =  (state, action) => {
       isDarkMode: !state.isDarkMode,
     };
   }
+  if(action.type==='START'){
+    return {
+      ...state, loading:true
+    };
+  }
+  if(action.type==='FETCH'){
+    return{...state,data:action.payload,loading:false
+    }
+  }
+  if(action.type==='FEATURED_DATA'){
+    return{...state,featuredData:action.payload,loading:false
+    }
+  }
+  if(action.type==='FAILED'){
+    return {
+      ...state, loading:false
+    };
+  }
+ 
 
   if (action.type === 'ADD_TO_CART') {
     const { id } = action.payload;
@@ -73,18 +92,27 @@ const reducer =  (state, action) => {
 
     return {...state,amount,total,subTotal,shipping,tax}
   }
+ 
  if(action.type==='SET_CATEGORY'){
   return { ...state, selectCategory: action.payload };
  }
+
  if(action.type==='SET_PRICE'){
   return { ...state, price: action.payload };
  }
+
  if(action.type==='SET_SORT'){
   return { ...state, sort: action.payload };
  }
+
  if(action.type==='SET_SEARCH_PRODUCT'){
-  
   return { ...state, searchProduct: action.payload };
+ }
+
+ if(action.type==='FILTER'){
+  const {currentData}=action.payload
+  let filteredData=currentData;
+  // if(state.)
  }
   return state;
 };
