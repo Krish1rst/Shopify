@@ -24,8 +24,8 @@ function Navlinks() {
             to={url}
             className={({ isActive }) =>
               isActive
-                ? ` ${isDarkMode ?'bg-slate-800 text-gray-100':'bg-gray-800 text-gray-100'}  py-1 px-2 transition-colors duration-300 text-sm  rounded-md`
-                : ` ${isDarkMode ?'hover:bg-gray-400 text-gray-300':'text-gray-900 hover:bg-gray-700'}  py-1 px-2 transition-colors duration-300 text-sm  rounded-md`
+                ? ` ${isDarkMode ?'bg-slate-800 text-gray-100':'bg-gray-800 text-gray-100'}  py-1 px-2 transition-colors duration-300 text-xs  rounded-md`
+                : ` ${isDarkMode ?'hover:bg-gray-400 text-gray-300':'text-gray-900 hover:bg-gray-700'}  py-1 px-2 transition-colors duration-300 text-xs  rounded-md`
             }
           >
             {text}

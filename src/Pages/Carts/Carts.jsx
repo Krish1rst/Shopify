@@ -4,7 +4,7 @@ import { MdKeyboardArrowUp } from "react-icons/md";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import CartDetails from '../../Components/CartDetails';
-
+import { toast } from 'react-toastify';
 function Carts() {
   const Context=useGlobalContext();
   const {isDarkMode,total,subTotal,shipping,tax,cart,remove,increase,decrease}=Context;
@@ -25,7 +25,7 @@ function Carts() {
   return (
     <section className='mx-4 sm:mx-8 md:mx-14 lg:mx-18 xl:mx-24 max-w-[70rem] 2xl:mx-auto my-6 sm:my-8 md:my-12 lg:my-24 transition-all duration-300 transform transition-delay-250'>
       <div className='flex justify-start relative py-4'>
-          <p className={` text-3xl tracking-wider font-semibold ${isDarkMode ?'text-gray-200':'text-gray-700'}`}>Shopping Cart</p>
+          <p className={` text-xl md:text-3xl tracking-wider font-semibold ${isDarkMode ?'text-gray-200':'text-gray-700'}`}>Shopping Cart</p>
           <div className={`absolute inset-x-0 bottom-0 h-px bg-gray-400 opacity-40 ${isDarkMode ?'':''}`}></div>
       </div>
       <div className='flex flex-col lg:flex-row mb-24 mt-6 gap-12 '>
@@ -38,29 +38,31 @@ function Carts() {
                       
                     </div>
                     </Link>
-                    <div className={`w-full md:w-2/4 text-md md:text-sm uppercase text-center md:text-left ${isDarkMode ?'text-gray-200':'text-gray-700'}  font-medium lg:py-4 md:px-8 flex  justify-center my-3 lg:my-0`}>{item.title}
+                    <div className={`w-full md:w-2/4 text-xs md:text-md md:text-sm uppercase text-center md:text-left ${isDarkMode ?'text-gray-200':'text-gray-700'}  font-medium lg:py-4 md:px-8 flex  justify-center my-3 lg:my-0`}>{item.title}
                     </div>
                     <div className={`flex flex-col items-center ${isDarkMode ?'text-pink-500 bg-slate-800 md:bg-slate-900':'text-blue-500 bg-slate-100'}  rounded-md px-2 min-w-fit mx-2`}>
                       <div className='flex md:flex-col gap-4 md:gap-0 md:items-center lg:py-2'>
 
-                        <button onClick={()=>increase(item.id)} className={`${isDarkMode ?'text-pink-500 hover:bg-pink-500 focus:ring-pink-500 active:bg-pink-700 hover:text-slate-600 ':'text-blue-500 active:bg-blue-700 hover:text-blabk focus:ring-blue-500  active:text-blue-600 '}  text-2xl px-2 py-1 rounded-lg bg-transparent  focus:outline-none focus:ring-2  focus:ring-opacity-50  `}>
+                        <button onClick={()=>increase(item.id)} className={`${isDarkMode ?'text-pink-500 hover:bg-pink-500 focus:ring-pink-500 active:bg-pink-700 hover:text-slate-600 ':'text-blue-500 active:bg-blue-700 hover:text-blabk focus:ring-blue-500  active:text-blue-600 '}  text-lg md:text-2xl px-2 py-1 rounded-lg bg-transparent  focus:outline-none focus:ring-2  focus:ring-opacity-50  `}>
                           <MdKeyboardArrowUp />
                         </button>
 
-                        <p className={`text-lg ${isDarkMode ?'text-gray-200':'text-gray-700'}  font-normal py-2`}>
+                        <p className={`text-xs md:text-lg ${isDarkMode ?'text-gray-200':'text-gray-700'}  font-normal py-2`}>
                           {item.amount}
                         </p>
 
-                        <button onClick={()=>decrease(item.id)} className={`${isDarkMode ?'text-pink-500 hover:bg-pink-500 focus:ring-pink-500 active:bg-pink-700 hover:text-slate-600 ':'text-blue-500 active:bg-blue-700 hover:text-blabk focus:ring-blue-500  active:text-blue-600 '}  text-2xl px-2 py-1 rounded-md bg-transparent  focus:outline-none focus:ring-2  focus:ring-opacity-50  `}>
+                        <button onClick={()=>decrease(item.id)} className={`${isDarkMode ?'text-pink-500 hover:bg-pink-500 focus:ring-pink-500 active:bg-pink-700 hover:text-slate-600 ':'text-blue-500 active:bg-blue-700 hover:text-blabk focus:ring-blue-500  active:text-blue-600 '}  text-lg md:text-2xl px-2 py-1 rounded-md bg-transparent  focus:outline-none focus:ring-2  focus:ring-opacity-50  `}>
                           <MdKeyboardArrowDown />
                         </button>
 
                       </div>
-                        <button className={`${isDarkMode ?'text-pink-500':'text-blue-700'}  hover:underline text-sm font-normal text-left md:mt-6 pb-2 md:pb-0`}onClick={()=>remove(item.id)}>remove
+                        <button className={`${isDarkMode ?'text-pink-500':'text-blue-700'}  hover:underline text-xs md:text-sm font-normal text-left md:mt-6 pb-2 md:pb-0`}onClick={()=>{remove(item.id);
+                        toast.error('Product removed from cart');
+                        }}>remove
                         </button>
                     </div>
 
-                    <div className={`w-full  ${isDarkMode ?'text-gray-300':'text-gray-700'} md:w-1/4 flex justify-center lg:justify-end text-lg pt-2 md:pt-0   md:text-sm  font-semibold lg:pt-2 italic  lg:pr-4`}>
+                    <div className={`w-full  ${isDarkMode ?'text-gray-300':'text-gray-700'} md:w-1/4 flex justify-center lg:justify-end text-xs md:text-lg pt-2 md:pt-0   md:text-sm  font-semibold lg:pt-2 italic  lg:pr-4`}>
                       Cost : ${item.price}
                     </div>
                 

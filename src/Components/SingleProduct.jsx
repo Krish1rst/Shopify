@@ -9,9 +9,10 @@ import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 import ErrorPage from './ErrorPage';
 import { useGlobalContext } from '../Context/ContextApi';
+import { toast } from 'react-toastify';
 
 function SingleProduct() {
-  // ${isDarkMode ?'':''}
+
   const {isDarkMode ,addToCart,handleOnChange}=useGlobalContext();
   const { productId } = useParams();
   const [data,setData]=useState('');
@@ -79,7 +80,10 @@ if (!data) {
                <Dropdown options={numbers} handleOnChange={(value) => handleOnChange(value, id)}/>
             </div>
             <div className='flex gap-4  text-left my-4'>
-            <button className={`px-4 py-3 ${isDarkMode ?'bg-pink-500 text-gray-700 focus:border-purple-300':'focus:border-purple-800 text-white bg-blue-500'}   tracking-wider font-medium  text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring `} onClick={() => handleAddToCart({ id, image, price, title, category, description, rating })}>
+            <button className={`px-4 py-3 ${isDarkMode ?'bg-pink-500 text-gray-700 focus:border-purple-300':'focus:border-purple-800 text-white bg-blue-500'}   tracking-wider font-medium  text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring `} onClick={() => {
+              handleAddToCart({ id, image, price, title, category, description, rating });
+              toast.success('Item added to cart');
+            }}>
             ADD TO BAG
             </button>
             <Link to='/Carts'>
