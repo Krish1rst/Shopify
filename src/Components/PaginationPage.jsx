@@ -5,7 +5,7 @@ import { useGlobalContext } from '../Context/ContextApi'
 
 function PaginationPage() {
     const Context =useGlobalContext();
-    const {currentPage,productPerPage,handlePageChange,isDarkMode}=Context;
+    const {currentPage,productPerPage,handlePageChange,isDarkMode,filteredProduct}=Context;
 
   return (
     <div className='flex items-center justify-center   relative'>
@@ -13,7 +13,7 @@ function PaginationPage() {
         </div>
         <Stack spacing={3} sx={{ marginY: '20px' }}>
                 <Pagination
-                    count={Math.ceil(20 / productPerPage)}
+                    count={Math.ceil(filteredProduct.length / productPerPage)}
                     page={currentPage}
                     defaultPage={1}
                     onChange={handlePageChange}

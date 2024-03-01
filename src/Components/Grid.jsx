@@ -6,6 +6,7 @@ import {useGlobalContext} from '../Context/ContextApi'
 function Grid() {
     const context=useGlobalContext();
     const {isDarkMode,currentData}=context;
+    
 
   return (
     <>

@@ -1,4 +1,4 @@
-import React,{createContext,useState,useEffect,useRef, useContext, useReducer} from 'react'
+import React, {createContext,useContext,useState,useEffect,useRef,useReducer} from 'react'
 import { FetchData } from '../Utils/FetchApi';
 import reducer from '../Utils/Reducer';
 
@@ -16,14 +16,15 @@ const initialState={
   data:[],
   isDarkMode: false,
   selectCategory: 'All',
-  price: 50,
+  price: 1000,
   sort: '',
   searchProduct: '',
   featuredData:[],
-  loading:false,  
+  loading:false,
+  filteredProduct:[]
 }
 
-export const ContextProvider=({children})=> {
+export const ContextProvider=React.memo(({children})=> {
 
   const [state,dispatch]=useReducer(reducer, initialState);
 
@@ -53,10 +54,10 @@ useEffect(()=>{
 
 //paginatiom-----------------------------------------------------------------
 const [currentPage,setCurrentPage]=useState(1);
-const productPerPage=6;
+const productPerPage=9;
 const endIndex = currentPage*productPerPage;
 const startIndex = endIndex-productPerPage ;
-const currentData = state.data.slice(startIndex, endIndex);
+const currentData = state.filteredProduct.slice(startIndex, endIndex);
 const handlePageChange=(e,value)=>{
     setCurrentPage(value); 
   }
@@ -128,8 +129,8 @@ dispatch({type:'GET_TOTAL'})
 
 //filtering-------------------------------------------------------
 
-  const handleCategoryChange = (selectedCategory) => {
-  dispatch({ type: 'SET_CATEGORY', payload: selectedCategory })
+  const handleCategoryChange = (e) => {
+  dispatch({ type: 'SET_CATEGORY', payload: e.target.value })
   };
   const handlePriceChange = (selectedPrice) => {
     dispatch({ type: 'SET_PRICE', payload: selectedPrice });
@@ -146,12 +147,15 @@ dispatch({type:'GET_TOTAL'})
   const handleFilter=(data)=>{
     dispatch({type:'FILTER',payload:data})
   }
+  const handleReset=(data)=>{
+    dispatch({type:'RESET',payload:data})
+  }
 
 return (
 
    <AppContext.Provider value={{ 
-    
-        handleCategoryChange,handlePriceChange,handleSortChange,handleSearchProductChange,handleFilter,
+        handleCategoryChange,handlePriceChange,handleSortChange,handleSearchProductChange,
+        handleFilter,handleReset,
         grid,list,
         handleGrid,
         handleList,
@@ -167,7 +171,7 @@ return (
    </AppContext.Provider>
    
   )
-}
+})
 
 export const useGlobalContext=()=>{
     return useContext(AppContext);

@@ -10,7 +10,7 @@ import PaginationPage from '../../Components/PaginationPage'
 
 function Product() {
 const context=useGlobalContext();
-const {error,loading,grid,list}=context;
+const {error,loading,grid,list,filteredProduct}=context;
 
 if (loading) {
   return <div className='flex items-center  justify-center'>
@@ -27,7 +27,8 @@ return (
    <Layout/>
     {grid && (<Grid/>)}
     {list && ( <List/>)}
-   <PaginationPage/>
+    {filteredProduct.length > 0 ? <PaginationPage /> : ''}
+
   </section>
   )
 }

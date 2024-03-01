@@ -12,7 +12,7 @@ const reducer =  (state, action) => {
     };
   }
   if(action.type==='FETCH'){
-    return{...state,data:action.payload,loading:false
+    return{...state,data:action.payload,filteredProduct:action.payload,loading:false
     }
   }
   if(action.type==='FEATURED_DATA'){
@@ -94,26 +94,56 @@ const reducer =  (state, action) => {
   }
  
  if(action.type==='SET_CATEGORY'){
-  return { ...state, selectCategory: action.payload };
+    return { ...state, selectCategory: action.payload };
  }
 
  if(action.type==='SET_PRICE'){
-  return { ...state, price: action.payload };
+    return { ...state, price: action.payload };
  }
 
  if(action.type==='SET_SORT'){
-  return { ...state, sort: action.payload };
+    return { ...state, sort: action.payload };
  }
 
  if(action.type==='SET_SEARCH_PRODUCT'){
-  return { ...state, searchProduct: action.payload };
+    return { ...state, searchProduct: action.payload };
  }
 
- if(action.type==='FILTER'){
-  const {currentData}=action.payload
-  let filteredData=currentData;
-  // if(state.)
- }
+ if (action.type === 'FILTER') {
+
+      let filteredProducts = action.payload;
+      if(state.price>5){
+        filteredProducts=filteredProducts.filter((item)=>item.price<=state.price)
+      }
+
+      if (state.searchProduct) {
+        filteredProducts = filteredProducts.filter((item) => {
+          return (
+            item.title.toLowerCase().includes(state.searchProduct.toLowerCase()) ||
+            item.description.toLowerCase().includes(state.searchProduct.toLowerCase()) ||
+            item.category.toLowerCase().includes(state.searchProduct.toLowerCase())
+          );
+        });
+      }
+      
+    filteredProducts=state.selectCategory==='All'?filteredProducts:filteredProducts.filter((item)=>item.category===state.selectCategory)
+    
+      return { ...state, filteredProduct: filteredProducts };
+}
+
+if (action.type === 'RESET') {
+   const data=state.data;
+  //  selectCategory: 'All',
+  //  price: 1000,
+  //  sort: '',
+  //  searchProduct: '',
+    return { ...state,
+      price:state.price=1000,
+      selectCategory:state.selectCategory='All',
+      sort:state.sort='',
+      searchProduct:state.searchProduct='',
+      filteredProduct: data  };
+}
   return state;
 };
 
