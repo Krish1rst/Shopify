@@ -1,8 +1,8 @@
 import React from 'react'
-import SearchBar from '../Components/Searchbar'
-import Sort from '../Components/Sort'
-import Category from '../Components/Select'
-import Slider from '../Components/Slider'
+import SearchBar from './FilterSearch'
+import Sort from './FilterSort'
+import Category from './FilterCategory'
+import Slider from './FilterSlider'
 import { useGlobalContext } from '../Context/ContextApi'
 
 function Filter() {
@@ -10,6 +10,7 @@ function Filter() {
   
   const Context=useGlobalContext();
   const {isDarkMode,handleFilter,currentData}=Context;
+  console.log(currentData)
   return (
     <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-8 py-8 w-full  rounded-md border  border-solid border-1 ${isDarkMode ?'bg-slate-900': 'bg-blue-50 border-purple-100'}`}>
     <div className=''><SearchBar/></div>

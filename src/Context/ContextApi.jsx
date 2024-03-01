@@ -152,11 +152,16 @@ return (
    <AppContext.Provider value={{ 
     
         handleCategoryChange,handlePriceChange,handleSortChange,handleSearchProductChange,handleFilter,
-        grid,list,currentData,productPerPage,currentPage,handlePageChange,
+        grid,list,
         handleGrid,
         handleList,
         nav,setNav,
-       ...state,dispatch,addToCart,remove,increase,decrease,handleOnChange,navbarRef,toggleTheme,
+        currentData,
+        productPerPage,
+        currentPage,handlePageChange, 
+       ...state,dispatch,
+       addToCart,remove,increase,decrease,handleOnChange,
+       navbarRef,toggleTheme,
    }}>
         {children}
    </AppContext.Provider>
