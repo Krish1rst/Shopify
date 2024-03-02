@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
-import {useGlobalContext} from '../../Context/ContextApi'
-import List from '../../Components/List'
-import Grid from '../../Components/Grid'
-import Layout from '../../Components/Layout'
-import Spinner from '../../Components/LoaderSpinner'
-import Filter from '../../Components/Filter'
-import ErrorPage from '../../Components/ErrorPage'
-import PaginationPage from '../../Components/PaginationPage'
+import {useGlobalContext} from '../Context/ContextApi'
+import List from '../Components/List'
+import Grid from '../Components/Grid'
+import Layout from '../Components/Layout'
+import Spinner from '../Components/LoaderSpinner'
+import Filter from '../Components/Filter'
+import ErrorPage from '../Components/ErrorPage'
+import PaginationPage from '../Components/PaginationPage'
 
 function Product() {
 const context=useGlobalContext();

@@ -1,9 +1,9 @@
 import React from 'react'
-import { useGlobalContext } from '../../Context/ContextApi'
+import { useGlobalContext } from '../Context/ContextApi'
 import { MdKeyboardArrowUp } from "react-icons/md";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { Link } from 'react-router-dom';
-import CartDetails from '../../Components/CartDetails';
+import CartDetails from '../Components/CartDetails';
 import { toast } from 'react-toastify';
 function Carts() {
   const Context=useGlobalContext();

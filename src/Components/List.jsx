@@ -21,7 +21,7 @@ const {isDarkMode,currentData}=context;
               </div>
                 <div className='pt-4 sm:pt-0 sm:ml-6 h-fit sm:py-8 flex flex-col justify-end'>
                   <p className={`mb-2 sm:mb-4 md:mb-16 text-sm sm:text-lg font-semibold ${isDarkMode ?'text-gray-200':''}`}>{item.title}</p>
-                  <p className={`line-clamp-2 text-xs lg:text-md ${isDarkMode ?'text-gray-300':''}`}>
+                  <p className={`line-clamp-2 text-md ${isDarkMode ?'text-gray-300':''}`}>
                       {item.description}...
                     </p>
                 </div>

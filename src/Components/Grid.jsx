@@ -14,7 +14,7 @@ function Grid() {
       {currentData.map((item) => (
             <Link to={`/Products/${item.id}`}
             key={item.id}
-            className={`grid-layout-style flex justify-center rounded-xl place-content-center  overflow-hidden shadow-2xl transition-transform transform hover:scale-95 hover:shadow-lg  duration-300 px-4 py-1 ${isDarkMode ?'bg-slate-700':''}`}
+            className={`grid-layout-style flex justify-center rounded-xl place-content-center  overflow-hidden shadow-2xl transition-transform transform hover:scale-95 hover:shadow-lg  duration-300 px-4 py-1  ${isDarkMode ?'bg-slate-700':''}`}
           >
             <div  >
               <div className={`flex justify-center rounded-4 item-center p-4 rounded-xl `}>

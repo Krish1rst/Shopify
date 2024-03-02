@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGlobalContext } from '../../Context/ContextApi';
+import { useGlobalContext } from '../Context/ContextApi';
 function About() {
   const Context = useGlobalContext();
   const {isDarkMode} = Context;

@@ -1,6 +1,6 @@
 import React from 'react'
-import { useGlobalContext } from '../../Context/ContextApi';
-import CartDetails from '../../Components/CartDetails';
+import { useGlobalContext } from '../Context/ContextApi';
+import CartDetails from '../Components/CartDetails';
 
 function Checkout() {
   const Context=useGlobalContext();
