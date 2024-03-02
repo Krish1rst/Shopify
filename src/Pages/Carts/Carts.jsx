@@ -11,11 +11,12 @@ function Carts() {
 
 
   if(cart.length==0){
+    
     return(
       <div className='flex flex-col gap-2 items-center m-24'>
         <p className='text-5xl font-bold capitalize'>Your bag </p>
         <h3 className='text-2xl italic hover:underline'>__is currently empty.</h3>
-        <button className={`px-4 py-3 mt-6 md:mt-8  tracking-wider font-medium  text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800 ${isDarkMode ?'bg-pink-500 text-700 ':'bg-blue-500 text-blue-50 '}`}>
+      <button  className={`px-4 py-3 mt-6 md:mt-8  tracking-wider font-medium  text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800 ${isDarkMode ?'bg-pink-500 text-700 ':'bg-blue-500 text-blue-50 '}`}>
               <Link to='/Products'>GO TO PRODUCTS</Link>
             </button>
       </div>
@@ -56,13 +57,20 @@ function Carts() {
                         </button>
 
                       </div>
-                        <button className={`${isDarkMode ?'text-pink-500':'text-blue-700'}  hover:underline text-xs md:text-sm font-normal text-left md:mt-6 pb-2 md:pb-0`}onClick={()=>{remove(item.id);
-                        toast.error('Product removed from cart');
-                        }}>remove
+                        <button className={`${isDarkMode ?'text-pink-500':'text-blue-700'}  hover:underline text-xs md:text-sm font-normal text-left md:mt-6 pb-2 md:pb-0`}
+                        onClick={() => {
+                          remove(item.id);
+                          toast.error('Product removed from cart');
+                          
+                          if (cart.length === 1) {
+                              toast.info('Cart is empty');
+                          }
+                      }}
+                      >remove
                         </button>
                     </div>
 
-                    <div className={`w-full  ${isDarkMode ?'text-gray-300':'text-gray-700'} md:w-1/4 flex justify-center lg:justify-end text-xs md:text-lg pt-2 md:pt-0   md:text-sm  font-semibold lg:pt-2 italic  lg:pr-4`}>
+                    <div className={`w-full  ${isDarkMode ?'text-gray-300':'text-gray-700'} md:w-1/4 flex justify-center lg:justify-end text-xs md:text-lg pt-2 md:pt-0     font-semibold lg:pt-2 italic  lg:pr-4`}>
                       Cost : ${item.price}
                     </div>
                 

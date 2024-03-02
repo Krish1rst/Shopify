@@ -18,7 +18,7 @@ function Grid() {
           >
             <div  >
               <div className={`flex justify-center rounded-4 item-center p-4 rounded-xl `}>
-                <img className={`blend-multiply max-h-32 w-32 object-contain object-center ${isDarkMode ?'bg-white':''} rounded-xl`} src={item.image} alt={item.title} />
+                <img className={`blend-multiply h-32 w-32 object-contain object-center ${isDarkMode ?'bg-white':''} rounded-xl`} src={item.image} alt={item.title} />
               </div>
               <div className='pt-6 relative'>
                 <p className={`text-sm px-4 font-medium text-center line-clamp-2 ${isDarkMode ?'text-purple-400':'text-gray-800'}`}>{item.title}  </p>

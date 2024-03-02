@@ -52,16 +52,32 @@ useEffect(()=>{
         FetchedApiData(dispatch);
     },[])
 
+    
 //paginatiom-----------------------------------------------------------------
-const [currentPage,setCurrentPage]=useState(1);
-const productPerPage=9;
-const endIndex = currentPage*productPerPage;
-const startIndex = endIndex-productPerPage ;
+
+const [currentPage, setCurrentPage] = useState(1);
+const [productPerPage, setProductPerPage] = useState(window.innerWidth < 768 ? 6 : 9);
+
+useEffect(() => {
+  const updateProductPerPage = () => {
+    setProductPerPage(window.innerWidth < 640 ? 6 : 9);
+  };
+
+  window.addEventListener('resize', updateProductPerPage);
+
+  return () => {
+    window.removeEventListener('resize', updateProductPerPage);
+  };
+}, []);
+
+const endIndex = currentPage * productPerPage;
+const startIndex = endIndex - productPerPage;
 const currentData = state.filteredProduct.slice(startIndex, endIndex);
-const handlePageChange=(e,value)=>{
-    setCurrentPage(value); 
-  }
-  
+
+const handlePageChange = (e, value) => {
+  setCurrentPage(value);
+};
+
 //MenuHandling---------------------------------------------------------------
 
 const handleClickOutside = (event) => {
