@@ -41,7 +41,7 @@ function Carts() {
                     </Link>
                     <div className={`w-full md:w-2/4 text-xs md:text-md md:text-sm uppercase text-center md:text-left ${isDarkMode ?'text-gray-200':'text-gray-700'}  font-medium lg:py-4 md:px-8 flex  justify-center my-3 lg:my-0`}>{item.title}
                     </div>
-                    <div className={`flex flex-col items-center ${isDarkMode ?'text-pink-500 bg-slate-800 md:bg-slate-900':'text-blue-500 bg-slate-100'}  rounded-md px-2 min-w-fit mx-2`}>
+                    <div className={`flex flex-col items-center ${isDarkMode ?'text-pink-500 bg-slate-800 bg-slate-800/20':'text-blue-500 bg-slate-100'}  rounded-md px-2 min-w-fit mx-2`}>
                       <div className='flex md:flex-col gap-4 md:gap-0 md:items-center lg:py-2'>
 
                         <button onClick={()=>increase(item.id)} className={`${isDarkMode ?'text-pink-500 hover:bg-pink-500 focus:ring-pink-500 active:bg-pink-700 hover:text-slate-600 ':'text-blue-500 active:bg-blue-700 hover:text-blabk focus:ring-blue-500  active:text-blue-600 '}  text-lg md:text-2xl px-2 py-1 rounded-lg bg-transparent  focus:outline-none focus:ring-2  focus:ring-opacity-50  `}>

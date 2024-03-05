@@ -1,10 +1,10 @@
 import React  from 'react'
 import { useParams } from 'react-router-dom';
-import numbers from './ItemNumber';
-import Dropdown from './DropDown';
+import numbers from '../Components/ItemNumber';
+import Dropdown from '../Components/DropDown';
 import { TfiAngleRight } from "react-icons/tfi";
 import { Link } from 'react-router-dom';
-import Spinner from './LoaderSpinner';
+import Spinner from '../Components/LoaderSpinner';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 import { useGlobalContext } from '../Context/ContextApi';
@@ -16,17 +16,17 @@ function SingleProduct() {
   const { productId } = useParams();
   const product = currentData.find(item => item.id === +productId);
 
-  const handleAddToCart = (item) => {
-    addToCart(item);
-    toast.success('Item added to cart');
-  };
+ 
 
 if (!product) {
     return <div className='flex items-center  justify-center'>
       <Spinner/>
     </div>;
   }
-  
+  const handleAddToCart = (item) => {
+    addToCart(item);
+    toast.success('Item added to cart');
+  };
   const { id, image, price, title, category, description, rating :{rate}} = product;
   return (   
     <div className='mx-4 sm:mx-8 md:mx-14 lg:mx-18  my-6 sm:my-12 md:my-16 lg:my-20 transition-all duration-300 transform transition-delay-250'>
