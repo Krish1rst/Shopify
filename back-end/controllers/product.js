@@ -1,7 +1,7 @@
 
 
-const product=async(req,res)=>{
-    res.send('product routes')
+const order=async(req,res)=>{
+    res.send('order routes')
 }
 
-module.exports=product
+module.exports=order
