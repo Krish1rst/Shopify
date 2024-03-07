@@ -32,6 +32,7 @@ export const ContextProvider=React.memo(({children})=> {
  const [list,setList]=useState(false);
  const [nav,setNav]=useState(false);
  const navbarRef = useRef(null)
+ const [user,SetUser]=useState(null)
  
 //dataFetching----------------------------------------------------
 
@@ -181,7 +182,7 @@ return (
         currentPage,handlePageChange, 
        ...state,dispatch,
        addToCart,remove,increase,decrease,handleOnChange,
-       navbarRef,toggleTheme,
+       navbarRef,toggleTheme,user,SetUser
    }}>
         {children}
    </AppContext.Provider>
