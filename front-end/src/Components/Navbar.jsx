@@ -13,7 +13,7 @@ function Navbar() {
 
 
   return (
-    <nav ref={navbarRef} className={`h-10 md:h-16 md:px-12 lg:px-18 xl:px-24 2xl:px-auto flex justify-between item-center ${isDarkMode ? 'bg-gray-900' : 'bg-blue-50'} w-full px-2 sm:px-6 py-2 lg:py-0 lg:px-12`}>
+    <nav ref={navbarRef} className={`h-10 md:h-16 md:px-12 lg:px-18 xl:px-24  flex justify-between item-center ${isDarkMode ? 'bg-gray-900' : 'bg-blue-50'} w-full px-2 sm:px-6 py-2 lg:py-0 lg:px-12`}>
       <button onClick={() => setNav(!nav)} className={` transition-colors duration-300 p-2 rounded-full  h-fit lg:hidden  ${isDarkMode ?'bg-gray-700 text-gray-200 hover:text-pink-500 hover:bg-gray-600':'bg-gray-200 text-gray-800 hover:text-blue-500 hover:bg-gray-300'}`} >
         <FiMenu className="text-xs md:text-2xl " />
       </button>

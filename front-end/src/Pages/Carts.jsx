@@ -13,7 +13,7 @@ function Carts() {
   if(cart.length==0){
     
     return(
-      <div className='flex flex-col gap-2 items-center m-24'>
+      <div className='max-w-6xl flex flex-col gap-2 items-center m-24'>
         <p className='text-5xl font-bold capitalize'>Your bag </p>
         <h3 className='text-2xl italic hover:underline'>__is currently empty.</h3>
       <button  className={`px-4 py-3 mt-6 md:mt-8  tracking-wider font-medium  text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800 ${isDarkMode ?'bg-pink-500 text-700 ':'bg-blue-500 text-blue-50 '}`}>
@@ -24,7 +24,7 @@ function Carts() {
   }
 
   return (
-    <section className='mx-4 sm:mx-8 md:mx-14 lg:mx-18 xl:mx-24 max-w-[70rem] 2xl:mx-auto my-6 sm:my-8 md:my-12 lg:my-24 transition-all duration-300 transform transition-delay-250'>
+    <section className='mx-4 sm:mx-8 md:mx-14 lg:mx-18 xl:mx-24 max-w-6xl 2xl:mx-auto my-6 sm:my-8 md:my-12 lg:my-24 transition-all duration-300 transform transition-delay-250'>
       <div className='flex justify-start relative py-4'>
           <p className={` text-xl md:text-3xl tracking-wider font-semibold ${isDarkMode ?'text-gray-200':'text-gray-700'}`}>Shopping Cart</p>
           <div className={`absolute inset-x-0 bottom-0 h-px bg-gray-400 opacity-40 ${isDarkMode ?'':''}`}></div>

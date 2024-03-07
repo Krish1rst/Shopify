@@ -7,7 +7,7 @@ import {useGlobalContext} from '../Context/ContextApi'
 function Layout() {
 const context=useGlobalContext();
 const {filteredProduct,grid,list,handleGrid,handleList,isDarkMode}=context;
-// ${isDarkMode ?'':''}
+
 
   return (
     <>

@@ -8,5 +8,6 @@ import Order from './Order'
 import SingleProduct from './SingleProduct'
 import LogIn from './LogIn'
 import Register from './Register'
+import Layout from './LayoutPage'
 
-export {Register,LogIn, Home,About,Order,Checkout, Carts,SingleProduct, Product};
+export {Register,LogIn, Home,About,Order,Checkout, Carts,SingleProduct, Product,Layout};

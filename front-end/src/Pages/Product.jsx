@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {useGlobalContext} from '../Context/ContextApi'
 import List from '../Components/List'
 import Grid from '../Components/Grid'
-import Layout from '../Components/Layout'
+import Layout from '../Components/ProductPageTop'
 import Spinner from '../Components/LoaderSpinner'
 import Filter from '../Components/Filter'
 import ErrorPage from '../Components/ErrorPage'
@@ -22,7 +22,7 @@ if ( error) {
 }
 return ( 
  <section className='mx-4 sm:mx-8 md:mx-14 lg:mx-18 xl:mx-24 mt-8 md:mt-10 lg:mt-14 xl:mt-20 
- max-w-[70rem] 2xl:mx-auto mb-4 transition-all duration-300 transform transition-delay-250'>  
+ max-w-6xl 2xl:mx-auto mb-4 transition-all duration-300 transform transition-delay-250'>  
   
    <Filter/>
    <Layout/>
