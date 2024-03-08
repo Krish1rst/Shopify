@@ -1,4 +1,4 @@
-import React, {createContext,useContext,useState,useEffect,useRef,useReducer} from 'react'
+import React, {memo,createContext,useContext,useState,useEffect,useRef,useReducer} from 'react'
 import { FetchData } from '../Utils/FetchApi';
 import reducer from '../Utils/Reducer';
 
@@ -24,7 +24,7 @@ const initialState={
   filteredProduct:[]
 }
 
-export const ContextProvider=React.memo(({children})=> {
+export const ContextProvider=memo(({children})=> {
 
   const [state,dispatch]=useReducer(reducer, initialState);
 

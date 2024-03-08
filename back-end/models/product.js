@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
-const productSchema=new mongoose.productSchema({
+const orderSchema=new mongoose.Schema({
     name:{
         type:String,
         required:true,
@@ -18,9 +18,14 @@ const productSchema=new mongoose.productSchema({
     cost:{
         type:Number,
         required:true
-    }
+    },
+    createdBy: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
+        required: [true, 'Please provide user'],
+      },
 
 },{
     timestamps:true
 })
-module.exports=mongoose.model('Product',productSchema)
+module.exports=mongoose.model('Product',orderSchema)

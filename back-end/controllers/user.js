@@ -27,6 +27,7 @@ const signIn=async(req,res)=>{
   res.status(StatusCodes.OK).json({
     user: {
       name: user.name,
+      // userId:user._id,
       token,
     },
   });

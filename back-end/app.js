@@ -3,19 +3,21 @@ require('express-async-errors');
 
 const express = require('express');
 const db=require('./db/connect')
+ 
 const app = express();
 app.use(express.json());
 
 const authRouter=require('./routes/auth')
 const order=require('./routes/product')
+const authentication=require('./middleware/authentication')
 
 const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 //routes
  app.use('/api/v1/auth',authRouter)
- app.use('/api/v1/product',order)
+ app.use('/api/v1/product',authentication,order)
 // middleware
-app.use(express.static('./public'));
+
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
