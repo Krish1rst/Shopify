@@ -10,7 +10,7 @@ function TopNav() {
       toast.success('Loged out successfully');
     }
   return (
-    <header className={`py-1 sm:py-2 px-4 sm:px-8 md:px-12 lg:px-18   transition-all duration-300 transform transition-delay-250 ${isDarkMode?'bg-slate-700':'bg-slate-800'} flex justify-center md:justify-end items-center  gap-4 `}>
+    <header className={`py-1 px-4 sm:px-8 md:px-12 lg:px-18   transition-all duration-300 transform transition-delay-250 ${isDarkMode?'bg-slate-700':'bg-slate-800'} flex justify-center md:justify-end items-center  gap-4 `}>
       {user?
       (<p className={`text-sm capitalize ${isDarkMode?'text-slate-200':'text-slate-300'}`}>Hello {user}</p>):
       (
@@ -21,12 +21,12 @@ function TopNav() {
       </Link>
       )}
   {user ? (
-        <button onClick={handleLogOut} className={`${isDarkMode?'text-pink-500':'text-blue-400'} hover:underline hover:underline-offset-3 text-xs`}>
+        <button onClick={handleLogOut} className={`border rounded-3xl p-1 ${isDarkMode?'text-pink-500 border-pink-600':'text-blue-400 border-blue-600'} text-xs`}>
             LogOut
         </button>
       ):(
       <Link to='Register'>
-      <button className={`${isDarkMode?'text-slate-200':'text-slate-200'} hover:underline hover:underline-offset-3 text-xs`}>
+      <button className={`${isDarkMode?'text-slate-200':'text-slate-200'}  text-xs`}>
           Create Account
         </button>
       </Link>)}
