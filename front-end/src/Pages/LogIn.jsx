@@ -5,8 +5,8 @@ import axios from "axios";
 import { useGlobalContext } from '../Context/ContextApi';
 
 function LoginForm() {
-  const {user,SetUser}=useGlobalContext()
-const navigate=useNavigate();
+  const {user,SetUser,SetToken}=useGlobalContext()
+  const navigate=useNavigate();
   const handleSubmit = async(e) => {
     e.preventDefault();
     const formData= new FormData(e.currentTarget)
@@ -16,8 +16,11 @@ const navigate=useNavigate();
     const data=Object.fromEntries(formData)
     try {
       const response = await axios.post('http://localhost:3000/api/v1/auth/signIn', data);
-      const {data:{user:{name}}}=response;
+      console.log(response)
+      const {data:{user:{name,token}}}=response;
       SetUser(name);
+      SetToken(token);
+      console.log(token)
       toast.success('Login successfull');
       return navigate('/');
     } catch (error) {

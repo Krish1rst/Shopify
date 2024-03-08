@@ -92,6 +92,9 @@ const reducer =  (state, action) => {
 
     return {...state,amount,total,subTotal,shipping,tax}
   }
+  if(action.type==='CLEAR_CART'){
+   return { ...state, cart: [] };
+  }
  
  if(action.type==='SET_CATEGORY'){
     return { ...state, selectCategory: action.payload };

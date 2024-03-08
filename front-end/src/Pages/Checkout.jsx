@@ -1,12 +1,48 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { useGlobalContext } from '../Context/ContextApi';
 import CartDetails from '../Components/CartDetails';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import EmptyCart from '../Components/EmptyCart';
+
 
 function Checkout() {
+  const navigate=useNavigate();
   const Context=useGlobalContext();
-  const {isDarkMode,total,subTotal,shipping,tax,cart}=Context;
-
-
+  const {isDarkMode,token,total,amount,handleClearCart,cart}=Context;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const info = {
+      ...Object.fromEntries(data),
+      totalProduct: amount,
+      cost: total,
+    };
+    try {
+      const ordersData = await axios.post(
+        'http://localhost:3000/api/v1/product/order',
+        info,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      handleClearCart();
+      console.log(ordersData.data)
+      toast.success('Your order successfull');
+      navigate('/Order')
+    } catch (err) {
+      return toast.error(err.message)
+    }
+  };
+  
+  if(cart.length==0){
+    return(
+     <EmptyCart/>
+    )
+  }
   return (
    <section className='mx-4 sm:mx-8 md:mx-14 lg:mx-18 xl:mx-24 max-w-6xl 2xl:mx-auto my-6 sm:my-8 md:my-12 lg:my-24 transition-all duration-300 transform transition-delay-250'>
      <div className='flex justify-start relative py-4'>
@@ -15,7 +51,7 @@ function Checkout() {
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 md:mt-8 gap-8'>
           <div className='w-full py-6 md:py-0 '>
-            <form method="post" action="/checkout" className="flex flex-col gap-y-4">
+            <form onSubmit={handleSubmit} method="POST" action="/checkout" className="flex flex-col gap-y-4">
                 <h4 className={`font-medium text-xl capitalize ${isDarkMode?'text-slate-200':'text-slate-800'}`}>shipping information</h4>
                 <div className="flex flex-col ">
                   <label htmlFor="name" className={`text-sm font-medium ${isDarkMode ?'text-gray-200':'text-gray-700'}  `}>First Name</label>

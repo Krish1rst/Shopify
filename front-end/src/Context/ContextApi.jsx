@@ -4,6 +4,7 @@ import reducer from '../Utils/Reducer';
 
 
 const AppContext = createContext(); 
+
 const CART_STORAGE_KEY = 'cart';
 
 const initialState={
@@ -33,7 +34,8 @@ export const ContextProvider=memo(({children})=> {
  const [nav,setNav]=useState(false);
  const navbarRef = useRef(null)
  const [user,SetUser]=useState(null)
- 
+ const [token,SetToken]=useState(null)
+ const [ordersData,SetOrdersData]=useState([]);
 //dataFetching----------------------------------------------------
 
 const FetchedApiData=async()=>{
@@ -131,6 +133,9 @@ const handleOnChange = (selectedValue, itemId) => {
   dispatch({ type: 'SET_AMOUNT', payload: { id: itemId, amount: selectedValue } });
 };
 
+const handleClearCart=()=>{
+  dispatch({type:'CLEAR_CART'})
+}
 
 //theme-----------------------------------------------------------
 
@@ -181,8 +186,8 @@ return (
         productPerPage,
         currentPage,handlePageChange, 
        ...state,dispatch,
-       addToCart,remove,increase,decrease,handleOnChange,
-       navbarRef,toggleTheme,user,SetUser
+       addToCart,remove,increase,decrease,handleOnChange,handleClearCart,
+       navbarRef,toggleTheme,user,SetUser,SetToken,token,ordersData,SetOrdersData
    }}>
         {children}
    </AppContext.Provider>

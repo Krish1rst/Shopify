@@ -2,9 +2,9 @@ const model=require('../models/product')
 const { StatusCodes } = require('http-status-codes')
 const { BadRequestError, NotFoundError } = require('../errors')
 
-const getOrders=(req,res)=>{
-    
-    res.status(200).send('all orders of this user')
+const getOrders=async (req,res)=>{
+    const order= await model.find({createdBy:req.user.userId}).sort({ createdAt: -1 })
+    res.status(StatusCodes.OK).json({order,count:order.length})
 }
 const createOrder=async(req,res)=>{
     req.body.createdBy=req.user.userId
