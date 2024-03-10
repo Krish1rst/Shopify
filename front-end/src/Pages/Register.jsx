@@ -39,7 +39,7 @@ function RegisterForm() {
               Username
             </label>
             <input
-              className={`${isDarkMode ?'text-gray-900 bg-slate-500':'text-gray-200'}  shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700  focus:outline-none focus:shadow-outline`}
+              className={`${isDarkMode ?'text-gray-900 bg-slate-500':'text-gray-800'}  shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700  focus:outline-none focus:shadow-outline`}
               id="username"
               type="text"
               name="name"
@@ -54,7 +54,7 @@ function RegisterForm() {
               Email
             </label>
             <input
-              className={`${isDarkMode ?'text-gray-900 bg-slate-500':'text-gray-200'}  shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700  focus:outline-none focus:shadow-outline`}
+              className={`${isDarkMode ?'text-gray-900 bg-slate-500':'text-gray-800'}  shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700  focus:outline-none focus:shadow-outline`}
               id="email"
               type="email"
               name="email"
@@ -69,7 +69,7 @@ function RegisterForm() {
               Password
             </label>
             <input
-              className={`${isDarkMode ?'text-gray-900 bg-slate-500':'text-gray-200'} shadow-sm appearance-none border rounded w-full py-2 px-3  mb-3  focus:outline-none focus:shadow-outline`}
+              className={`${isDarkMode ?'text-gray-900 bg-slate-500':'text-gray-800'} shadow-sm appearance-none border rounded w-full py-2 px-3  mb-3  focus:outline-none focus:shadow-outline`}
               id="password"
               type="password"
               name="password"

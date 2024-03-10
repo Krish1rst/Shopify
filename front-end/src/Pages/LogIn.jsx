@@ -13,15 +13,23 @@ function LoginForm() {
     if(!formData){
       console.log('input error')
     }
-    const data=Object.fromEntries(formData)
+    if(user==='Guest'){
+      data={
+        name:'Guest',
+        email:'Guest@gmail.com',
+        password:'12345678'
+      }
+    }else{
+      const data=Object.fromEntries(formData)
+    }
+    
     try {
       const response = await axios.post('http://localhost:3000/api/v1/auth/signIn', data);
-      console.log(response)
       const {data:{user:{name,token}}}=response;
       SetUser(name);
       SetToken(token);
       console.log(token)
-      toast.success('Login successfull');
+      toast.success('Login successful');
       return navigate('/');
     } catch (error) {
       const errorMessage =
@@ -29,9 +37,12 @@ function LoginForm() {
         'LogIn Failed !! Check your credentials';
       toast.error(errorMessage);
       return null;
-    }
-    
+    }   
 };
+const handleGuestUser=()=>{
+  SetUser('Guest')
+  toast.success('Welcome guest user');
+}
   return (
     <div className={`flex flex-col  items-center justify-center min-h-screen ${isDarkMode ?'text-gray-200':'text-gray-700'}`}>
       
@@ -77,7 +88,7 @@ function LoginForm() {
               LOGIN
             </button>
             <Link to='/'>
-            <button
+            <button onClick={handleGuestUser}
               className='px-4 w-full py-3 my-1 sm:my-0  tracking-wider font-medium text-xs sm:text-sm rounded-md transition-all transform  active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800 bg-purple-800 text-blue-50 '
               type="button"
             >
