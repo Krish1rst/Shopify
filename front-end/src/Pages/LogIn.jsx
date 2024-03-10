@@ -5,7 +5,7 @@ import axios from "axios";
 import { useGlobalContext } from '../Context/ContextApi';
 
 function LoginForm() {
-  const {user,SetUser,SetToken}=useGlobalContext()
+  const {SetUser,SetToken,isDarkMode}=useGlobalContext()
   const navigate=useNavigate();
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -26,22 +26,22 @@ function LoginForm() {
     } catch (error) {
       const errorMessage =
         error?.response?.data?.error?.message ||
-        'please double check your credentials';
+        'LogIn Failed !! Check your credentials';
       toast.error(errorMessage);
       return null;
     }
     
 };
   return (
-    <div className="flex flex-col  items-center justify-center min-h-screen">
+    <div className={`flex flex-col  items-center justify-center min-h-screen ${isDarkMode ?'text-gray-200':'text-gray-700'}`}>
       
       <div className="w-full  max-w-md">
-      <p className='text-4xl font-bold text-slate-600 text-center py-8'>Login</p>
-        <form method='POST' onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <p className={`text-4xl font-bold text-center py-8 ${isDarkMode ?'text-gray-200':'text-gray-700'}`}>SignIn</p>
+        <form method='POST' onSubmit={handleSubmit} className={`${isDarkMode ?'text-gray-200 bg-slte-800':'text-gray-700 bg-white'}  shadow-md rounded px-8 pt-6 pb-8 mb-4`}>
          
-          <div className="mb-6">
+          <div className={`mb-6 ${isDarkMode ?'text-gray-200':'text-gray-700'}`}>
             <label
-              className="block text-gray-700 text-sm  mb-2"
+              className="block  text-sm  mb-2"
               htmlFor="email"
             >
               Email
@@ -54,9 +54,9 @@ function LoginForm() {
               placeholder="Email"
             />
           </div>
-          <div className="mb-6">
+          <div className={`mb-6 ${isDarkMode ?'text-gray-200':'text-gray-700'}`}>
             <label
-              className="block text-gray-700 text-sm  mb-2"
+              className="block  text-sm  mb-2"
               htmlFor="password"
             >
               Password
@@ -87,9 +87,9 @@ function LoginForm() {
             
           </div>
         </form>
-        <p className="text-center text-gray-800 text-md ">
+        <p className={`text-center text-md ${isDarkMode ?'text-gray-200':'text-gray-700'}`}>
           Not a member yet ?{' '}
-          <Link to='/Register' className="text-blue-800">
+          <Link to='/Register' className={`${isDarkMode ?'text-pink-600':'text-blue-600'}`}>
             Register
           </Link>
         </p>

@@ -2,8 +2,10 @@ import React from 'react';
 import { Link,redirect,useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from "axios";
+import { useGlobalContext } from '../Context/ContextApi';
 
 function RegisterForm() {
+  const {isDarkMode}=useGlobalContext()
   const navigate=useNavigate();
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -22,22 +24,22 @@ function RegisterForm() {
       return null;
     }
     
-};
+}; 
   return (
     <div className="flex flex-col  items-center justify-center min-h-screen">
       
       <div className="w-full  max-w-md">
-      <p className='text-4xl font-bold text-slate-600 text-center'>Register</p>
-        <form method='POST' onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <p className={`text-4xl font-bold my-4 text-center ${isDarkMode ?'text-gray-200':'text-gray-700'}`}>Register</p>
+        <form method='POST' onSubmit={handleSubmit} className={`${isDarkMode ?'text-gray-200 bg-slte-800':'text-gray-700 bg-white'}  shadow-md rounded px-8 pt-6 pb-8 mb-4`}>
           <div className="mb-6 ">
             <label
-              className="block text-gray-700 text-sm  mb-2"
+              className={`block text-sm  mb-2 ${isDarkMode ?'text-gray-200':'text-gray-700'}`}
               htmlFor="username"
             >
               Username
             </label>
             <input
-              className="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700  focus:outline-none focus:shadow-outline"
+              className={`${isDarkMode ?'text-gray-900 bg-slate-500':'text-gray-200'}  shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700  focus:outline-none focus:shadow-outline`}
               id="username"
               type="text"
               name="name"
@@ -46,13 +48,13 @@ function RegisterForm() {
           </div>
           <div className="mb-6">
             <label
-              className="block text-gray-700 text-sm  mb-2"
+              className={`block text-sm  mb-2 ${isDarkMode ?'text-gray-200':'text-gray-700'}`}
               htmlFor="email"
             >
               Email
             </label>
             <input
-              className="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700  focus:outline-none focus:shadow-outline"
+              className={`${isDarkMode ?'text-gray-900 bg-slate-500':'text-gray-200'}  shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700  focus:outline-none focus:shadow-outline`}
               id="email"
               type="email"
               name="email"
@@ -61,13 +63,13 @@ function RegisterForm() {
           </div>
           <div className="mb-6">
             <label
-              className="block text-gray-700 text-sm  mb-2"
+              className={`block text-sm  mb-2 ${isDarkMode ?'text-gray-200':'text-gray-700'}`}
               htmlFor="password"
             >
               Password
             </label>
             <input
-              className="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3  focus:outline-none focus:shadow-outline"
+              className={`${isDarkMode ?'text-gray-900 bg-slate-500':'text-gray-200'} shadow-sm appearance-none border rounded w-full py-2 px-3  mb-3  focus:outline-none focus:shadow-outline`}
               id="password"
               type="password"
               name="password"
@@ -83,7 +85,7 @@ function RegisterForm() {
             </button>
           </div>
         </form>
-        <p className="text-center text-gray-700 text-md ">
+        <p className={`text-center  text-md ${isDarkMode ?'text-gray-200':'text-gray-700'}  `}>
           Already a member ?{' '}
           <Link to='/SignIn' className="text-blue-500">
               Login

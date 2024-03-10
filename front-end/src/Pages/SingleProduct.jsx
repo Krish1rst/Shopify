@@ -58,13 +58,13 @@ if (!product) {
                <Dropdown options={numbers} handleOnChange={(value) => handleOnChange(value, id)}/>
             </div>
             <div className='flex gap-4  text-left my-4'>
-            <button className={`px-4 py-3 ${isDarkMode ?'bg-pink-500 text-gray-700 focus:border-purple-300':'focus:border-purple-800 text-white bg-blue-500'}   tracking-wider font-medium  text-xs sm:text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring `} onClick={() => {
+            <button className={`px-2 py-1 sm:px-4 sm:py-3 ${isDarkMode ?'bg-pink-500 text-gray-700 focus:border-purple-300':'focus:border-purple-800 text-white bg-blue-500'}   tracking-wider font-medium  text-xs sm:text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring `} onClick={() => {
               handleAddToCart({ ...product });
             }}>
             ADD TO BAG
             </button>
             <Link to='/Carts'>
-            <button className={`uppercase px-4 py-3 ${isDarkMode ?' bg-pink-500 text-slate-700 focus:border-green-400':'bg-blue-500 text-white focus:border-purple-800'}   tracking-wider font-medium  text-xs sm:text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring  `}>
+            <button className={`uppercase px-2 py-2 sm:px-4 sm:py-3 ${isDarkMode ?' bg-pink-500 text-slate-700 focus:border-green-400':'bg-blue-500 text-white focus:border-purple-800'}   tracking-wider font-medium  text-xs sm:text-sm rounded-md transition-all transform hover:scale-105 active:scale-100 hover:shadow-md focus:outline-none focus:ring  `}>
             See Cart
             </button>
             </Link>
