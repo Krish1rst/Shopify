@@ -2,6 +2,7 @@ import React,{useEffect, useState} from 'react'
 import { useGlobalContext } from '../Context/ContextApi'
 import axios from 'axios';
 import moment from 'moment';
+import LoaderSpinner from '../Components/LoaderSpinner'
 
 
 function Order() {
@@ -27,6 +28,10 @@ function Order() {
   }, []);
   const { order, count } = ordersData;
 
+  if(!order){
+    return <LoaderSpinner/>
+  }
+
   return (
     <section className='flex flex-col mx-4 sm:mx-8 md:mx-12 lg:mx-18 xl:mx-24  my-10  md:my-16  transition-all duration-300 transform transition-delay-250 max-w-6xl 2xl:mx-auto '>
       <div className='flex justify-start relative py-4'>
@@ -38,33 +43,34 @@ function Order() {
           Total Orders: {count}
         </div>
       )}
-
 {count > 0 && (
   <div className="overflow-x-auto my-8">
     <table className="table-auto w-full border-collapse">
       <thead>
-        <tr className={`rounded-xl ${isDarkMode ? 'bg-slate-700 text-gray-200' : 'bg-gray-100 text-gray-500'}`}>
-          <th className="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">Name</th>
-          <th className="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">Address</th>
-          <th className="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">Products Ordered</th>
-          <th className="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">Cost</th>
-          <th className="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">Date</th>
+        <tr className={` ${isDarkMode ? 'bg-slate-900 text-gray-200' : 'bg-gray-100 text-gray-500'}`}>
+          <th className="px-4 sm:px-6 py-3 text-center sm:text-left text-xs sm:text-sm font-medium uppercase tracking-wider">Name</th>
+          <th className="px-4 sm:px-6 py-3 text-center sm:text-left text-xs sm:text-sm font-medium uppercase tracking-wider">Address</th>
+          <th className="px-4 sm:px-6 py-3 text-center sm:text-left text-xs sm:text-sm font-medium uppercase tracking-wider">Products</th>
+          <th className="px-4 sm:px-6 py-3 text-center sm:text-left text-xs sm:text-sm font-medium uppercase tracking-wider">Cost</th>
+          <th className="px-4 sm:px-6 py-3 text-center sm:text-left text-xs sm:text-sm font-medium uppercase tracking-wider">Date</th>
         </tr>
       </thead>
       {order?.map((item, index) => (
         <tbody key={index} className="divide-y divide-gray-200">
-          <tr className={`${isDarkMode ? 'text-slate-200' : 'text-slate-800'} text-center px-6 py-4 whitespace-nowrap`}>
-            <td>{item.name}</td>
-            <td>{item.address}</td>
-            <td>{item.totalProduct}</td>
-            <td>$ {item.cost}</td>
-            <td className="px-6 py-4 whitespace-nowrap">{moment(item.createdAt).format('MMM DD, YYYY, hh:mm:ss A')}</td>
+          <tr className={`${isDarkMode ? 'text-slate-200' : 'text-slate-800'} text-center sm:text-left px-4 sm:px-6 py-2 sm:py-4 whitespace-nowrap`}>
+            <td className="px-2 sm:px-4 py-2 sm:py-4">{item.name}</td>
+            <td className="px-2 sm:px-4 py-2 sm:py-4">{item.address}</td>
+            <td className="px-2 sm:px-4 py-2 sm:py-4">{item.totalProduct}</td>
+            <td className="px-2 sm:px-4 py-2 sm:py-4">${item.cost}</td>
+            <td className="px-2 sm:px-4 py-2 sm:py-4 whitespace-nowrap">{moment(item.createdAt).format('MMM DD, YYYY, hh:mm:ss A')}</td>
           </tr>
         </tbody>
       ))}
     </table>
   </div>
 )}
+
+
 
 
     </section>

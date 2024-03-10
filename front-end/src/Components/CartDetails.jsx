@@ -8,7 +8,7 @@ function CartDetails() {
   const {isDarkMode,total,subTotal,shipping,tax,cart}=Context;
 
   return (
-    <div className={` ${isDarkMode ?'bg-slate-900':'bg-blue-50'} h-fit rounded-2xl py-4 px-6`}>
+    <div className={` ${isDarkMode ?'bg-slate-900':'bg-blue-50'} h-fit rounded-2xl sm:py-4 px-6`}>
       <div className={`relative py-2 flex justify-between ${isDarkMode?"text-slate-200":"text-slate-900"}`}>
           <h2 className="text-sm  ">Subtotal</h2>
         <span className="text-sm  ">${subTotal}</span>
