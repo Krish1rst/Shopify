@@ -13,11 +13,12 @@ const links = [
 
 function Navlinks() {
   
-   const {isDarkMode }=useGlobalContext();
+   const {isDarkMode,user }=useGlobalContext();
   return (
     <nav className="flex flex-col ">
       {links.map((item) => {
         const { id, url, text } = item;
+        if((url==='checkout'||url==='Order')&& !user)return null;
         return (
           <NavLink
             key={id}

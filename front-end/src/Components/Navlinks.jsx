@@ -12,11 +12,12 @@ const links = [
 
 function Navlinks() {
   const Context = useGlobalContext();
-  const { isDarkMode } = Context;
+  const { isDarkMode,user } = Context;
   return (
     <nav className="flex  justify-center  gap-1 ">
       {links.map((item) => {
         const { id, url, text } = item;
+        if((url==='checkout'||url==='Order')&& !user)return null;
         return (
           <NavLink
             key={id}

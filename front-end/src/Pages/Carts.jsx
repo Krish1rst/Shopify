@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import EmptyCart from '../Components/EmptyCart';
 function Carts() {
   const Context=useGlobalContext();
-  const {isDarkMode,total,subTotal,shipping,tax,cart,remove,increase,decrease}=Context;
+  const {isDarkMode,user,cart,remove,increase,decrease}=Context;
 
 
   if(cart.length==0){
@@ -75,9 +75,9 @@ function Carts() {
            <CartDetails/>
               
             <div className='my-8 text-center'>
-            <Link to='/Checkout'>
+            <Link to={`${!user ?'/SignIn':'/Checkout' }`}>
                 <button  className={`px-4 w-full py-3 ${isDarkMode ?'bg-pink-500 text-gray-800':'bg-blue-500 text-white'}  tracking-wider font-medium  text-sm rounded-md transition-all transform hover:scale-95 active:scale-100 hover:shadow-md focus:outline-none focus:ring focus:border-purple-800`}>
-                  PROCEED TO CHECKOUT
+                  {!user ? 'LOGIN TO PROCEED':'PROCEED TO CHECKOUT'}
                 </button>
             </Link>
             </div>

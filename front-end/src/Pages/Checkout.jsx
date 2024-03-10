@@ -10,7 +10,7 @@ import EmptyCart from '../Components/EmptyCart';
 function Checkout() {
   const navigate=useNavigate();
   const Context=useGlobalContext();
-  const {isDarkMode,token,total,amount,handleClearCart,cart}=Context;
+  const {isDarkMode,token,total,amount,handleClearCart,cart,user}=Context;
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
@@ -33,7 +33,13 @@ function Checkout() {
       toast.success('Your order successfull');
       navigate('/Order')
     } catch (err) {
-      return toast.error('Input should be of atleast 4 letter')
+      if(!user){
+        toast.error('Log in Please')
+        navigate('/SignIn')
+      }else{
+        toast.error('Input should be of atleast 4 letter')
+      }
+      return ;
     }
   };
   
@@ -54,11 +60,11 @@ function Checkout() {
                 <h4 className={`font-medium text-lg sm:text-xl capitalize ${isDarkMode?'text-slate-200':'text-slate-800'}`}>shipping information</h4>
                 <div className="flex flex-col ">
                   <label htmlFor="name" className={`text-sm font-medium ${isDarkMode ?'text-gray-200':'text-gray-700'}  `}>First Name</label>
-                  <input type="text" id="name" name="name" className={`border rounded-md py-1 sm:py-2 px-3 focus:outline-none focus:ring mt-1 ${isDarkMode ?'text-slate-200 bg-slate-800':'text-slate-700'}`} />
+                  <input type="text" required id="name" name="name" className={`border rounded-md py-1 sm:py-2 px-3 focus:outline-none focus:ring mt-1 ${isDarkMode ?'text-slate-200 bg-slate-800':'text-slate-700'}`} />
                 </div>
                 <div className="flex flex-col gap-y-2">
                   <label htmlFor="address" className={`text-sm font-medium ${isDarkMode ?'text-gray-200':'text-gray-700'}  `}>Address</label>
-                  <input type="text" id="address" name="address" className={`border rounded-md py-1 sm:py-2 px-3 focus:outline-none focus:ring mt-1 ${isDarkMode ?'text-slate-200 bg-slate-800':'text-slate-700'}`} />
+                  <input type="text" id="address" required name="address" className={`border rounded-md py-1 sm:py-2 px-3 focus:outline-none focus:ring mt-1 ${isDarkMode ?'text-slate-200 bg-slate-800':'text-slate-700'}`} />
                 </div>
                 <div className="mt-4 ">
                   <button type="submit" className={`font-medium py-1 sm:py-2 sm:px-4 rounded-md  focus:outline-none focus:ring ${isDarkMode ?'w-full bg-pink-500 text-slate-900 hover:bg-pink-600':'bg-blue-500 w-full hover:bg-blue-600 text-white '}`}>

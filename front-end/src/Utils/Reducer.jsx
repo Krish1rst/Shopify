@@ -85,7 +85,7 @@ const reducer =  (state, action) => {
     cartTotal.tax+=tax*amount;
 
      return cartTotal;
-    },{total:0,amount:0,subTotal:0,shipping:5,tax:0});
+    },  {total:0,amount:0,subTotal:0,shipping:5,tax:0});
     total=subTotal+tax+shipping;
     subTotal=parseFloat(subTotal.toFixed(2));
     total=parseFloat(total.toFixed(2));
