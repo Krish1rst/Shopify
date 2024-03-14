@@ -12,14 +12,6 @@ function LoginForm() {
     const formData = new FormData(e.currentTarget);
     let data = Object.fromEntries(formData);
   
-    if (user === 'Guest') {
-      data = {
-        name: 'Guest',
-        email: 'Guest@gmail.com',
-        password: '12345678'
-      };
-    }
-  
     try {
       const response = await axios.post('http://localhost:3000/api/v1/auth/signIn', data);
       const { data: { user: { name, token } } } = response;
@@ -62,12 +54,13 @@ const handleGuestUser=()=>{
             />
           </div>
           <div className={`mb-6 ${isDarkMode ?'text-gray-200':'text-gray-700'}`}>
-            <label
-              className="block  text-sm  mb-2"
-              htmlFor="password"
-            >
+            <div className='flex items-center justify-between text-sm  mb-2'>
+              <label
+              htmlFor="password">
               Password
             </label>
+             <Link to='/ForgotPassword' className={`${isDarkMode ?'text-pink-500':'text-blue-500'}`}>Forgot Password ?</Link>
+             </div>
             <input
               className="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3  focus:outline-none focus:shadow-outline"
               id="password"

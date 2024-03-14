@@ -13,6 +13,7 @@ const signIn=async(req,res)=>{
     if(!email || !password){
         throw new BadRequestError('plz provide complete credentials')
     }
+    console.log(password)
     const user = await User.findOne({ email });
     if (!user) {
         throw new UnauthenticatedError('Invalid Credentials');
@@ -26,11 +27,28 @@ const signIn=async(req,res)=>{
   res.status(StatusCodes.OK).json({
     user: {
       name: user.name,
-      // userId:user._id,
       token,
     },
   });
 }
 
-module.exports={register,signIn}
+const resetPassword= async(req,res)=>{
+  const {email,password}=req.body;
+  if(!email){
+    throw new BadRequestError('Please provide email')
+  }
+
+  const user=await User.findOne({email})
+
+  if(!user){
+    throw new BadRequestError('Email does not exist.')
+  }
+  user.password= password;
+  await user.save();
+
+  res.status(StatusCodes.OK).json({ message: "Password changed successfully" })
+} 
+
+
+module.exports={register,signIn,resetPassword}
 
