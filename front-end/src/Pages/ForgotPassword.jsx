@@ -17,7 +17,7 @@ const ForgotPassword = () => {
           toast.success('Password changed successfully');
           return navigate('/SignIn');
         } catch (error) {
-          toast.error('Failed !! try again with correct email');
+          toast.error('Failed !! try again with correct email.');
           return null;
         }
       };
@@ -25,7 +25,7 @@ const ForgotPassword = () => {
   return (
     <div className={`flex flex-col items-center justify-center min-h-screen ${isDarkMode ? 'text-gray-200' : 'text-gray-700'}`}>
       <div className="w-full max-w-md">
-        <p className={`text-3xl font-bold text-center py-8 ${isDarkMode ? 'text-gray-200' : 'text-gray-700'}`}>Enter email to reset password</p>
+        <p className={`text-3xl font-bold text-center py-8 ${isDarkMode ? 'text-gray-200' : 'text-gray-700'}`}>Change Password</p>
         <form method='POST' onSubmit={handleSubmit} className={`${isDarkMode ? 'text-gray-200 bg-slate-900' : 'text-gray-700 bg-white'} shadow-md rounded px-8 pt-6 pb-8 mb-4`}>
           <div className={`mb-6 ${isDarkMode ? 'text-gray-200' : 'text-gray-700'}`}>
             <label

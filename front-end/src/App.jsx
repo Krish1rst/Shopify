@@ -1,4 +1,4 @@
-import {Register,LogIn, Home,About,Carts,Product,Checkout,Order,SingleProduct,Layout,ForgotPassword} from './Pages';
+import {Register,LogIn,UserProfile , Home,About,Carts,Product,Checkout,Order,SingleProduct,Layout,ForgotPassword} from './Pages';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 
 
@@ -17,10 +17,11 @@ function App() {
               <Route path='Carts'element={<Carts/>}/>
               <Route path='Checkout'element={<Checkout/>}/>
               <Route path='Order'element={<Order/>}/>
+              <Route path='UserProfile' element={<UserProfile />}/>
             </Route>
             <Route path='/Register'element={<Register/>}/>
             <Route path='/SignIn'element={<LogIn/>}/>
-            <Route path='ForgotPassword'element={<ForgotPassword/>}/>
+            <Route path='ForgotPassword'element={<ForgotPassword/>}/> 
         </Routes>
     </BrowserRouter>
   

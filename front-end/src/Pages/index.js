@@ -10,6 +10,7 @@ import LogIn from './LogIn'
 import Register from './Register'
 import Layout from './LayoutPage'
 import ForgotPassword from './ForgotPassword'
+import UserProfile from './User'
 
 
-export {Register,LogIn,ForgotPassword, Home,About,Order,Checkout, Carts,SingleProduct, Product,Layout};
+export {Register,UserProfile ,LogIn,ForgotPassword, Home,About,Order,Checkout, Carts,SingleProduct, Product,Layout};
