@@ -7,6 +7,7 @@ const register=async(req,res)=>{
     const token=user.createJWT()
     res.status(StatusCodes.CREATED).json({user:{name:user.name},token}); 
 }
+
 const signIn=async(req,res)=>{
     const {email,password}=req.body;
     if(!email || !password){
@@ -16,8 +17,6 @@ const signIn=async(req,res)=>{
     if (!user) {
         throw new UnauthenticatedError('Invalid Credentials');
     }
-  
-  //compare password
 
   const isPasswordCorrect = await user.comparePassword(password);
   if (!isPasswordCorrect) {

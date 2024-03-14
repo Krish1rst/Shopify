@@ -1,34 +1,30 @@
 import React from 'react';
-import { Link,redirect, useNavigate  } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from "axios";
 import { useGlobalContext } from '../Context/ContextApi';
 
 function LoginForm() {
-  const {SetUser,SetToken,isDarkMode}=useGlobalContext()
+  const {SetUser,SetToken,isDarkMode,user}=useGlobalContext()
   const navigate=useNavigate();
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData= new FormData(e.currentTarget)
-    if(!formData){
-      console.log('input error')
+    const formData = new FormData(e.currentTarget);
+    let data = Object.fromEntries(formData);
+  
+    if (user === 'Guest') {
+      data = {
+        name: 'Guest',
+        email: 'Guest@gmail.com',
+        password: '12345678'
+      };
     }
-    if(user==='Guest'){
-      data={
-        name:'Guest',
-        email:'Guest@gmail.com',
-        password:'12345678'
-      }
-    }else{
-      const data=Object.fromEntries(formData)
-    }
-    
+  
     try {
       const response = await axios.post('http://localhost:3000/api/v1/auth/signIn', data);
-      const {data:{user:{name,token}}}=response;
+      const { data: { user: { name, token } } } = response;
       SetUser(name);
       SetToken(token);
-      console.log(token)
       toast.success('Login successful');
       return navigate('/');
     } catch (error) {
@@ -37,18 +33,18 @@ function LoginForm() {
         'LogIn Failed !! Check your credentials';
       toast.error(errorMessage);
       return null;
-    }   
-};
+    }
+  };
+  
 const handleGuestUser=()=>{
-  SetUser('Guest')
-  toast.success('Welcome guest user');
+  toast.success('Welcome, Guest user')
 }
   return (
     <div className={`flex flex-col  items-center justify-center min-h-screen ${isDarkMode ?'text-gray-200':'text-gray-700'}`}>
       
       <div className="w-full  max-w-md">
       <p className={`text-4xl font-bold text-center py-8 ${isDarkMode ?'text-gray-200':'text-gray-700'}`}>SignIn</p>
-        <form method='POST' onSubmit={handleSubmit} className={`${isDarkMode ?'text-gray-200 bg-slte-800':'text-gray-700 bg-white'}  shadow-md rounded px-8 pt-6 pb-8 mb-4`}>
+        <form method='POST' onSubmit={handleSubmit} className={`${isDarkMode ?'text-gray-200 bg-slate-900':'text-gray-700 bg-white'}  shadow-md rounded px-8 pt-6 pb-8 mb-4`}>
          
           <div className={`mb-6 ${isDarkMode ?'text-gray-200':'text-gray-700'}`}>
             <label

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link,redirect,useNavigate } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from "axios";
 import { useGlobalContext } from '../Context/ContextApi';
@@ -30,7 +30,7 @@ function RegisterForm() {
       
       <div className="w-full  max-w-md">
       <p className={`text-4xl font-bold my-4 text-center ${isDarkMode ?'text-gray-200':'text-gray-700'}`}>Register</p>
-        <form method='POST' onSubmit={handleSubmit} className={`${isDarkMode ?'text-gray-200 bg-slte-800':'text-gray-700 bg-white'}  shadow-md rounded px-8 pt-6 pb-8 mb-4`}>
+        <form method='POST' onSubmit={handleSubmit} className={`${isDarkMode ?'text-gray-200 bg-slate-900':'text-gray-700 bg-white'}  shadow-md rounded px-8 pt-6 pb-8 mb-4`}>
           <div className="mb-6 ">
             <label
               className={`block text-sm  mb-2 ${isDarkMode ?'text-gray-200':'text-gray-700'}`}
