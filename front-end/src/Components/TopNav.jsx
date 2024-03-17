@@ -4,12 +4,15 @@ import { Link ,useNavigate} from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 function TopNav() {
+
     const navigate=useNavigate();
-    const {isDarkMode,user,SetUser}=useGlobalContext();
+    const {isDarkMode,user,SetUser,handleClearCart}=useGlobalContext();
     const handleLogOut=()=>{
       SetUser(null)
+      handleClearCart();
       sessionStorage.removeItem('user')
       sessionStorage.removeItem('token')
+      sessionStorage.removeItem(CART_STORAGE_KEY)
       toast.success('Loged out successfully');
     }
   return (
