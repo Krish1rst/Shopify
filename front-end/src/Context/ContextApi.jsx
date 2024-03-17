@@ -8,7 +8,7 @@ const AppContext = createContext();
 const CART_STORAGE_KEY = 'cart';
 
 const initialState={
-  cart: JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || [],
+  cart: JSON.parse(sessionStorage.getItem(CART_STORAGE_KEY)) || [],
   amount:0,
   total:0,
   subTotal:0,
@@ -33,10 +33,22 @@ export const ContextProvider=memo(({children})=> {
  const [list,setList]=useState(false);
  const [nav,setNav]=useState(false);
  const navbarRef = useRef(null)
- const [user,SetUser]=useState(null)
- const [token,SetToken]=useState(null)
+ const [user,SetUser]=useState(()=>{
+ const stroredUser= (sessionStorage.getItem('user')) ;
+  return stroredUser? stroredUser :null;
+ })
+ const [token,SetToken]=useState(()=>{
+  const stroredToken= (sessionStorage.getItem('token')) ;
+  return stroredToken? stroredToken:null;
+ }  )
  const [ordersData,SetOrdersData]=useState([]);
 //dataFetching----------------------------------------------------
+useEffect(()=>{
+  const stroredUser= (sessionStorage.getItem('user')) ;
+  const stroredToken= (sessionStorage.getItem('token')) ;
+  stroredUser? SetUser[stroredUser] :null;
+  stroredToken? SetToken[stroredToken]:null
+},[])
 
 const FetchedApiData=async()=>{
   dispatch({type:'START'})
@@ -113,7 +125,7 @@ const handleList = () => {
 
 
 useEffect(() => {
-  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(state.cart));
+  sessionStorage.setItem(CART_STORAGE_KEY, JSON.stringify(state.cart));
 }, [state.cart]);
 
 const addToCart = (item) => {

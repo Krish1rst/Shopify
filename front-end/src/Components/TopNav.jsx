@@ -8,6 +8,8 @@ function TopNav() {
     const {isDarkMode,user,SetUser}=useGlobalContext();
     const handleLogOut=()=>{
       SetUser(null)
+      sessionStorage.removeItem('user')
+      sessionStorage.removeItem('token')
       toast.success('Loged out successfully');
     }
   return (

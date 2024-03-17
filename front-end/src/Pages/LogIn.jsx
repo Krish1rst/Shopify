@@ -5,7 +5,7 @@ import axios from "axios";
 import { useGlobalContext } from '../Context/ContextApi';
 
 function LoginForm() {
-  const {SetUser,SetToken,isDarkMode,user}=useGlobalContext()
+  const {SetUser,SetToken,isDarkMode,user,token}=useGlobalContext()
   const navigate=useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,6 +17,8 @@ function LoginForm() {
       const { data: { user: { name, token } } } = response;
       SetUser(name);
       SetToken(token);
+      sessionStorage.setItem('user', name);
+      sessionStorage.setItem('token', token);
       toast.success('Login successful');
       return navigate('/');
     } catch (error) {
