@@ -7,7 +7,7 @@ import { useGlobalContext } from '../Context/ContextApi';
 function RegisterForm() {
   const {isDarkMode}=useGlobalContext()
   const navigate=useNavigate();
-  const handleSubmit = async(e) => {
+  const handleSubmit = async(e) => {                                                        
     e.preventDefault();
     const formData= new FormData(e.currentTarget)
     const data=Object.fromEntries(formData)

@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 <ContextProvider>
     <App />
-    <ToastContainer  position="top-center" autoClose={2000}  />
+    <ToastContainer  position="top-left" autoClose={2000}  />
 </ContextProvider>
     
 

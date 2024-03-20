@@ -15,7 +15,7 @@ function Order() {
          {
           headers: {
             Authorization: `Bearer ${token}`,
-          },
+          }
         }
         );
         SetOrdersData(response.data)

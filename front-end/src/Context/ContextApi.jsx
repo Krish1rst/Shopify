@@ -8,7 +8,7 @@ const AppContext = createContext();
 const CART_STORAGE_KEY = 'cart';
 
 const initialState={
-  cart: JSON.parse(sessionStorage.getItem(CART_STORAGE_KEY)) || [],
+  cart: JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || [],
   amount:0,
   total:0,
   subTotal:0,
@@ -34,20 +34,20 @@ export const ContextProvider=memo(({children})=> {
  const [nav,setNav]=useState(false);
  const navbarRef = useRef(null)
  const [user,SetUser]=useState(()=>{
- const stroredUser= (sessionStorage.getItem('user')) ;
+ const stroredUser= (localStorage.getItem('user')) ;
   return stroredUser? stroredUser :null;
  })
  const [token,SetToken]=useState(()=>{
-  const stroredToken= (sessionStorage.getItem('token')) ;
+  const stroredToken= (localStorage.getItem('token')) ;
   return stroredToken? stroredToken:null;
  }  )
  const [ordersData,SetOrdersData]=useState([]);
 //dataFetching----------------------------------------------------
 useEffect(()=>{
-  const stroredUser= (sessionStorage.getItem('user')) ;
-  const stroredToken= (sessionStorage.getItem('token')) ;
-  stroredUser? SetUser[stroredUser] :null;
-  stroredToken? SetToken[stroredToken]:null
+  const stroredUser= (localStorage.getItem('user')) ;
+  const stroredToken= (localStorage.getItem('token')) ;
+  stroredUser? SetUser(stroredUser):null;
+  stroredToken? SetToken(stroredToken):null
 },[])
 
 const FetchedApiData=async()=>{
@@ -83,7 +83,7 @@ useEffect(() => {
   return () => {
     window.removeEventListener('resize', updateProductPerPage);
   };
-}, []);
+}, [state.cart]);
 
 const endIndex = currentPage * productPerPage;
 const startIndex = endIndex - productPerPage;
@@ -125,7 +125,7 @@ const handleList = () => {
 
 
 useEffect(() => {
-  sessionStorage.setItem(CART_STORAGE_KEY, JSON.stringify(state.cart));
+  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(state.cart));
 }, [state.cart]);
 
 const addToCart = (item) => {

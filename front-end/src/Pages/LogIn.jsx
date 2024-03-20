@@ -17,8 +17,8 @@ function LoginForm() {
       const { data: { user: { name, token } } } = response;
       SetUser(name);
       SetToken(token);
-      sessionStorage.setItem('user', name);
-      sessionStorage.setItem('token', token);
+      localStorage.setItem('user', name);
+      localStorage.setItem('token', token);
       toast.success('Login successful');
       return navigate('/');
     } catch (error) {

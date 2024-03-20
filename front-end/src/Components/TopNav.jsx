@@ -8,12 +8,13 @@ function TopNav() {
     const navigate=useNavigate();
     const {isDarkMode,user,SetUser,handleClearCart}=useGlobalContext();
     const handleLogOut=()=>{
+      toast.success('LogedOut successfully');
       SetUser(null)
       handleClearCart();
-      sessionStorage.removeItem('user')
-      sessionStorage.removeItem('token')
-      sessionStorage.removeItem(CART_STORAGE_KEY)
-      toast.success('Loged out successfully');
+      localStorage.removeItem('user')
+      localStorage.removeItem('token')
+      localStorage.removeItem(CART_STORAGE_KEY)
+      
     }
   return (
     <header className={`py-1 px-4 sm:px-8 md:px-12 lg:px-18   transition-all duration-300 transform transition-delay-250 ${isDarkMode?'bg-slate-700':'bg-slate-800'} flex justify-center md:justify-end items-center  gap-4 `}>
