@@ -35,6 +35,4 @@ Feel free to modify this template to match your project's structure and requirem
 
 
 
-Message ChatGPT…
 
-ChatGPT can make mistakes. Consider checking important in
